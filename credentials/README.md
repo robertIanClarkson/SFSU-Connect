@@ -36,17 +36,16 @@ SSH Instructions:
         http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
 
 AWS Credentials:
-    - root
-        - username: robert.ian.clarkson@gmail.com
-        - password: team1_root
-    - Users
-        - Adminstrator:
-            - username: Administrator
-            - password: team1_Admin
-    - Database (Amazon RDS)
-        name: team-1
-        username: admin
-        password: team1_db
+- root
+    - username: robert.ian.clarkson@gmail.com
+    - password: team1_root
+- Users
+    - username: Administrator
+    - password: team1_Admin
+- Database (Amazon RDS)
+    - name: team-1
+    - username: admin
+    - password: team1_db
     
     
 
