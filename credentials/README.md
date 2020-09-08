@@ -4,19 +4,50 @@
     1. Grading , servers and databases will be logged into to check code and functionality of application. Not changes will be unless directed and coordinated with the team.
     2. Help. If a class TA or class CTO needs to help a team with an issue, this folder will help facilitate this giving the TA or CTO all needed info AND instructions for logging into your team's server. 
 
-
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
+    - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
 2. SSH username
+    - ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
 3. SSH password or key.
     <br> If a ssh key is used please upload the key to the credentials folder.
+    - team1v2.pem
 4. Database URL or IP and port used.
     <br><strong> NOTE THIS DOES NOT MEAN YOUR DATABASE NEEDS A PUBLIC FACING PORT.</strong> But knowing the IP and port number will help with SSH tunneling into the database. The default port is more than sufficient for this class.
+    - team-1.c04boetuas7w.us-west-1.rds.amazonaws.com
+    - Port: 3306
 5. Database username
+    - admin
 6. Database password
+    - team1_db
 7. Database name (basically the name that contains all your tables)
+    - team-1
 8. Instructions on how to use the above information.
+SSH Instructions:
+    - Download the file 'team1v2.pem' that is in this folder
+    - In your local terminal:
+        - ssh -i path/to/.pem/file ubuntu@ec2-54-183-227-228.us-west-1.compute.amazonaws.com
+        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-183-227-228.us-west-1.compute.amazonaws.com
+    - Once connected:
+        - cd Github/csc648-03-fa20-team01-robertIanClarkson/application
+        - make go
+    - in your local browser:
+        http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+
+AWS Credentials:
+- root
+    - username: robert.ian.clarkson@gmail.com
+    - password: team1_root
+- Users
+    - username: Administrator
+    - password: team1_Admin
+- Database (Amazon RDS)
+    - name: team-1
+    - username: admin
+    - password: team1_db
+    
+    
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>
