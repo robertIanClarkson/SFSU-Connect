@@ -27,19 +27,28 @@
 SSH Instructions:
     - Download the file 'team1v2.pem' that is in this folder
     - In your local terminal:
-        - ssh -i path/to/.pem/file ubuntu@ec2-54-183-227-228.us-west-1.compute.amazonaws.com
+        - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
         - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-183-227-228.us-west-1.compute.amazonaws.com
     - Once connected:
-        - cd Github/csc648-03-fa20-team01-robertIanClarkson/application
-        - make go
+        - regular run:
+            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+            - $ make init
+            - $ make go
+        - background run:
+            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+            - $ make init
+            - $ make on
+            - $ exit
     - in your local browser:
-        http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+    - all 'background run' ExpressJS logs are kept in:
+        - ~/Logs/terminal.txt
 
 AWS Credentials:
-- root
+- root (Root user)
     - username: robert.ian.clarkson@gmail.com
     - password: team1_root
-- Users
+- Users (IAM user)
     - username: Administrator
     - password: team1_Admin
 - Database (Amazon RDS)
