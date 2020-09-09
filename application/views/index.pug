@@ -1,23 +1,79 @@
 extends layout
 
 block content
-  .containter
-    .row
-      p this is our project description
-    .row
-      .col.s4
-        p hello
-      .col.s4
-        p hello
-      .col.s4
-        p hello
-    .row
-      .col.s4
-        p hello
-      .col.s4
-        p hello
-      .col.s4
-        p hello
-    .row
-      p Possible github rss feed of commits/stats 
+    //- Square cards
+    .container
+      //- ROW 0
+      .row
+          h1.center-align About Us
+      //- ROW 1
+      .row
+        //- Robert
+        .col.s4
+           .row
+              .col.s12
+                a(href="about/robert")
+                  .card.blue.lighten-4
+                    .card-image
+                      img(src="images/profile_pics/robert.jpg")
+                      span.card-title Robert
+                    .card-content.black-text
+                      h6 Team Lead
+        //- Cody
+        .col.s4
+           .row
+              .col.s12
+                a(href="about/cody")
+                  .card.red.lighten-4
+                    .card-image
+                      img(src="images/profile_pics/cody.jpg")
+                      span.card-title Cody
+                    .card-content.black-text
+                      h6 Backend Lead
+        //- Taylor
+        .col.s4
+           .row
+              .col.s12
+                a(href="about/taylor")
+                  .card.purple.lighten-4
+                    .card-image
+                      img(src="images/profile_pics/Taylor.png")
+                      span.card-title Taylor
+                    .card-content.black-text
+                      h6 Frontend Lead
+      //- ROW 2
+      .row
+        //- Kevin
+        .col.s4
+           .row
+              .col.s12
+                a(href="about/kevin")
+                  .card.purple.lighten-4
+                    .card-image
+                      img(src="images/profile_pics/kevin.png")
+                      span.card-title Kevin
+                    .card-content.black-text
+                      h6 Gitmaster
+        //- Hong
+        .col.s4
+           .row
+              .col.s12
+                a(href="about/hong")
+                  .card.red.lighten-4
+                    .card-image
+                      img(src="images/profile_pics/hong.jpg")
+                      span.card-title Hong
+                    .card-content.black-text
+                      h6 Developer
+        //- Gerardo
+        .col.s4
+           .row
+              .col.s12
+                a(href="about/gerardo")
+                  .card.blue.lighten-4
+                    .card-image
+                      img(src="images/profile_pics/gerardo.png")
+                      span.card-title Gerardo
+                    .card-content.black-text
+                      h6 Developer
 
