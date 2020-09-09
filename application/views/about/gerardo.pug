@@ -1,6 +1,17 @@
 extends layout
 
 block content
-  //- image
-  //- brief description of your yourself
-  //- brief description of your role in the project
+  .container.center-align
+    .row 
+      .col.s8
+        img.responsive-img.circle(src="images/profile_pics/taylor.png")
+      .col.s4
+        .row
+          .card-panel.red.lighten-4
+            h5 Name 
+        .row
+          .card-panel.pink.lighten-4
+            h5 Title  
+    .row  
+      .card-panel.purple.lighten-4
+        p This is the description
