@@ -1,6 +1,19 @@
-extends layout
+extends ../layout
 
 block content
-  //- image
-  //- brief description of your yourself
-  //- brief description of your role in the project
+  .container.center-align
+    .row.left-align
+      a.waves-effect.waves-light.btn(href="/about") About Us
+    .row 
+      .col.s8
+        img.responsive-img.circle(src="../images/profile_pics/cody.jpg")
+      .col.s4
+        .row
+          .card-panel.green.lighten-4
+            h5 Cody Camp 
+        .row
+          .card-panel.green.lighten-2
+            h5 Backend Lead  
+    .row  
+      .card-panel.teal.lighten-3
+        p As a computer science major from San Jose, my passions are in software, algorithms, and programming paradigms. 
