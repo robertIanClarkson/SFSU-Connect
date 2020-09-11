@@ -1,6 +1,17 @@
-extends layout
+extends ../layout
 
 block content
-  //- image
-  //- brief description of your yourself
-  //- brief description of your role in the project
+  .container.center-align
+    .row 
+      .col.s8
+        img.responsive-img.circle(src="../images/profile_pics/Hong.jpg")
+      .col.s4
+        .row
+          .card-panel.red.lighten-4
+            h5 Hong Shen Li 
+        .row
+          .card-panel.pink.lighten-4
+            h5 Developer 
+    .row  
+      .card-panel.purple.lighten-4
+        p Hello and welcome to my page! My name is Hong and I am a student in SFSU majoring in Computer Science.
