@@ -11,7 +11,7 @@ You are free to organize the contents of the folder as you see fit. But remember
     - Download the file 'team1v2.pem' that is in the 'credentials' folder
     - In your local terminal:
         - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
-        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-183-227-228.us-west-1.compute.amazonaws.com
+        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - Once connected:
         - regular run:
             - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
