@@ -7,7 +7,7 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
-    - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+    - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
 2. SSH username
     - ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
 3. SSH password or key.
@@ -28,21 +28,46 @@ SSH Instructions:
     - Download the file 'team1v2.pem' that is in this folder
     - In your local terminal:
         - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
-        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-183-227-228.us-west-1.compute.amazonaws.com
+        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - Once connected:
-        - regular run:
-            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
-            - $ make init
-            - $ make go
-        - background run:
-            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
-            - $ make init
-            - $ make on
-            - $ exit
+        - pm2 (if this fails make sure you run 'npm install')
+            - pm2 see status
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_status
+            - pm2 start
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_start
+            - pm2 restart
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_restart
+            - pm2 reload
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_reload
+            - pm2 stop
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_stop
+            - pm2 delete
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_delete
+        - regular shell scripts
+            - regular run (bash):
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make init
+                - $ make go
+            - background run (bash):
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make init
+                - $ make on
+                - $ exit
+            - background stop (bash):
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make kill
     - in your local browser:
-        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
-    - all 'background run' ExpressJS logs are kept in:
-        - ~/Logs/terminal.txt
+        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+    - all 'shell script run' ExpressJS logs are kept in:
+        - $ ~/Logs/terminal.txt
+    - all pm2 logs are kept in:
+        - $ ~/Logs/pm2_logs.txt
 
 AWS Credentials:
 - root (Root user)
