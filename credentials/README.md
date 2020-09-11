@@ -30,23 +30,44 @@ SSH Instructions:
         - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
         - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - Once connected:
-        - regular run (bash):
-            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
-            - $ make init
-            - $ make go
-        - background run (bash):
-            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
-            - $ make init
-            - $ make on
-            - $ exit
-        - background stop (bash):
-            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
-            - $ make kill
-    
+        - pm2 (if this fails make sure you run 'npm install')
+            - pm2 see status
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_status
+            - pm2 start
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_start
+            - pm2 restart
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_restart
+            - pm2 reload
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_reload
+            - pm2 stop
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_stop
+            - pm2 delete
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make pm2_delete
+        - regular shell scripts
+            - regular run (bash):
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make init
+                - $ make go
+            - background run (bash):
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make init
+                - $ make on
+                - $ exit
+            - background stop (bash):
+                - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+                - $ make kill
     - in your local browser:
         - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
-    - all 'background run' ExpressJS logs are kept in:
-        - ~/Logs/terminal.txt
+    - all 'shell script run' ExpressJS logs are kept in:
+        - $ ~/Logs/terminal.txt
+    - all pm2 logs are kept in:
+        - $ ~/Logs/pm2_logs.txt
 
 AWS Credentials:
 - root (Root user)
