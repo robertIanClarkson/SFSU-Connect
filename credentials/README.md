@@ -7,7 +7,7 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
-    - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+    - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
 2. SSH username
     - ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
 3. SSH password or key.
@@ -30,17 +30,21 @@ SSH Instructions:
         - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
         - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - Once connected:
-        - regular run:
+        - regular run (bash):
             - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
             - $ make init
             - $ make go
-        - background run:
+        - background run (bash):
             - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
             - $ make init
             - $ make on
             - $ exit
+        - background stop (bash):
+            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+            - $ make kill
+    
     - in your local browser:
-        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - all 'background run' ExpressJS logs are kept in:
         - ~/Logs/terminal.txt
 

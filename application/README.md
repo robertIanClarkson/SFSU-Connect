@@ -8,21 +8,26 @@ You are free to organize the contents of the folder as you see fit. But remember
 ## Please use the rest of the README.md to store important information for your team's application.
 
 # SSH Instructions
-    - Download the file 'team1v2.pem' that is in the 'credentials' folder
+SSH Instructions:
+    - Download the file 'team1v2.pem' that is in this folder
     - In your local terminal:
         - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
         - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - Once connected:
-        - regular run:
+        - regular run (bash):
             - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
             - $ make init
             - $ make go
-        - background run:
+        - background run (bash):
             - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
             - $ make init
             - $ make on
             - $ exit
+        - background stop (bash):
+            - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
+            - $ make kill
+    
     - in your local browser:
-        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com:3000/
+        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
     - all 'background run' ExpressJS logs are kept in:
         - ~/Logs/terminal.txt
