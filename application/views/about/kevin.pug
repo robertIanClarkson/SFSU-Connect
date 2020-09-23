@@ -1,19 +1,28 @@
 extends ../layout
 
 block content
+  - var color = "blue"
   .container.center-align
     .row.left-align
-      a.waves-effect.waves-light.btn(href="/about") About Us
+      a.waves-effect.waves-light.btn.darken-3(href="/about" class=color) 
+        .row
+          .col.s4
+            i.material-icons chevron_left face
+          .col.s8
+            span about us
     .row 
       .col.s8
         img.responsive-img.circle(src="../images/profile_pics/kevin.png")
       .col.s4
         .row
-          .card-panel.blue.lighten-2
+          .card-panel.lighten-2(class=color)
             h4 Kevin Fung
         .row
-          .card-panel.blue.lighten-3
+          .card-panel.lighten-3(class=color)
             h5 Github Master
     .row  
-      .card-panel.blue.lighten-4
-        h6 I am a Computer Science student in SFSU, I am interested in doing CS because I like gaming, and want to work in a game company.
+      .card-panel.lighten-4(class=color)
+        span.flow-text I am a Computer Science student in SFSU, I am interested in doing CS because I like gaming, and want to work in a game company.
+    .row
+      a(href="https://github.com/robertIanClarkson" target="_blank")
+        img(src="https://ghchart.rshah.org/robertIanClarkson")

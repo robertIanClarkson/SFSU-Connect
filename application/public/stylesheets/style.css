@@ -1,12 +1,54 @@
 body {
+  background-color: #e0f7fa;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 96px;
 }
 
-body {
-  background-color: #e0f7fa;
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 60px;
 }
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+}
+
+h5 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+span {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+

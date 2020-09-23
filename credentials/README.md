@@ -70,6 +70,7 @@ SSH Instructions:
         - $ ~/Logs/pm2_logs.txt
 
 AWS Credentials:
+- Account ID: 116206711591
 - root (Root user)
     - username: robert.ian.clarkson@gmail.com
     - password: team1_root
