@@ -19,7 +19,7 @@ function getAll() {
     db.query(`SELECT * FROM test_table`)
     .then((rows) => {
       // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
-      console.log(`(+) pulled from db --> ${rows.length}`)
+      console.log(`(+) pulled from db --> ${rows.length} records`)
       resolve(rows)
     })
     .catch((err) => {

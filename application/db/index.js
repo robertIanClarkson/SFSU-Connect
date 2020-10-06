@@ -1,23 +1,7 @@
 var mysql = require('mysql');
 
-// var connection = mysql.createConnection({
-//   host: 'team-1.c04boetuas7w.us-west-1.rds.amazonaws.com',
-//   user: 'admin',
-//   password: 'team1_db',
-//   database : 'test'
-// });
-
-// connection.connect(function(err) {
-//   if (err) {
-//     console.log("(x) ERROR: Failed to connect to DB");
-//     throw err;
-//   } else {
-//     console.log("(+) Connected to DB");
-//   }
-// })
-
-// module.exports = connection;
-
+// Learned how to promisify mySQL via:
+// https://codeburst.io/node-js-mysql-and-promises-4c3be599909b
 class Database {
   constructor(config) {
     this.connection = mysql.createConnection(config);
