@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  //- Square cards
+  h3 Database Test
+  .row
+    .col.s6
+      .container
+        form(action="/test/put", method="post")
+          .row.input-field
+            input(placeholder="Enter your name here" id="name" type="text"  class="validate" name="name")
+            label(for="name") Name
+          .row.input-field
+            input(placeholder="Enter your message here" id="message" type="text"  class="validate" name="message")
+            label(for="message") Message
+          .row
+            button.waves-effect.waves-light.btn-large.indigo.accent-3(type="submit" action="put")
+              .row
+                .col.s8
+                  span put
+                .col.s4
+                  i.material-icons arrow_circle_up
+    .col.s6
+      .container
+        .row
+          form(action="/test/get", method="post")
+            button.waves-effect.waves-light.btn-large.indigo.accent-3(type="submit" action="get")
+              .row
+                .col.s8
+                  span get
+                .col.s4
+                  i.material-icons arrow_circle_down
+    
+    
+      
