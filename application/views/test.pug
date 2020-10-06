@@ -30,6 +30,10 @@ block content
                   span get
                 .col.s4
                   i.material-icons arrow_circle_down
+          if records 
+            for record in records
+              .row
+                h6 #{record.id}.) At #{record.date}, '#{record.name}' inserted '#{record.message}'.
     
     
       
