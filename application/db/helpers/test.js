@@ -23,7 +23,7 @@ function getAll() {
       resolve(rows)
     })
     .catch((err) => {
-      console.log(`(x) Failed to insert into db --> ${err}`)
+      console.log(`(x) Failed to pull from db --> ${err}`)
       reject(err)
     })
   })
