@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* http://localhost:3000/test */
+router.get('/inbox', function(req, res, next) {
+  res.render('inbox', { title: 'Test' });
+});
+
 router.get('/test', function(req, res, next) {
   res.render('test', { title: 'Test' });
 });
