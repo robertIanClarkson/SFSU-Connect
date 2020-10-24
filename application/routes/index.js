@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* http://localhost:3000/test */
-router.get('/test', function(req, res, next) {
-  res.render('test', { title: 'Test' });
+router.get('/postitem', function(req, res, next) {
+  res.render('postitem', { title: 'PostingItem' });
 });
 
 module.exports = router;
