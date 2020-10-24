@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .container
+    .row
+      //- Category Dropdown
+      .col.s4
+        a#category-dropdown-trigger(class='dropdown-trigger btn' href='#' data-target='category-dropdown') all
+        ul#category-dropdown(class='dropdown-content')
+          li
+            a#current-cat(href="#!") 
+              i.material-icons view_module 
+              |All
+          li(class="divider" tabindex="-1")
+          li
+            a#art-cat(href="#!") 
+              i.material-icons view_module 
+              |Art
+          li
+            a#books-cat(href="#!") 
+              i.material-icons view_module 
+              |Books
+          li
+            a#clothes-cat(href="#!")
+              i.material-icons view_module 
+              |Clothes
+          li
+            a#electronics-cat(href="#!")
+              i.material-icons view_module 
+              |Electronics
+          li
+            a#home-cat(href="#!")
+              i.material-icons view_module 
+              |Home & Kitchen
+          li
+            a#misc-cat(href="#!") 
+              i.material-icons view_module 
+              |Miscellaneous
+          li
+            a#toys-cat(href="#!")
+              i.material-icons view_module 
+              |Toys & Games
+          li
+            a#tutoring-cat(href="#!")
+              i.material-icons view_module 
+              |Tutoring
+      //- user search input
+      .input-field.col.s4
+        input#search-input(placeholder="search" type="text" class="validate")
+
+  script(src='javascripts/index.js')
