@@ -6,9 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
 });
 
-/* http://localhost:3000/test */
-router.get('/test', function(req, res, next) {
-  res.render('test', { title: 'Test' });
+/* http://localhost:3000/navbar */
+router.get('/navbar', function(req, res, next) {
+  res.render('navbar', { title: 'navbar' });
 });
 
 module.exports = router;
