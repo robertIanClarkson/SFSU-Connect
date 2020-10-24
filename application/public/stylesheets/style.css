@@ -51,4 +51,7 @@ p {
   font-weight: 600;
   font-size: 16px;
 }
+button {
+  background-color: deeppink;
+}
 
