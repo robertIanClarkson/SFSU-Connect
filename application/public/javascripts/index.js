@@ -71,7 +71,7 @@ $('#search-submit').click(function() {
   $.post( "search", searchData, function( data, status ) {
     for(item of data){
       console.log(item)
-      $('#search-results').append(`<p>${item.name} : ${item.message}</p>`)
+      $('#search-results').append(`<p>${item.name} : ${item.description}</p>`)
     }
   });
 });
