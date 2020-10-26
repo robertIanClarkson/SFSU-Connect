@@ -3,49 +3,62 @@ extends layout
 block content
   .container
     .row
+      
       //- Category Dropdown
       .col.s4
-        a#category-dropdown-trigger(class='dropdown-trigger btn' href='#' data-target='category-dropdown') all
+        a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown') all
         ul#category-dropdown(class='dropdown-content')
           li
-            a#current-cat(href="#!") 
-              i.material-icons view_module 
+            a#current-cat 
+              i.material-icons trip_origin 
               |All
           li(class="divider" tabindex="-1")
           li
-            a#art-cat(href="#!") 
-              i.material-icons view_module 
+            a#art-cat
+              i.material-icons palette 
               |Art
           li
-            a#books-cat(href="#!") 
-              i.material-icons view_module 
+            a#books-cat
+              i.material-icons book 
               |Books
           li
-            a#clothes-cat(href="#!")
-              i.material-icons view_module 
+            a#clothes-cat
+              i.material-icons checkroom 
               |Clothes
           li
-            a#electronics-cat(href="#!")
-              i.material-icons view_module 
+            a#electronics-cat
+              i.material-icons camera_alt 
               |Electronics
           li
-            a#home-cat(href="#!")
-              i.material-icons view_module 
+            a#home-cat
+              i.material-icons countertops 
               |Home & Kitchen
           li
-            a#misc-cat(href="#!") 
-              i.material-icons view_module 
+            a#misc-cat
+              i.material-icons pedal_bike 
               |Miscellaneous
           li
-            a#toys-cat(href="#!")
-              i.material-icons view_module 
+            a#toys-cat
+              i.material-icons sports_esports 
               |Toys & Games
           li
-            a#tutoring-cat(href="#!")
-              i.material-icons view_module 
+            a#tutoring-cat
+              i.material-icons face 
               |Tutoring
+      
       //- user search input
-      .input-field.col.s4
+      .input-field.col.s6
         input#search-input(placeholder="search" type="text" class="validate")
-
+      
+      //- submit
+      .col.s2
+        #search-submit.btn search
+    
+    //- search results
+    .divider
+    h5 
+      u Search Results
+    p#search-result Null
+    .row
+      
   script(src='javascripts/index.js')
