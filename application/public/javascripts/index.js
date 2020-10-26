@@ -71,6 +71,7 @@ $('#search-submit').click(function() {
   $.post( "search", searchData, function( data, status ) {
     for(item of data){
       console.log(item)
+      $('#search-results').append(`<img class="responsive-img" src=images/items/${item.image}>`)
       $('#search-results').append(`<p>${item.name} : ${item.description}</p>`)
     }
   });
