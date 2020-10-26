@@ -3,6 +3,12 @@ var currentCategory = 'All'
 
 $('#category-dropdown-trigger').dropdown();
 
+$('#all-cat').click(function() {
+  currentCategory = 'All'
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('trip_origin')
+});
+
 $('#art-cat').click(function() {
   currentCategory = 'Art'
   $('#trigger-cat').text(currentCategory)
