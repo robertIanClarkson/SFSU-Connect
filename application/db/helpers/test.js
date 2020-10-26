@@ -33,7 +33,6 @@ function getSearchResults(category, text) {
   console.log(`category: ${category}`)
   console.log(`text    : ${text}`)
   return new Promise((resolve, reject) => {
-    /******************** THIS IS THE STRING WE NEED TO CHANGE @CODY *****************/
     let sqlCommand
     if(category=='All') {
       sqlCommand = `SELECT * FROM Items WHERE TRUE`
@@ -41,12 +40,12 @@ function getSearchResults(category, text) {
     else {
       sqlCommand = `SELECT * FROM Items WHERE CategoriesName = '${category}'`
     }
-    let wordsArray = text.split(' ')
+    let wordsArray = text.split(' ') // break search string into words
     for (word of wordsArray) {
+      // append to SQL command
       sqlCommand += ` AND ( name LIKE '%${word}%' OR description LIKE '%${word}%' )`
     }
     db.query(sqlCommand)
-    /*********************************************************************************/
     .then((rows) => {
       // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
       console.log(`(+) pulled from db --> ${rows.length} records`)
