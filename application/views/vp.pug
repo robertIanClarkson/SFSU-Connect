@@ -6,13 +6,17 @@ block content
       
       //- category dropdown
       .col.s4
-        a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown') all
+        a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
+          .row
+            .col.s2
+              i#trigger-icon.material-icons trip_origin 
+            .col.s10
+              span#trigger-cat.left All
         ul#category-dropdown(class='dropdown-content')
           li
             a#current-cat 
               i.material-icons trip_origin 
               |All
-          li(class="divider" tabindex="-1")
           li
             a#art-cat
               i.material-icons palette 

@@ -5,42 +5,50 @@ $('#category-dropdown-trigger').dropdown();
 
 $('#art-cat').click(function() {
   currentCategory = 'Art'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('palette')
 });
 
 $('#books-cat').click(function() {
   currentCategory = 'Books'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('book')
 });
 
 $('#clothes-cat').click(function() {
   currentCategory = 'Clothes'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('checkroom')
 });
 
 $('#electronics-cat').click(function() {
   currentCategory = 'Electronics'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('camera_alt')
 });
 
 $('#home-cat').click(function() {
   currentCategory = 'Home & Kitchen'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('countertops')
 });
 
 $('#misc-cat').click(function() {
   currentCategory = 'Miscellaneous'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('pedal_bike')
 });
 
 $('#toys-cat').click(function() {
   currentCategory = 'Toys & Games'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('sports_esports')
 });
 
 $('#tutoring-cat').click(function() {
   currentCategory = 'Tutoring'
-  $('#category-dropdown-trigger').text(currentCategory)
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text('face')
 });
 
 $('#search-submit').click(function() {
