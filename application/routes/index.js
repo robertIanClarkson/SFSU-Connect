@@ -18,4 +18,11 @@ router.post('/search', function(req, res, next) {
   })
 });
 
+router.get('/images/items/:image', function(req, res, next) {
+  console.log(req.params)
+  console.log("hello world")
+  // res.sendFile(`./../images/items/${req.params.image}`)
+  res.sendFile(`images/items/${req.params.image}`)
+});
+
 module.exports = router;
