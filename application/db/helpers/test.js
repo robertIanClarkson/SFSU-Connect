@@ -29,7 +29,27 @@ function getAll() {
   })
 }
 
+function getSearchResults(category, text) {
+  console.log(`category: ${category}`)
+  console.log(`text    : ${text}`)
+  return new Promise((resolve, reject) => {
+    /******************** THIS IS THE STRING WE NEED TO CHANGE @CODY *****************/
+    db.query(`SELECT * FROM test_table`)
+    /*********************************************************************************/
+    .then((rows) => {
+      // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
+      console.log(`(+) pulled from db --> ${rows.length} records`)
+      resolve(rows)
+    })
+    .catch((err) => {
+      console.log(`(x) Failed to pull from db --> ${err}`)
+      reject(err)
+    })
+  })
+}
+
 module.exports = {
   insert,
-  getAll
+  getAll,
+  getSearchResults
 }

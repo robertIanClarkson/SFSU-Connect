@@ -1,45 +1,45 @@
 /***********************DROPDOWN FOR VP**********************/
-var currentCategory = 'all'
+var currentCategory = 'All'
 
 $('#category-dropdown-trigger').dropdown();
 
 $('#art-cat').click(function() {
-  currentCategory = 'art'
+  currentCategory = 'Art'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#books-cat').click(function() {
-  currentCategory = 'books'
+  currentCategory = 'Books'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#clothes-cat').click(function() {
-  currentCategory = 'clothes'
+  currentCategory = 'Clothes'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#electronics-cat').click(function() {
-  currentCategory = 'electronics'
+  currentCategory = 'Electronics'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#home-cat').click(function() {
-  currentCategory = 'home'
+  currentCategory = 'Home & Kitchen'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#misc-cat').click(function() {
-  currentCategory = 'misc'
+  currentCategory = 'Miscellaneous'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#toys-cat').click(function() {
-  currentCategory = 'toys'
+  currentCategory = 'Toys & Games'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
 $('#tutoring-cat').click(function() {
-  currentCategory = 'tutoring'
+  currentCategory = 'Tutoring'
   $('#category-dropdown-trigger').text(currentCategory)
 });
 
@@ -55,7 +55,10 @@ $('#search-submit').click(function() {
   }
 
   $.post( "search", searchData, function( data, status ) {
-    console.log(`Search data successfully sent --> (${status}:${data})`)
+    for(item of data){
+      console.log(item)
+      $('#search-results').append(`<p>${item.name} : ${item.message}</p>`)
+    }
   });
 });
 /***********************DROPDOWN FOR VP**********************/

@@ -4,7 +4,7 @@ block content
   .container
     .row
       
-      //- Category Dropdown
+      //- category dropdown
       .col.s4
         a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown') all
         ul#category-dropdown(class='dropdown-content')
@@ -58,7 +58,15 @@ block content
     .divider
     h5 
       u Search Results
-    p#search-result Null
-    .row
+    #search-results.row
+
+    //- THIS IS IF WE CAN FIGURE OUT HOW TO SAVE THE CATEGORY IN A FORM WHICH IS HONESTLY THE BETTER WAY BC WE DONT HAVE TO USE AS MUCH JS
+    //- if items 
+    //-   for item in items
+    //-     p #{item.id}.) At #{item.date}, '#{item.name}' inserted '#{item.message}'.
+    
+
+
+
       
   script(src='javascripts/index.js')
