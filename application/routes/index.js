@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/search', function(req, res, next) {
   let searchData = req.body
   test.getSearchResults(searchData.category, searchData.text).then((rows) => {
+    console.log(rows)
     res.send(rows)
 
     // res.render('vp', {
