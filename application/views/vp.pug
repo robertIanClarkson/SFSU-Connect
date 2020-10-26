@@ -51,12 +51,14 @@ block content
               |Tutoring
       
       //- user search input
-      .col.s6
-        input#search-input(placeholder="search" type="text" class="validate")
+      .col.s7
+        - var searchPlaceholder = "Type what you are looking for here"
+        input#search-input(placeholder=searchPlaceholder type="text" class="validate")
       
       //- submit
-      .col.s2
-        #search-submit.btn search
+      .col.s1
+        a#search-submit.btn
+          i.material-icons search
     
     //- search results
     .divider
