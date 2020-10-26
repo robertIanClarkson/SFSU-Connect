@@ -34,10 +34,13 @@ function getSearchResults(category, text) {
   console.log(`text    : ${text}`)
   return new Promise((resolve, reject) => {
     /******************** THIS IS THE STRING WE NEED TO CHANGE @CODY *****************/
+    let sqlCommand
     if(category=='All') {
-      category = '%';
+      sqlCommand = `SELECT * FROM Items WHERE TRUE`
     }
-    let sqlCommand = `SELECT * FROM Items WHERE CategoriesName LIKE '${category}'`
+    else {
+      sqlCommand = `SELECT * FROM Items WHERE CategoriesName = '${category}'`
+    }
     let wordsArray = text.split(' ')
     for (word of wordsArray) {
       sqlCommand += ` AND ( name LIKE '%${word}%' OR description LIKE '%${word}%' )`
