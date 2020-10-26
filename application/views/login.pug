@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    .register-form(style="max-width:50%;background: white;float: right;width: 30vmax ;border-radius: 30px;")
+        .row
+            h2 Log in
+        //form(action="/register", method="POST")
+        h5 SFSU Email
+        input(type='text', name = "email", placeholder='enter your SFSU email')
+
+        h5 Password
+        input(type='text', name = "password", placeholder='choose a password')
+
+        p
+
+        a(href= '#') Forgot Password?
+        p
+
+        button(style="float:right", type = 'submit') Log in
+        a(style="float:right") don't have an account? Sign up
