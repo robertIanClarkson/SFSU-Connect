@@ -1,7 +1,3 @@
-#category-dropdown-trigger {
-  width: 100%;
-}
-
-#search-submit {
+#category-dropdown-trigger, #search-submit {
   width: 100%;
 }
