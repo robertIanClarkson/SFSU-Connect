@@ -72,7 +72,10 @@ $('#search-submit').click(function() {
     for(item of data){
       console.log(item)
       $('#search-results').append(`<img class="responsive-img" src=images/items/${item.image}>`)
-      $('#search-results').append(`<p>${item.name} : ${item.description}</p>`)
+      $('#search-results').append(`<p>NAME: ${item.name}</p>`)
+      $('#search-results').append(`<p>DESCRIPTION: ${item.description}</p>`)
+      $('#search-results').append(`<p>PRICE: $${item.price}</p>`)
+      $('#search-results').append(`<div class='divider'></div>`)
     }
   });
 });
