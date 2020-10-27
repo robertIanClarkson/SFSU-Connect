@@ -1,12 +1,9 @@
 extends layout
 
 block content
-    .register-form 
-        .row    
-            h2 Join Us!
+    .registerForm 
+        h2 Join Us!
     
-    body
-        //form(action="/register", method="POST")
         h5 First Name 
         input(type='text', name = "fname",  placeholder='enter your first name')
 
@@ -22,12 +19,14 @@ block content
         h5 Confirm Password 
         input(type='text', name = "confirmpassword", placeholder='confirm your password')
 
-        p
-         
+        
+        input(type="checkbox")  
         a(href= '#') Terms of Service 
+        
         p
 
-        button(type = 'submit') Register  
+        button(class = "registerButton" type = 'submit') Register  
 
-        p   
-            a(href='login') Already have an account? Log In 
+        p
+
+        a(href='login') Already have an account? Log In 

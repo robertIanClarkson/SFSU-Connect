@@ -1,3 +1,13 @@
-.register-Form{
-    text-align: right;
+.registerForm{
+    border-radius: 25px;
+    background: white;
+    padding: 30px; 
+    float: right;
+}
+
+.registerButton{
+    border-radius: 25px;
+    background-color: purple;
+    padding: 20px;
+    color:white;
 }
