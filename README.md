@@ -15,7 +15,7 @@
 
 | Student Name    | Student Email          | GitHub Username   |
 |    :---:        |     :---:              |     :---:         |
-| Robert Calrkson | rclarkso@mail.sfsu.edu | robertIanClarkson |
+| Robert Clarkson | rclarkso@mail.sfsu.edu | robertIanClarkson |
 | Cody Camp       | ccamp2@mail.sfsu.edu   | camper4834        |
 | Kevin Fung      | kfung5@mail.sfsu.edu   | kefung2           |
 | Hong Li         | hli@mail.sfsu.edu      | ChromatusX        |
