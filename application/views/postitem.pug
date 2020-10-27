@@ -2,13 +2,14 @@ extends layout
 
 block content   
     
-    h2 Post Image Page
+    h4 PostItem Page
 
-    body
+    .imgside
 
         input(type='file', name = "uploadImage")
 
-        p
+        
+    .textside
         
         h7 ITEM NAME  
         input(type='text', name = "itemname")
@@ -19,5 +20,5 @@ block content
         h7 PRICE  
         input(type='text', name = "price")
 
-        button(type = 'submit') SUBMIT
+        button(class= "Buttons" type = 'submit') SUBMIT
     
