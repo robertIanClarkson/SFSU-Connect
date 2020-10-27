@@ -4,7 +4,7 @@ var test = require("./../db/helpers/test");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('vp', { title: 'VP' });
+  res.render('index', { title: 'Home' });
 });
 
 router.post('/search', function(req, res, next) {
@@ -12,12 +12,6 @@ router.post('/search', function(req, res, next) {
   test.getSearchResults(searchData.category, searchData.text).then((rows) => {    
     res.send(rows)
   })
-});
-
-router.get('/images/items/:image', function(req, res, next) {
-  console.log(req.params)
-  console.log("hello world")
-  res.sendFile(`images/items/${req.params.image}`)
 });
 
 module.exports = router;

@@ -59,18 +59,15 @@ $('#tutoring-cat').click(function() {
 
 $('#search-submit').click(function() {
   var searchText = $('#search-input').val();
-
-  console.log(`Category: ${currentCategory}`)
-  console.log(`Text    : ${searchText}`)
-
+  
   searchData = {
     category: currentCategory,
     text: searchText
   }
 
   $.post( "search", searchData, function( data, status ) {
+    $('#search-results').empty()
     for(item of data){
-      console.log(item)
       $('#search-results').append(`<img class="responsive-img" src=images/items/${item.image}>`)
       $('#search-results').append(`<p>NAME: ${item.name}</p>`)
       $('#search-results').append(`<p>DESCRIPTION: ${item.description}</p>`)

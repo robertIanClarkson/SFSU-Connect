@@ -1,0 +1,76 @@
+
+.container
+  .row.valign-wrapper
+    
+    //- category dropdown
+    .col.s4
+      a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
+        .row
+          .col.s2
+            i#trigger-icon.material-icons trip_origin 
+          .col.s10
+            span#trigger-cat.left All
+      ul#category-dropdown(class='dropdown-content')
+        li
+          a#all-cat 
+            i.material-icons trip_origin 
+            |All
+        li
+          a#art-cat
+            i.material-icons palette 
+            |Art
+        li
+          a#books-cat
+            i.material-icons book 
+            |Books
+        li
+          a#clothes-cat
+            i.material-icons checkroom 
+            |Clothes
+        li
+          a#electronics-cat
+            i.material-icons camera_alt 
+            |Electronics
+        li
+          a#home-cat
+            i.material-icons countertops 
+            |Home &amp; Kitchen
+        li
+          a#misc-cat
+            i.material-icons pedal_bike 
+            |Miscellaneous
+        li
+          a#toys-cat
+            i.material-icons sports_esports 
+            |Toys &amp; Games
+        li
+          a#tutoring-cat
+            i.material-icons face 
+            |Tutoring
+    
+    //- user search input
+    .col.s7
+      - var searchPlaceholder = "Type what you are looking for here"
+      input#search-input(placeholder=searchPlaceholder type="text" class="validate")
+    
+    //- submit
+    .col.s1
+      a#search-submit.btn
+        i.material-icons search
+  
+  //- search results
+  .divider
+  h5 
+    u Search Results
+  #search-results.row
+
+  //- THIS IS IF WE CAN FIGURE OUT HOW TO SAVE THE CATEGORY IN A FORM WHICH IS HONESTLY THE BETTER WAY BC WE DONT HAVE TO USE AS MUCH JS
+  //- if items 
+  //-   for item in items
+  //-     p #{item.id}.) At #{item.date}, '#{item.name}' inserted '#{item.message}'.
+  
+
+
+
+    
+script(src='javascripts/search.js')

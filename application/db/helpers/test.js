@@ -30,8 +30,6 @@ function getAll() {
 }
 
 function getSearchResults(category, text) {
-  console.log(`category: ${category}`)
-  console.log(`text    : ${text}`)
   return new Promise((resolve, reject) => {
     let sqlCommand
     if(category=='All') {
