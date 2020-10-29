@@ -3,21 +3,34 @@ extends layout
 block content
     //- Square cards
 
+    .container
+ 
+      
+
+      .row
+      .card-panel.deep-purple
+        form.col.s12
+          .row
+            .input-field.col.s6
+              span.white-text.text-darken-2 My Account
+         
 
     .container
  
       
       .row
-      .card-panel.deep-purple.small
+      .card-panel.deep-purple
         form.col.s12
           .row
-            .input-field.col.s6
+            .input-field.col.s7
+              span.white-text.text-darken-2 My Information
+            .input-field.col.s8
               span.white-text.text-darken-2 First Name:
               input#first_name2.validate(type='text')
-            .input-field.col.s7
+            .input-field.col.s9
                 span.white-text.text-darken-2 Last Name:
                 input#last_name2.validate(type='text')
-            .input-field.col.s8
+            .input-field.col.s10
               span.white-text.text-darken-2 Email
               input#email_name2.validate(type='text')
 
