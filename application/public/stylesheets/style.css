@@ -5,8 +5,10 @@
 } */
 .nav-wrapper{
   background-color: #4a148c !important;
+  text: #fff176 !important;
  }
  
+
 h1 {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
