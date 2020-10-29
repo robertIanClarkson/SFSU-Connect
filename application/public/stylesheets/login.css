@@ -2,3 +2,7 @@
 .rounded{
     border-radius: 15px;
 }
+
+#login {
+    padding: 50px;
+}
