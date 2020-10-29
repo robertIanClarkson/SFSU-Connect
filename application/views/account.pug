@@ -1,50 +1,45 @@
 extends layout
 
 block content
-    //- Square cards
+    
 
     .container
 
-      .row
-        .col.s4
-           .row
-              .col.s12
-                .card.deep-purple
-                   .card-content.black-text
-                      span.white-text.text-darken-2 My Account
+      .row.center-align
+        .cols6
+          .card.deep-purple
+              .card-content.black-text
+                  h5.white-text.text-darken-2 My Account
+    .container     
+
+          .row
+            .center-align
+              img.responsive-img.circle(src='../images/profile_pics/taylor.png' alt='Image Circle')
+        
+        
 
 
 
-
-
-      .container
+    .container.left-align
 
             .row
-              .col.s4
-                .row
-                    .col.s12
-                      .card.deep-purple
-                        .card-content.black-text
-                            span.white-text.text-darken-2 My Information
-                            span.white-text.text-darken-2 First Name
-                            span.white-text.text-darken-2 Email
-    
-      .container
+              .col.s8
+                 .card.deep-purple
+                    .card-content.black-text
+                      h5.white-text.text-darken-2 My Information
+                        .row
+                          span.white-text.text-darken-2 First Name:Bob
+                            .row
+                              span.white-text.text-darken-2 Last Name: McBob
+                               .row
+                                   span.white-text.text-darken-2 Email: Bob@sfsu.edu
+            
+    .container.left-align
  
        .row
         .col.s4
-           .row
-              .col.s12
-                .card.deep-purple
-                   .card-content.black-text
-                      span.white-text.text-darken-2 Manage Items
-                      span.white-text.text-darken-2 Inbox
-
-                
-      .container     
-
-      .row
-        .center-align
-          img.responsive-img.circle(src='../images/profile_pics/taylor.png' alt='Image Circle')
-    
-    
+             .card.deep-purple
+               .card-content.black-text
+                   span.white-text.text-darken-2 Manage Items
+                    .row
+                       span.white-text.text-darken-2 Inbox
