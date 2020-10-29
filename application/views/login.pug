@@ -1,20 +1,24 @@
 extends layout
-
 block content
-    .register-form(style="max-width:50%;background: white;float: right;width: 30vmax ;border-radius: 30px;")
-        .row
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    .row
+        #login.register-form.col.s4.white.push-s6.rounded
             h2 Log in
-        //form(action="/register", method="POST")
-        h5 SFSU Email
-        input(type='text', name = "email", placeholder='enter your SFSU email')
+            //form(action="/register", method="POST")
 
-        h5 Password
-        input(type='text', name = "password", placeholder='choose a password')
+            .input-field
+                h5.deep-purple-text SFSU Email
+                input#email(type='text', name = "email", placeholder='enter your SFSU email')
 
-        p
+            .input-field
+                h5.deep-purple-text Password
+                input(type='text', name = "password", placeholder='choose a password')
 
-        a(href= '#') Forgot Password?
-        p
+            p
 
-        button(style="float:right", type = 'submit') Log in
-        a(style="float:right") don't have an account? Sign up
+            a(href= '#') Forgot Password?
+            p
+            .row
+                button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
+            .row
+                a.right don't have an account? Sign up
