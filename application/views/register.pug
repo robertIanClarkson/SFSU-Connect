@@ -1,8 +1,8 @@
 extends layout
 block content
     .row
-        .col.s6
-            .registerForm 
+        .col.s6.push-s6
+            .registerForm
                 h2 Join Us!
             
                 h5 First Name 
@@ -12,14 +12,13 @@ block content
                 input(type='text', name = "lname", placeholder='enter your last name')
 
                 h5 SFSU Email 
-                input(type='text', name = "email", placeholder='enter your SFSU email')
+                input(type='email', name = "email", placeholder='enter your SFSU email')
 
                 h5 Password 
                 input(type='text', name = "password", placeholder='choose a password')
 
                 h5 Confirm Password 
                 input(type='text', name = "confirmpassword", placeholder='confirm your password')
-
 
                 a(href= '#') Terms of Service 
                 input(type="checkbox" value="true")

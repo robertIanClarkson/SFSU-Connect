@@ -1,7 +1,7 @@
 .registerForm{
-    border-radius: 25px;
+    padding: 50px;  
     background: white;
-    padding: 25px;  
+    border-radius: 25px;
 }
 
 .registerButton{
