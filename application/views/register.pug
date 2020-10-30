@@ -20,10 +20,19 @@ block content
                 h5 Confirm Password 
                 input(type='text', name = "confirmpassword", placeholder='confirm your password')
 
-                a(href= '#') Terms of Service 
-                input(type="checkbox" value="true")
-                
                 p
-                button(class = "registerButton" type = 'submit') Register
+
+                <label>
+                    input(type="checkbox")
+                    <span> </span>
+                </label>
+
+                a(href='TermsConditions') Terms and Conditions 
                 p
-                a(href='login') Already have an account? Log In 
+
+                .row            
+                    .col.s9.push-s4
+                          button(class = "registerButton" type = 'submit') Register
+                p
+                    .col.s9.push-s3
+                        a(href='login') Already have an account? Log In 
