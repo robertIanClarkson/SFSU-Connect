@@ -3,11 +3,9 @@ extends layout
 block content   
     
     h4 PostItem Page
-
+        
     .imgside
-
         input(type='file', name = "uploadImage")
-
         
     .textside
         
@@ -16,9 +14,12 @@ block content
 
         h7 DESCRIPTION 
         input(type='text', name = "description")
-
-        h7 PRICE  
+          
+        h7 PRICE 
         input(type='text', name = "price")
+
+        h7 Choose A Category
+        p
 
         button(class= "Buttons" type = 'submit') SUBMIT
     
