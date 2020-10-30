@@ -1,32 +1,30 @@
 extends layout
-
 block content
-    .registerForm 
-        h2 Join Us!
-    
-        h5 First Name 
-        input(type='text', name = "fname",  placeholder='enter your first name')
+    .row
+        .col.s6
+            .registerForm 
+                h2 Join Us!
+            
+                h5 First Name 
+                input(type='text', name = "fname",  placeholder='enter your first name')
 
-        h5 Last Name 
-        input(type='text', name = "lname", placeholder='enter your last name')
+                h5 Last Name 
+                input(type='text', name = "lname", placeholder='enter your last name')
 
-        h5 SFSU Email 
-        input(type='text', name = "email", placeholder='enter your SFSU email')
+                h5 SFSU Email 
+                input(type='text', name = "email", placeholder='enter your SFSU email')
 
-        h5 Password 
-        input(type='text', name = "password", placeholder='choose a password')
+                h5 Password 
+                input(type='text', name = "password", placeholder='choose a password')
 
-        h5 Confirm Password 
-        input(type='text', name = "confirmpassword", placeholder='confirm your password')
+                h5 Confirm Password 
+                input(type='text', name = "confirmpassword", placeholder='confirm your password')
 
-        
-        input(type="checkbox")  
-        a(href= '#') Terms of Service 
-        
-        p
 
-        button(class = "registerButton" type = 'submit') Register  
-
-        p
-
-        a(href='login') Already have an account? Log In 
+                a(href= '#') Terms of Service 
+                input(type="checkbox" value="true")
+                
+                p
+                button(class = "registerButton" type = 'submit') Register
+                p
+                a(href='login') Already have an account? Log In 

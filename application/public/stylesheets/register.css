@@ -1,8 +1,7 @@
 .registerForm{
     border-radius: 25px;
     background: white;
-    padding: 30px; 
-    float: right;
+    padding: 25px;  
 }
 
 .registerButton{
@@ -10,4 +9,8 @@
     background-color: purple;
     padding: 20px;
     color:white;
+}
+
+body{
+    background-image: url("");
 }
