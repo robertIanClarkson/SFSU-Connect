@@ -29,4 +29,9 @@ router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Register' });
 });
 
+/* http://localhost:3000/test */
+router.get('/postitem', function(req, res, next) {
+  res.render('postitem', { title: 'PostingItem' });
+});
+
 module.exports = router;
