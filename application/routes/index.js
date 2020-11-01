@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var test = require("./../db/helpers/test");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -60,7 +61,14 @@ router.get('/login', function(req, res, next) {
 
 /* http://localhost:3000/test */
 router.get('/viewItem', function(req, res, next) {
-  res.render('viewItem', { title: 'viewItem' });
+  res.render('viewItem', { title: 'viewItem' });  
+});
+
+router.post('/search', function(req, res, next) {
+  let searchData = req.body
+  test.getSearchResults(searchData.category, searchData.text).then((rows) => {    
+    res.send(rows)
+  })
 });
 
 module.exports = router;
