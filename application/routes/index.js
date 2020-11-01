@@ -44,4 +44,9 @@ router.get('/thankyouforposting', function(req, res, next) {
   res.render('thankyouforposting', { title: 'thankyouforposting' });
 });
 
+/* http://localhost:3000/navbar */
+router.get('/navbar', function(req, res, next) {
+  res.render('navbar', { title: 'navbar' });
+});
+
 module.exports = router;
