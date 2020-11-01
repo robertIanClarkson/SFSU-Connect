@@ -59,4 +59,9 @@ router.get('/account', function(req, res, next) {
   res.render('account', { title: 'Account' });
 });
 
+/* http://localhost:3000/test */
+router.get('/test', function(req, res, next) {
+  res.render('login', { title: 'Test' });
+});
+
 module.exports = router;
