@@ -1,0 +1,38 @@
+extends layout
+block content
+    .row
+        .col.s6.push-s6
+            .registerForm
+                h2 Join Us!
+            
+                h5 First Name 
+                input(type='text', name = "fname",  placeholder='enter your first name')
+
+                h5 Last Name 
+                input(type='text', name = "lname", placeholder='enter your last name')
+
+                h5 SFSU Email 
+                input(type='email', name = "email", placeholder='enter your SFSU email')
+
+                h5 Password 
+                input(type='text', name = "password", placeholder='choose a password')
+
+                h5 Confirm Password 
+                input(type='text', name = "confirmpassword", placeholder='confirm your password')
+
+                p
+
+                <label>
+                    input(type="checkbox")
+                    <span> </span>
+                </label>
+
+                a(href='TermsConditions') Terms and Conditions 
+                p
+
+                .row            
+                    .col.s9.push-s4
+                          button(class = "registerButton" type = 'submit') Register
+                p
+                    .col.s9.push-s3
+                        a(href='login') Already have an account? Log In 

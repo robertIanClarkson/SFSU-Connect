@@ -24,4 +24,9 @@ router.get('/landing', function(req, res, next) {
     res.render('landing', { title: 'Landing' });
 });
 
+/* http://localhost:3000/test */
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Register' });
+});
+
 module.exports = router;
