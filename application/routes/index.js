@@ -34,4 +34,9 @@ router.get('/postitem', function(req, res, next) {
   res.render('postitem', { title: 'PostingItem' });
 });
 
+/* http://localhost:3000/test */
+router.get('/footer', function(req, res, next) {
+  res.render('footer', { title: 'footer' });
+});
+
 module.exports = router;
