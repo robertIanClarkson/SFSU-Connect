@@ -6,22 +6,21 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Home' });
 });
 
-/* http://localhost:3000/test */
+// Change Home to landing after
+router.get('/landing', function(req, res, next) {
+    res.render('landing', { title: 'Landing' });
+});
 
 router.get('/inbox', function(req, res, next) {
-  res.render('inbox', { title: 'Test' });
+  res.render('inbox', { title: 'inbox' });
 });
 
 router.get('/aboutv2', function(req, res, next) {
-    res.render('aboutv2', { title: 'Test' });
+    res.render('aboutv2', { title: 'aboutv2' });
 });
 
 router.get('/test', function(req, res, next) {
     res.render('test', { title: 'Test' });
-});
-
-router.get('/landing', function(req, res, next) {
-    res.render('landing', { title: 'Landing' });
 });
 
 /* http://localhost:3000/test */
@@ -50,23 +49,18 @@ router.get('/navbar', function(req, res, next) {
 });
 
 /* http://localhost:3000/test */
-router.get('/test', function(req, res, next) {
-  res.render('test', { title: 'Test' });
-});
-
-/* http://localhost:3000/test */
 router.get('/account', function(req, res, next) {
   res.render('account', { title: 'Account' });
 });
 
 /* http://localhost:3000/test */
-router.get('/test', function(req, res, next) {
-  res.render('login', { title: 'Test' });
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'login' });
 });
 
 /* http://localhost:3000/test */
-router.get('/test', function(req, res, next) {
-  res.render('viewItem');
+router.get('/viewItem', function(req, res, next) {
+  res.render('viewItem', { title: 'viewItem' });
 });
 
 module.exports = router;
