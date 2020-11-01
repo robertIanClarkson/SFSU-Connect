@@ -1,0 +1,16 @@
+.inbox{
+    background-color: slateblue;
+    height: 100%;
+}
+.inbox-list{
+    background-color: slateblue;
+}
+.subject{
+    border: 5px outset gray;
+}
+
+.mail-body{
+    border: 5px outset gray;
+    height: 500px;
+}
+/*-----------------------------------------------------------*/
