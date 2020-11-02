@@ -1,54 +1,56 @@
 body {
-  background-color: #e0f7fa;
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #e0f7fa;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  font-size: 96px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 96px;
 }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  font-size: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 48px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
 }
 
 h4 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 34px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
 }
 
 h5 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
 }
 
 h6 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 span {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 p {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
 }
 
+#content {
+    padding: 50px;
+}
