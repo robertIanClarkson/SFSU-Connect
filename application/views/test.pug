@@ -1,7 +1,6 @@
 extends layout
 
 block content
-
   //- Square cards
   a.waves-effect.waves-light.btn-large.indigo.accent-3(href="/")
           .row
@@ -34,4 +33,3 @@ block content
             for record in records
               .row
                 h6 #{record.id}.) At #{record.date}, '#{record.name}' inserted '#{record.message}'.
-    
