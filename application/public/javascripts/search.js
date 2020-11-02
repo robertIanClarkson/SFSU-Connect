@@ -77,3 +77,7 @@ $('#search-submit').click(function() {
   });
 });
 /***********************DROPDOWN FOR VP**********************/
+
+$("itemCard").append(function(){
+  // code
+});

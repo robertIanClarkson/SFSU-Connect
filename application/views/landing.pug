@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    
     //- Square cards
     .welcome-text
         .row
@@ -8,7 +9,16 @@ block content
 
     .item-list
         .row
-            h3 item list
+            .col.s2
+                h3 item list
+            .col.s3
+                label Browser Select
+                select.browser-default
+                    option(value='' disabled='' selected='') Choose your option
+                    option(value='1') Price High to Low
+                    option(value='2') Price Low to High
+                    option(value='3') Option 3
+
         .row
             .col.s3
                 .card
@@ -106,3 +116,5 @@ block content
                         | I am convenient because I require little markup to use effectively.
                     .card-action
                         a(href='#') This is a link
+                        
+    script(src='javascripts/landing.js')
