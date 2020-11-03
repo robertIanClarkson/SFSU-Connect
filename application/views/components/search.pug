@@ -3,7 +3,7 @@
   .row.valign-wrapper
     
     //- category dropdown
-    .col.s4
+    .col.s3
       a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
         .row
           .col.s2
@@ -49,7 +49,7 @@
             |Tutoring
     
     //- user search input
-    .col.s7
+    .col.s4
       - var searchPlaceholder = "Type what you are looking for here"
       input#search-input(placeholder=searchPlaceholder type="text" class="validate")
     
@@ -62,7 +62,8 @@
   .divider
   h5 
     u Search Results
-     
+    
+
   //- THIS IS IF WE CAN FIGURE OUT HOW TO SAVE THE CATEGORY IN A FORM WHICH IS HONESTLY THE BETTER WAY BC WE DONT HAVE TO USE AS MUCH JS
   //- if items 
   //-   for item in items
