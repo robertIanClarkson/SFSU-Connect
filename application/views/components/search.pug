@@ -1,15 +1,14 @@
 
 .container
   .row.valign-wrapper
-    
-    
+  
     //- category dropdown
-    .col.s3
+    .col.s4
       a#category-dropdown-trigger(class='dropdown-trigger btn-small' data-target='category-dropdown')
         .row
-          .col.s4
+          .col.s2
             i#trigger-icon.material-icons trip_origin 
-          .col.s5
+          .col.s10
             span#trigger-cat.left All
       ul#category-dropdown(class='dropdown-content')
         li
@@ -48,7 +47,7 @@
           a#tutoring-cat
             i.material-icons face 
             |Tutoring
-    .col.s3
+    
     //- user search input
     .col.s5
       - var searchPlaceholder = "Type what you are looking for here"
@@ -56,7 +55,6 @@
     
     //- submit
     .col.s1
-     .col.s3
       a#search-submit.btn
         i.material-icons search
   
