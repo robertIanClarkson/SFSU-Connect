@@ -1,22 +1,26 @@
 extends layout
 block content
     link(rel='stylesheet', href='/stylesheets/login.css')
-    .row
-        #login.register-form.col.s4.white.push-s8.rounded
-            h2 Log in
-            //form(action="/register", method="POST")
-
-            .input-field
-                h5.deep-purple-text SFSU Email
-                input#email(type='text', name = "email", placeholder='enter your SFSU email')
-
-            .input-field
-                h5.deep-purple-text Password
-                input(type='text', name = "password", placeholder='choose a password')
-
-            a(href= '#') Forgot Password?
-
+    form(action="/login", method="post")
             .row
-                button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
-            .row
-                a.right don't have an account? Sign up
+                #login.register-form.col.s4.white.push-s8.rounded
+                    h2 Log in
+                    //form(action="/register", method="POST")
+
+                    .input-field
+                        h5.deep-purple-text SFSU Email
+                        input#email.validate(type='text', name = "email", placeholder='enter your SFSU email')
+
+                    .input-field
+                        h5.deep-purple-text Password
+                        input#password.validate(type='text', name = "password", placeholder='choose a password')
+
+                    a(href= '#') Forgot Password?
+                
+                    .row
+                        button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
+                    .row
+                        a.right Don't have an account? Sign up
+            
+    public/javascripts/login.js
+    
