@@ -2,21 +2,20 @@ extends layout
 block content
     link(rel='stylesheet', href='/stylesheets/login.css')
     form(action="/login", method="post")
-            .row
-                #login.register-form.col.s4.white.push-s8.rounded
-                    h2 Log in
-                    //form(action="/register", method="POST")
-                    .input-field
-                        h5.deep-purple-text SFSU Email
-                        input#email.validate(type='text', name = "email", placeholder='enter your SFSU email')
-                        label(for='email' data-error='wrong' data-success='right') 
-                    .input-field
-                        h5.deep-purple-text Password
-                        input#password.validate(type='text', name = "password", placeholder='choose a password')
-                        label(for='passsword' data-error='wrong' data-success='right')         
-                    a(href= '#') Forgot Password?
-                
-                    .row
-                        a(href='landing').btn-large.deep-purple.right.rounded(type = 'submit') Log in   
-                    .row
-                        a.right(href='register') Don't have an account? Sign up
+        .row
+            #login.register-form.col.s4.white.push-s8.rounded
+                h2 Log in
+                .input-field
+                    h5.deep-purple-text SFSU Email
+                    input#email.validate(type='text', name = "email", placeholder='enter your SFSU email')
+                    label(for='email' data-error='wrong' data-success='right') 
+                .input-field
+                    h5.deep-purple-text Password
+                    input#password.validate(type='text', name = "password", placeholder='choose a password')
+                    label(for='passsword' data-error='wrong' data-success='right')         
+                a(href= '#') Forgot Password?
+            
+                .row
+                    a(href='landing').btn-large.deep-purple.right.rounded(type = 'submit') Log in   
+                .row
+                    a.right(href='register') Don't have an account? Sign up
