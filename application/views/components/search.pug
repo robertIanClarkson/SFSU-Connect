@@ -1,7 +1,7 @@
 
 .container
   .row.valign-wrapper
-  
+   
     //- category dropdown
     .col.s4
       a#category-dropdown-trigger(class='dropdown-trigger btn-small' data-target='category-dropdown')
@@ -50,13 +50,14 @@
     
     //- user search input
     .col.s5
-      - var searchPlaceholder = "Type what you are looking for here"
+      - var searchPlaceholder = "Search.."
       input#search-input(placeholder=searchPlaceholder type="text" class="validate")
     
     //- submit
     .col.s1
       a#search-submit.btn
         i.material-icons search
+          
   
   //- search results
   .divider
