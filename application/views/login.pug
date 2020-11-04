@@ -1,9 +1,9 @@
 extends layout
 block content
     link(rel='stylesheet', href='/stylesheets/login.css')
-    form(action="/test/put", method="post")
-        .row
-            #login.register-form.col.s4.white.push-s8.rounded
+    .row
+        #login.register-form.col.s4.white.push-s8.rounded
+            form(action="/login", method="post")
                 h2 Log in
                 .input-field
                     h5.deep-purple-text SFSU Email
@@ -16,6 +16,6 @@ block content
                 a(href= '#') Forgot Password?
             
                 .row
-                    a(href='/').btn-large.deep-purple.right.rounded(type = 'submit') Log in   
+                    button.btn-large.deep-purple.right.rounded(type='submit') Log in   
                 .row
                     a.right(href='register') Don't have an account? Sign up
