@@ -78,6 +78,9 @@ $('#search-submit').click(function() {
 });
 /***********************DROPDOWN FOR VP**********************/
 
-$("itemCard").append(function(){
+$("#itemCard").load(function(){
   // code
+  $.post("landing", function(data, status){
+
+  });
 });
