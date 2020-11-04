@@ -78,9 +78,21 @@ $('#search-submit').click(function() {
 });
 /***********************DROPDOWN FOR VP**********************/
 
+/********************LANDING PAGE LATEST ITEM****************/
 $("#itemCard").load(function(){
   // code
-  $.post("landing", function(data, status){
+  var itemsPerRow = 4;
 
+  $.post("landing", function(data, status){
+    for(item of data){ // for all item in the data
+      for(i=0; i<2; i++){  // 2 row
+        for(j=0; j<itemsPerRow; j++){ // #'s of item for each row
+            $("#itemCard").append('<div class="col s3"')
+            $('#itemCard').append(`'<div class="card"><div class="card-image"><img class="responsive-img" src=images/items/${item.image}></div>`)
+            $('#itemCard').append(`<div class="card-content"><p>${item.description}</p>`);
+        }
+      }
+    }
   });
 });
+/********************LANDING PAGE LATEST ITEM****************/
