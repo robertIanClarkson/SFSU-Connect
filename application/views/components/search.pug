@@ -1,14 +1,14 @@
 
 .container
   .row.valign-wrapper
-    
+    .col.s8
     //- category dropdown
-    .col.s3
+    .col
       a#category-dropdown-trigger(class='dropdown-trigger btn-small' data-target='category-dropdown')
         .row
           .col.s2
             i#trigger-icon.material-icons trip_origin 
-          .col.s10
+          .col.s3
             span#trigger-cat.left All
       ul#category-dropdown(class='dropdown-content')
         li
@@ -50,15 +50,15 @@
 
     
     //- user search input
-    .col.s3
+    .col
       - var searchPlaceholder = "Search.."
       input#search-input(placeholder=searchPlaceholder type="text" class="validate")
     
     //- submit
-    .col.s1
+    .col
       a#search-submit.btn
         i.material-icons search
- 
+
   
   //- search results
   .divider
