@@ -7,14 +7,16 @@ block content
         nav#navbar
           .nav-wrapper
             a(href="/" class="brand-logo") SFSU Connect
-               include components/search
-                ul#nav-mobile.right.hide-on-med-and-down
-                  li
-                    a.postitem(href="postitem") Post 
-                  li
-                    a.about(href="about") About
-                  li
-                    a.login(href="login") Sign Out
-                  li
-                    a.href(href="/")
-                      img.circle.responsive-img(src='images/profile_pics/taylor.png' style='height:64px; padding:5px;')
+            ul#nav-mobile.right.hide-on-med-and-down
+              li
+                a.postitem(href="postitem") Post 
+              li
+                a.about(href="about") About
+              li
+                a.login(href="login") Sign Out
+              li
+                a.href(href="/")
+                  img.circle.responsive-img(src='images/profile_pics/taylor.png' style='height:64px; padding:5px;')
+            form#form1.hide-on-med-and-down
+                .input-field(style='max-width: 800pt;')
+                  include components/search
