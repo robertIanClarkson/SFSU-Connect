@@ -51,7 +51,7 @@ router.get('/navbar', function(req, res, next) {
 
 /* http://localhost:3000/test */
 router.get('/account', function(req, res, next) {
-  res.render('account', { title: 'Account', user: userData });
+  res.render('account', { title: 'Account' });
 });
 
 /* http://localhost:3000/test */
