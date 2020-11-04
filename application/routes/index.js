@@ -72,8 +72,7 @@ router.post('/search', function(req, res, next) {
 });
 
 router.post('/landing', function(req, res, next) {
-  let searchData = req.body
-  test.getSearchResults().then((rows) => {    
+  test.getLatest().then((rows) => {    
     res.send(rows)
   })
 });
