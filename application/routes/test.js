@@ -26,6 +26,18 @@ router.post('/put', function(req, res, next) {
     })
 });
 
+router.post('/viewItem', function(req, res, next) {
+  test.insert(req.body.name, req.body.message)
+    .then(() => {
+      test.getItem()
+        .then((rows) => {
+          res.render('item', { 
+            title: item.title,
+            item: rowa
+          });
+        })
+    })
+});
 
 
 
