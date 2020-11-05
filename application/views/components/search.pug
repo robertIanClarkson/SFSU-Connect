@@ -2,13 +2,9 @@
   .row.valign-wrapper
     .col.s8
     //- category dropdown
-    .col
+    .col.s5
       a#category-dropdown-trigger(class='dropdown-trigger btn-small' data-target='category-dropdown')
-        .row
-          .col.s2
-            i#trigger-icon.material-icons trip_origin 
-          .col.s3
-            span#trigger-cat.left All
+        
       ul#category-dropdown(class='dropdown-content')
         li
           a#all-cat 
@@ -46,17 +42,22 @@
           a#tutoring-cat
             i.material-icons face 
             |Tutoring
-
-    
+    .row
+    .col.s1.pull-s2
+      i#trigger-icon.material-icons trip_origin 
+    .col.s3.pull-s2
+      span#trigger-cat.left All
+  
     //- user search input
-    .col
+    .col.s3.pull-s2
       - var searchPlaceholder = "Search.."
       input#search-input(placeholder=searchPlaceholder type="text" class="validate")
     
     //- submit
-    .col
+    .col.s1.pull-s1
       a#search-submit.btn
-        i.material-icons search
+    .col.s1.pull-s2
+      i.material-icons search
 
   
   //- search results
