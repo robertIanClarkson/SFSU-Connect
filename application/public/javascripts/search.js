@@ -79,7 +79,7 @@ $('#search-submit').click(function() {
 /***********************DROPDOWN FOR VP**********************/
 
 /********************LANDING PAGE LATEST ITEM****************/
-$("#itemCard").load(function(){
+$("#itemCard").ready(function(){
   // code
   var itemsPerRow = 4;
 
