@@ -23,6 +23,9 @@ router.get('/aboutv2', function(req, res, next) {
 router.get('/test', function(req, res, next) {
     res.render('test', { title: 'Test' });
 });
+router.get('/userItems', function(req, res, next) {
+  res.render('userItems', { title: 'userItems' });
+});
 
 /* http://localhost:3000/test */
 router.get('/register', function(req, res, next) {
