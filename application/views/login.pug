@@ -3,20 +3,21 @@ block content
     link(rel='stylesheet', href='/stylesheets/login.css')
     include navbar
     .row
-        #login.register-form.col.s4.white.push-s8.rounded
-            form(action="/login", method="post")
-                h2 Log in
-                .input-field
-                    h5.deep-purple-text SFSU Email
-                    input#email.validate(type='text', name = "email", placeholder='enter your SFSU email')
-                    label(for='email' data-error='wrong' data-success='right') 
-                .input-field
-                    h5.deep-purple-text Password
-                    input#password.validate(type='text', name = "password", placeholder='choose a password')
-                    label(for='passsword' data-error='wrong' data-success='right')         
-                a(href= '#') Forgot Password?
-            
-                .row
-                    button.btn-large.deep-purple.right.rounded(type='submit') Log in   
-                .row
-                    a.right(href='register') Don't have an account? Sign up
+    .row
+        .loginForm.col.s4.white.push-s8.rounded
+    
+            h5 SFSU Email 
+            input(type='email', name = "email", placeholder='enter your SFSU email')
+
+            h5 Password 
+            input(type='text', name = "password", placeholder='choose a password')
+
+            a(href= '#') Forgot Password?
+            p
+            .row
+                 a.href.right(href="/")
+                 button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
+            p
+            .row
+                a.href.right(href="register") Don't have an account? Sign up
+                
