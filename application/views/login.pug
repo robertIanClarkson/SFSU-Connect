@@ -1,22 +1,21 @@
 extends layout
 block content
     link(rel='stylesheet', href='/stylesheets/login.css')
+    include navbar
     .row
-        #login.register-form.col.s4.white.push-s8.rounded
-            h2 Log in
-            //form(action="/register", method="POST")
+    .row
+        .loginForm.col.s4.white.push-s8.rounded
+    
+            h5 SFSU Email 
+            input(type='email', name = "email", placeholder='enter your SFSU email')
 
-            .input-field
-                h5.deep-purple-text SFSU Email
-                input#email(type='text', name = "email", placeholder='enter your SFSU email')
-
-            .input-field
-                h5.deep-purple-text Password
-                input(type='text', name = "password", placeholder='choose a password')
+            h5 Password 
+            input(type='text', name = "password", placeholder='choose a password')
 
             a(href= '#') Forgot Password?
-
+            p
             .row
                 button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
+            p
             .row
                 a.right don't have an account? Sign up
