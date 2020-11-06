@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 /* POST */
 // PRIORITY 1
 router.post('/search', function(req, res, next) {
-  console.log(`POST: 'search' --> ${req.body}`)
+  console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
   let searchData = req.body
   test.getSearchResults(searchData.category, searchData.text).then((rows) => {    
     res.send(rows)

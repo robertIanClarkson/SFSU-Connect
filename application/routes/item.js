@@ -23,7 +23,7 @@ router.get('/new', function(req, res, next) {
 /* POST */
 // PRIORITY 1
 router.post('/new', function(req, res, next) {
-  console.log(`POST: 'item/new' --> ${req.body}`)
+  console.log(`POST: 'item/new' --> ${JSON.stringify(req.body)}`)
   res.render('thankyou', { title: 'Thanks!' });
 });
 

@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 /* POST */
 // PRIORITY 1
 router.post('/', function(req, res, next) {
-  console.log(`POST: 'login' --> ${req.body}`)
+  console.log(`POST: 'login' --> ${JSON.stringify(req.body)}`)
   res.sendStatus(200)
 });
 
