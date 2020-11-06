@@ -2,7 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 /* GET */
+// this will get replaced with below '/:id'
 router.get('/', function(req, res, next) {
+  res.render('item', { title: 'Item' });  
+});
+
+router.get('/:id', function(req, res, next) {
+  console.log(`GET: 'item/${req.params.id}'`)
   res.render('item', { title: 'Item' });  
 });
 
