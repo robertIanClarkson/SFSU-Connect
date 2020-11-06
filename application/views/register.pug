@@ -8,14 +8,16 @@ block content
                 form(action="register", method="post")
                     h2 Join Us!
                 
+                    h6.red-text #{error}
+
                     h5 First Name 
-                    input(type='text', name = "fname",  placeholder='enter your first name', required)
+                    input(type='text', name = "first",  placeholder='enter your first name', required)
 
                     h5 Last Name 
-                    input(type='text', name = "lname", placeholder='enter your last name', required)
+                    input(type='text', name = "last", placeholder='enter your last name', required)
 
                     h5 SFSU Email 
-                    input(type='text', name = "SFSUemail", placeholder='enter your SFSU email', required, pattern='^[a-zA-Z0-9]+@mail.sfsu.edu')
+                    input(type='text', name = "email", placeholder='enter your SFSU email', required, pattern='^[a-zA-Z0-9]+@mail.sfsu.edu')
 
                     h5 Password 
                     input(type='password', name = "password", id = "pw1", placeholder='choose a password', required)
