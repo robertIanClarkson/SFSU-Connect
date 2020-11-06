@@ -1,4 +1,54 @@
+.f_left{
+    float: left;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+.f_right{
+    float: right;
+    max-width: 50%;
+    width: 50%;
+    background-color: blueviolet;
+    border-radius: 50px;
+}
+img{
+    max-height: 30vmax;
+    border: 20px;
+    height: 50vmax;
+    width: auto;
+    max-width: 90%;
+    object-fit: contain;
+}
+p {
+    background-color: deeppink;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px;
+}
+h3 {
+    background-color: deeppink;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    width: 100px;
+}
+button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    background-color: gold;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+h4{
+    margin-left: 20px;
+}
+.desc{
+    height: 10vmax;
+}
+/*
 #itembutton {
     background-color: deeppink;
 }
-    
+*/
