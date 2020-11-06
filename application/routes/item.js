@@ -10,11 +10,15 @@ router.get('/new', function(req, res, next) {
   res.render('newItem', { title: 'New Item' });
 });
 
-router.get('/thankyou', function(req, res, next) {
-  res.render('thankyou', { title: 'Thanks!' });
-});
+// router.get('/thankyou', function(req, res, next) {
+//   res.render('thankyou', { title: 'Thanks!' });
+// });
 
 /* POST */
-
+// PRIORITY 1
+router.post('/new', function(req, res, next) {
+  console.log(`POST: 'item/new' --> ${req.body}`)
+  res.render('thankyou', { title: 'Thanks!' });
+});
 
 module.exports = router;
