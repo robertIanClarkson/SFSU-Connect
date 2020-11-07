@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res, next) {
-  console.log('jhe')
   if (req.isAuthenticated()) {
     res.render('newItem', { title: 'New Item' });
   } else {

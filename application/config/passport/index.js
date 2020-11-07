@@ -5,12 +5,12 @@ const login = require('./../../db/login')
 //set up database actions for user
 
 passport.serializeUser((user, done) => {
-  console.log('serialize')
+  // console.log('serialize')
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('deserialize')
+  // console.log('deserialize')
   login.getUserWithID(id)
     .then((user) => done(null, user))
     .catch(error => done(error));
