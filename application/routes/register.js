@@ -4,7 +4,11 @@ var db = require('./../db/register')
 
 /* GET */
 router.get('/', function(req, res, next) {
-  res.render('register', { title: 'Register' });
+  if (req.isAuthenticated()) {
+    res.redirect('/')
+  } else {
+    res.render('register', { title: 'Register' });
+  }
 });
 
 /* POST */
@@ -12,21 +16,22 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   console.log(`POST: 'register' --> ${JSON.stringify(req.body)}`)
   db.newUser(req.body.first, req.body.last, req.body.email, req.body.password)
-    .then((result) => {
-      console.log(`register --> ${result}`)
-      res.render('landing', {
-        title: 'Home'
-      })
+  .then((result) => {
+    console.log(`register --> ${result}`)
+    res.render('landing', {
+      title: 'Home'
     })
-    .catch((errno) => {
-      console.log(`Register Error: ${errno}`)
-      let error = "Error"
-      if(errno == 1062) { error = "That email address is taken, Sorry" }
-      res.render('register', {
-        title: 'Register',
-        error: error
-      })
-    })  
+  })
+  .catch((errno) => {
+    console.log(`Register Error: ${errno}`)
+    let error = "Error"
+    if(errno == 1062) { error = "That email address is taken, Sorry" }
+    res.render('register', {
+      title: 'Register',
+      error: error
+    })
+  }) 
+   
 });
 
 module.exports = router;

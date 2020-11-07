@@ -5,7 +5,11 @@ var db = require('./../db/login')
 
 /* GET */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Login' });
+  if (req.isAuthenticated()) {
+    res.redirect('/')
+  } else {
+    res.render('login', { title: 'Login' });
+  }
 });
 
 /* POST */

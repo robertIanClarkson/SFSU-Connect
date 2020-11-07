@@ -5,22 +5,21 @@ const login = require('./../../db/login')
 //set up database actions for user
 
 passport.serializeUser((user, done) => {
-  console.log('Login Success')
+  console.log('serialize')
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('Logout Success')
+  console.log('deserialize')
   login.getUserWithID(id)
-    .then(({ id, username }) => done(null, { id, username }))
+    .then((user) => done(null, user))
     .catch(error => done(error));
 });
 
 // Login
 passport.use(new LocalStrategy({
   usernameField: 'email',
-  passwordField: 'password',
-  session: false
+  passwordField: 'password'
 },
 function(username, password, done) {
   let email = username // passport bullshit

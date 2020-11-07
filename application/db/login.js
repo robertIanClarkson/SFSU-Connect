@@ -5,10 +5,18 @@ function getUserWithID(id) {
   return new Promise((resolve, reject) => {
     db.query(sqlCommand)
       .then((rows) => {
-        console.log(rows[0])
+        if(rows.length == 0) {
+          reject(`(x) ERROR --> No user with: id=${id}`)
+        }
+        if(rows.length == 1) {
+          resolve(rows[0])
+        }
+        else {
+          reject(`(x) ERROR --> More than one user with: id=${id}`)
+        }
       })
       .catch((err) => {
-        console.log(err)
+        reject(`(x) ERROR --> DB call failed: id=${id}`)
       })
   });
 }
@@ -19,17 +27,17 @@ function getUserWithEmail(email) {
     db.query(sqlCommand)
       .then((rows) => {
         if(rows.length == 0) {
-          reject(`(x) ERROR --> No user with: ${email}`)
+          reject(`(x) ERROR --> No user with: email=${email}`)
         }
         if(rows.length == 1) {
           resolve(rows[0])
         }
         else {
-          reject(`(x) ERROR --> More than one user with: ${email}`)
+          reject(`(x) ERROR --> More than one user with: email=${email}`)
         }
       })
       .catch((err) => {
-        reject(`(x) ERROR --> DB call failed: ${email}`)
+        reject(`(x) ERROR --> DB call failed: email=${email}`)
       })
   })
 }

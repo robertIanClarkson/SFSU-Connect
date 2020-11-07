@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var session = require('express-session');
+// var MemoryStore = require('memorystore')(session);
+
 var passport = require('./config/passport'); 
 
 var indexRouter = require('./routes/index');
@@ -26,6 +28,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({ 
+  secret: 'ssssh', 
+  resave: true, 
+  saveUninitialized: true
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
