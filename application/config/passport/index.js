@@ -5,13 +5,12 @@ const login = require('./../../db/login')
 //set up database actions for user
 
 passport.serializeUser((user, done) => {
-  // console.log(user)
-  console.log('serialize')
+  console.log('Login Success')
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('deserialize')
+  console.log('Logout Success')
   login.getUserWithID(id)
     .then(({ id, username }) => done(null, { id, username }))
     .catch(error => done(error));
@@ -24,7 +23,6 @@ passport.use(new LocalStrategy({
   session: false
 },
 function(username, password, done) {
-  console.log('use')
   let email = username // passport bullshit
   login.getUserWithEmail(email)
     .then((user) => {
@@ -36,16 +34,12 @@ function(username, password, done) {
           last_name: user.last_name
         })
       } else {
-        return done(null, false, {
-          error: 'password incorrect'
-        })
+        return done(null, false)
       }
     })
     .catch((err) => {
       console.log(err)
-      done(null, false, {
-        error: 'email incorrect'
-      })
+      done(null, false)
     })
 }
 ));
