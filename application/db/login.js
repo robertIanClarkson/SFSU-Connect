@@ -1,5 +1,32 @@
 var db = require('./index')
 
+function getUserWithID(id) {
+  let sqlCommand = `SELECT * FROM user WHERE id='${id}'`
+  return new Promise((resolve, reject) => {
+    db.query(sqlCommand)
+      .then((rows) => {
+        console.log(rows[0])
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  });
+}
+
+function getUserWithEmail(email) {
+  let sqlCommand = `SELECT id, email, password FROM user WHERE email='${email}'`
+  return new Promise((resolve, reject) => {
+    db.query(sqlCommand)
+      .then((rows) => {
+        // console.log(rows[0])
+        resolve(rows[0])
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  })
+}
+
 function checkEmail(email) {
   let sqlCommand = `SELECT COUNT (id) AS numUsers
                     FROM user
@@ -30,6 +57,8 @@ function checkPassword(email, password) {
 }
 
 module.exports = {
+  getUserWithID,
+  getUserWithEmail,
   checkEmail,
   checkPassword
 }
