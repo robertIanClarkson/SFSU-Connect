@@ -7,15 +7,8 @@ var router = express.Router();
 // });
 
 router.get('/', function(req, res, next) {
-    // res.render('landing', { title: 'Landing' });
-    if (req.isAuthenticated()) {
-      res.redirect('/lobby');
-    } else {
-      res.render('login');
-    }
+    res.render('landing', { title: 'Home' });
 });
-
-
 
 /* POST */
 // PRIORITY 1
