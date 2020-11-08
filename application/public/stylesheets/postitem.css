@@ -4,3 +4,13 @@
     padding: 20px;
     color: white;
 }
+
+.DescriptionArea{
+    background-color: white;
+    height: 150px;
+    
+}
+
+.ItemName{
+    width: 400px;
+}

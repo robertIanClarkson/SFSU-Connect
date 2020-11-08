@@ -2,6 +2,7 @@ extends layout
 
 block content   
     .row
+        p
         form(action="/item/new", method="post")
             .col.s5.push-s1
                 img(src="/images/itemplaceholder.png")
@@ -9,16 +10,16 @@ block content
             
         
             .col.row.s5.push-s1
-                h7 ITEM NAME:  
-                input(type='textarea', name = "itemname", required)
+                h7 ITEM NAME:
+                p  
+                input(type='textarea' , class ="ItemName" , name = "itemname", required)
                 p
-
                 h7 DESCRIPTION: 
-                input(type='textarea', name = "description" ,required)
+                textarea(name="description", class="DescriptionArea", required)
                 p
                 
-                h7 PRICE: 
-                input(type='textarea', name = "price" , required)
+                h7 PRICE $ 
+                input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
                 p
 
                 h7 Choose A Category: 
