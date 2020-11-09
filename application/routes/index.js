@@ -72,7 +72,7 @@ router.post('/search', function(req, res, next) {
 });
 
 router.post('/landing', function(req, res, next) {
-  test.getLatest().then((rows) => {    
+  test.getLatest().then((rows) => {
     res.send(rows)
   })
 });
