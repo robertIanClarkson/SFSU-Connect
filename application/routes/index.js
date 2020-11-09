@@ -30,8 +30,8 @@ router.get('/register', function(req, res, next) {
 });
 
 /* http://localhost:3000/test */
-router.get('/postitem', function(req, res, next) {
-  res.render('postitem', { title: 'PostingItem' });
+router.get('/newItem', function(req, res, next) {
+  res.render('newItem', { title: 'PostingItem' });
 });
 
 /* http://localhost:3000/test */
@@ -40,8 +40,8 @@ router.get('/footer', function(req, res, next) {
 });
 
 /* http://localhost:3000/test */
-router.get('/thankyouforposting', function(req, res, next) {
-  res.render('thankyouforposting', { title: 'thankyouforposting' });
+router.get('/thankyou', function(req, res, next) {
+  res.render('thankyou', { title: 'thankyouforposting' });
 });
 
 /* http://localhost:3000/navbar */
@@ -60,8 +60,8 @@ router.get('/login', function(req, res, next) {
 });
 
 /* http://localhost:3000/test */
-router.get('/viewItem', function(req, res, next) {
-  res.render('viewItem', { title: 'viewItem' });  
+router.get('/item', function(req, res, next) {
+  res.render('item', { title: 'viewItem' });  
 });
 
 router.post('/search', function(req, res, next) {
