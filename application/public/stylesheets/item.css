@@ -11,7 +11,7 @@
     background-color: blueviolet;
     border-radius: 50px;
 }
-img{
+#img{
     max-height: 30vmax;
     border: 20px;
     height: 50vmax;
@@ -19,20 +19,20 @@ img{
     max-width: 90%;
     object-fit: contain;
 }
-p {
+#p {
     background-color: deeppink;
     border-radius: 15px;
     padding: 15px;
     margin: 20px;
 }
-h3 {
+#h3 {
     background-color: deeppink;
     border-radius: 10px;
     padding: 10px;
     margin: 20px;
     width: 100px;
 }
-button {
+#button {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 48px;
@@ -41,7 +41,7 @@ button {
     padding: 10px;
     margin: 20px;
 }
-h4{
+#h4{
     margin-left: 20px;
 }
 .desc{

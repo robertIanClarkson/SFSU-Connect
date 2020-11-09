@@ -1,18 +1,28 @@
 extends layout
 
 block content
+	// --------------------------CSS---------------------------------
+	link(rel='stylesheet', href='/stylesheets/item.css')
+	// --------------------------CSS---------------------------------
+
+	//---------------------------	CONTENT----------------------------
 	link(rel='stylesheet' href='/stylesheets/ItemStyle.css')
 	.div()
 		// split screen in half with 2 floating containers
 		.div(class = "f_right")
-			h4 Title
-			p(class="highlight" id="title") #{item.title}
-			h4 Description
-			p(class="highlight" class="desc" id="description") #{item.description}
-			h3(class="highlight" style="float:left") #{item.price}
-			button#itembutton(style="float:right") Contact
+			h4#h4 Title
+			p#p(class="highlight" id="title") #{item.title}
+			h4#h4 Description
+			p#p(class="highlight" class="desc" id="description") #{item.description}
+			h3#h3(class="highlight" style="float:left") #{item.price}
+			button#itembutton#button(style="float:right") Contact
 
 		.div(class = "f_left")
-			img(src=item.image alt="this if image does not exist")
+			img#img(src=item.image alt="this if image does not exist")
 			<textarea id="textarea1" class="materialize-textarea"></textarea>
 			<label for="textarea1">Textarea</label>
+	//---------------------------	CONTENT----------------------------
+
+	//---------------------------	JS ----------------------------
+
+	//---------------------------	JS ----------------------------
