@@ -71,10 +71,14 @@ router.post('/search', function(req, res, next) {
   })
 });
 
-router.post('/landing', function(req, res, next) {
-  test.getLatest().then((rows) => {
-    res.send(rows)
-  })
+router.get("/landing", function (req, res, next) {
+  test.getLatest().then((items) => {
+    res.render("landing", { 
+      title: "Home", 
+      latestNum: 8, 
+      items: items 
+    });
+  });
 });
 
 module.exports = router;
