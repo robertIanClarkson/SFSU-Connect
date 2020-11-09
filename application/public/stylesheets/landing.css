@@ -1,14 +1,14 @@
-.welcome-text {
+#welcome-text {
   background-color: #4e0d3a;
   text-align: center;
   color: #fafafa;
 }
 
-.item-list {
+#item-list {
   color: #5d1049;
 }
 
-.card-content {
+#card-content {
   color: #000000;
 }
 
