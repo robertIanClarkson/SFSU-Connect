@@ -1,16 +1,16 @@
-.Buttons{
+#Buttons{
     border-radius: 25px;
     background:purple;
     padding: 20px;
     color: white;
 }
 
-.DescriptionArea{
+#DescriptionArea{
     background-color: white;
     height: 150px;
     
 }
 
-.ItemName{
+#ItemName{
     width: 400px;
 }

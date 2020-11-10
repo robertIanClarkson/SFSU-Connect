@@ -1,78 +1,82 @@
 extends layout
 
 block content   
-    .row
-        p
-        form(action="/item/new", method="post")
-            .col.s5.push-s1
-                img(src="/images/itemplaceholder.png")
-                input(type='file', name = "uploadImage", accept = 'image/png, image/jpg', required)
+  //--------------------------- CSS--------------------------
+  link(rel='stylesheet', href='/stylesheets/postitem.css')
+
+  //--------------------------Content
+  .row
+    p
+    form(action="/item/new", method="post")
+      .col.s5.push-s1
+        img(src="/images/itemplaceholder.png")
+        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg', required)
             
         
-            .col.row.s5.push-s1
-                h7 ITEM NAME:
-                p  
-                input(type='textarea' , class ="ItemName" , name = "itemname", required)
-                p
-                h7 DESCRIPTION: 
-                textarea(name="description", class="DescriptionArea", required)
-                p
+      .col.row.s5.push-s1
+        h7 ITEM NAME:
+        p  
+        input(type='textarea' , ID = "ItemName" , name = "itemname", required)
+        p
+        h7 DESCRIPTION: 
+        textarea(name="description", ID="DescriptionArea", required)
+        p
                 
-                h7 PRICE $ 
-                input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
-                p
+        h7 PRICE $ 
+        input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
+        p
 
-                h7 Choose A Category: 
-                    p
-                    a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
-                        .row
-                            .col.s2
-                                i#trigger-icon.material-icons trip_origin 
-                            .col.s10
-                                span#trigger-cat.left All
-                    ul#category-dropdown(class='dropdown-content' required)
-                        li
-                            a#all-catpost
-                                i.material-icons trip_origin 
-                                |All
-                        li
-                            a#art-catpost
-                                i.material-icons palette 
-                                |Art
+        h7 Choose A Category: 
+        p
+        a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
+          .row
+            .col.s2
+              i#trigger-icon.material-icons trip_origin 
+            .col.s10
+              span#trigger-cat.left All
+        ul#category-dropdown(class='dropdown-content' required)
+          li
+            a#all-catpost
+              i.material-icons trip_origin 
+              |All
+          li
+            a#art-catpost
+              i.material-icons palette 
+              |Art
 
-                        li
-                            a#books-catpost
-                                i.material-icons book 
-                                |Books
-                        li
-                            a#clothes-catpost
-                                i.material-icons checkroom 
-                                |Clothes
-                        li
-                            a#electronics-catpost
-                                i.material-icons camera_alt 
-                                |Electronics
-                        li
-                            a#home-catpost
-                                i.material-icons countertops 
-                                |Home &amp; Kitchen
-                        li
-                            a#misc-catpost
-                                i.material-icons pedal_bike 
-                                |Miscellaneous
-                        li
-                            a#toys-catpost
-                                i.material-icons sports_esports 
-                                |Toys &amp; Games
-                        li
-                            a#tutoring-catpost
-                                i.material-icons face 
-                                |Tutoring
+          li
+            a#books-catpost
+              i.material-icons book 
+              |Books
+          li
+            a#clothes-catpost
+              i.material-icons checkroom 
+              |Clothes
+          li
+            a#electronics-catpost
+              i.material-icons camera_alt 
+              |Electronics
+          li
+            a#home-catpost
+              i.material-icons countertops 
+              |Home &amp; Kitchen
+          li
+            a#misc-catpost
+              i.material-icons pedal_bike 
+              |Miscellaneous
+          li
+            a#toys-catpost
+              i.material-icons sports_esports 
+              |Toys &amp; Games
+          li
+            a#tutoring-catpost
+              i.material-icons face 
+              |Tutoring
                     
-                .row
-                    .col.push-s4
-                        p
-                        button(class= "Buttons" type = 'submit') SUBMIT
-    
+        .row
+          .col.push-s4
+            p
+            button(ID = "Buttons" type = 'submit') SUBMIT
+    //---------------------Javascript-------------------
 
     script(src='javascripts/postitem.js')
