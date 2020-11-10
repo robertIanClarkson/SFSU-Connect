@@ -8,7 +8,7 @@ block content
   .row
     .col.s5.push-s6    
       .registerForm
-        form(action="register", method="post")
+        form(action="/register", method="post")
           h2 Join Us!
                 
           h6.red-text #{error}
@@ -39,9 +39,9 @@ block content
                 button(class= "registerButton" id='submitregister' type='submit' disabled) Register
   
               .col.s9.push-s2
-                a(href='login') Already have an account? Log In!
+                a(href='/login') Already have an account? Log In!
   // -------------------------------------------------------------------------
 
   // -----------------------------JAVASCRIPT----------------------------------
-  script(src='javascripts/register.js')
+  script(src='/javascripts/register.js')
   // -------------------------------------------------------------------------

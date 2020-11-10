@@ -7,7 +7,7 @@ block content
   // -----------------------------CONTENT-------------------------------------
   .row
     .loginForm.col.s4.white.push-s8.rounded
-      form(action="login", method="post")
+      form(action="/login", method="post")
         h2 Login
       
         h6.red-text #{error}
@@ -25,7 +25,7 @@ block content
           button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
         
         .row
-          a.href.right(href="register") Don't have an account? Sign up
+          a.href.right(href="/register") Don't have an account? Sign up
   // -------------------------------------------------------------------------
   
   // -----------------------------JAVASCRIPT----------------------------------
