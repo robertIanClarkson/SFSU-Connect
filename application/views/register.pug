@@ -1,38 +1,39 @@
 extends layout
 block content
-    .row
-        .col.s6.push-s6
-            .registerForm
-                h2 Join Us!
-            
-                h5 First Name 
-                input(type='text', name = "fname",  placeholder='enter your first name')
+  .row
+    .col.s5.push-s6    
+      .registerForm
+        form(action="register", method="post")
+          h2 Join Us!
+                
+          h6.red-text #{error}
 
-                h5 Last Name 
-                input(type='text', name = "lname", placeholder='enter your last name')
+          h5 First Name
+            input(type='text', name = "first",  placeholder='enter your first name', required)
 
-                h5 SFSU Email 
-                input(type='email', name = "email", placeholder='enter your SFSU email')
+            h5 Last Name 
+            input(type='text', name = "last", placeholder='enter your last name', required)
 
-                h5 Password 
-                input(type='text', name = "password", placeholder='choose a password')
+            h5 SFSU Email 
+            input(type='text', name = "email", placeholder='enter your SFSU email', required, pattern='^[a-zA-Z0-9]+@mail.sfsu.edu')
 
-                h5 Confirm Password 
-                input(type='text', name = "confirmpassword", placeholder='confirm your password')
+            h5 Password 
+            input(type='password', name = "password", id = "pw1", placeholder='choose a password', required)
 
-                p
+            h5 Confirm Password 
+            input(type='password', name = "confirmpassword", id = "pw2", placeholder='confirm your password', required, onchange='check();')
 
-                <label>
-                    input(type="checkbox")
-                    <span> </span>
-                </label>
+            label
+              input(type="checkbox" , required)
+              span I Agree to 
 
-                a(href='TermsConditions') Terms and Conditions 
-                p
+            a(href='TermsConditions')  Terms and Conditions 
+                  
+            .row            
+              .col.s9.push-s4
+                button(class= "registerButton" id='submitregister' type='submit' disabled) Register
+  
+              .col.s9.push-s2
+                a(href='login') Already have an account? Log In!
 
-                .row            
-                    .col.s9.push-s4
-                          button(class = "registerButton" type = 'submit') Register
-                p
-                    .col.s9.push-s3
-                        a(href='login') Already have an account? Log In 
+    script(src='javascripts/register.js')
