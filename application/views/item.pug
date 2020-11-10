@@ -6,21 +6,20 @@ block content
 	// --------------------------CSS---------------------------------
 
 	// ---------------------------	CONTENT----------------------------
-	link(rel='stylesheet' href='/stylesheets/ItemStyle.css')
-	.div()
+	.row
 		// split screen in half with 2 floating containers
-		.div(id = "f_right")
-			h4#h4 Title
-			p#p(class="highlight" id="title") #{item.title}
-			h4#h4 Description
-			p#p(class="highlight" id="desc" id="description") #{item.description}
-			h3#h3(class="highlight" style="float:left") #{item.price}
-			button#itembutton#button(style="float:right") Contact
+		#infoBox
+			h4#header Title
+			p#title(class="highlight") #{item.title}
+			h4#header Description
+			p#description(class="highlight") #{item.description}
+			h3#price(class="highlight" style="float:left") #{item.price}
+			button#itembutton(style="float:right") Contact
 
-		.div(id = "f_left")
-			img#img(src=item.image alt="this if image does not exist")
-			<textarea id="textarea1" class="materialize-textarea"></textarea>
-			<label for="textarea1">Textarea</label>
+		#imageBox
+			img#image(src=item.image alt="this if image does not exist")
+			textarea#textarea1.materialize-textarea
+			label(for='textarea1') Textarea
 	// ---------------------------	CONTENT----------------------------
 
 	// ---------------------------	JS ----------------------------

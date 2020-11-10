@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
     res.render('landing', { title: 'Home' });
 });
 
+router.get('/item', function(req, res, next) {
+  res.render('item', { title: 'Home' });
+});
+
 /* POST */
 // PRIORITY 1
 router.post('/search', function(req, res, next) {
