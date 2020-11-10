@@ -57,15 +57,14 @@ function getSearchResults(category, text) {
 }
 
 /**
- * getLatest() function:
- * 
- *  This function is use to grab the 8 latest row from the item db
- *  and return it to display in the landing page 
+ *  Function getItem():
+ *    This function will get the item base on the item name 
+ *    and give back the info to post on viiewItem page
  * 
  */
-function getLatest() {
+function getItem(item) {
   return new Promise((resolve, reject) => {
-    db.query(`SELECT TOP 8 * FROM test_table`)
+    db.query(`SELECT * FROM test_table`)
     .then((rows) => {
       // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
       console.log(`(+) pulled from db --> ${rows.length} records`)
@@ -82,5 +81,5 @@ module.exports = {
   insert,
   getAll,
   getSearchResults,
-  getLatest
+  getItem
 }
