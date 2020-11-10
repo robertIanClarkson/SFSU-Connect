@@ -1,21 +1,33 @@
 extends layout
 block content
-    link(rel='stylesheet', href='/stylesheets/login.css')
-    include navbar
-    .row
-    .row
-        .loginForm.col.s4.white.push-s8.rounded
-    
-            h5 SFSU Email 
-            input(type='email', name = "email", placeholder='enter your SFSU email')
+  // -----------------------------CSS-----------------------------------------
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  // -------------------------------------------------------------------------
 
-            h5 Password 
-            input(type='text', name = "password", placeholder='choose a password')
+  // -----------------------------CONTENT-------------------------------------
+  .row
+    .loginForm.col.s4.white.push-s8.rounded
+      form(action="login", method="post")
+        h2 Login
+      
+        h6.red-text #{error}
+      
+        h5 SFSU Email 
+        input.validate(type='email', name = "email", placeholder='enter your SFSU email', required)
 
-            a(href= '#') Forgot Password?
-            p
-            .row
-                button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
-            p
-            .row
-                a.right don't have an account? Sign up
+        h5 Password 
+        input.validate(type='text', name = "password", placeholder='choose a password', required)
+
+        a(href= '#') Forgot Password?
+        
+        .row
+          a.href.right(href="/")
+          button.btn-large.deep-purple.right.rounded(type = 'submit') Log in
+        
+        .row
+          a.href.right(href="register") Don't have an account? Sign up
+  // -------------------------------------------------------------------------
+  
+  // -----------------------------JAVASCRIPT----------------------------------
+  
+  // -------------------------------------------------------------------------

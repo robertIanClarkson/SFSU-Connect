@@ -1,4 +1,4 @@
-var db = require('./../index')
+var db = require('./../db')
 
 function insert(name, message) {
   return new Promise((resolve, reject) => {
@@ -56,8 +56,30 @@ function getSearchResults(category, text) {
   })
 }
 
+/**
+ *  Function getItem():
+ *    This function will get the item base on the item name 
+ *    and give back the info to post on viiewItem page
+ * 
+ */
+function getItem(item) {
+  return new Promise((resolve, reject) => {
+    db.query(`SELECT * FROM test_table`)
+    .then((rows) => {
+      // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
+      console.log(`(+) pulled from db --> ${rows.length} records`)
+      resolve(rows)
+    })
+    .catch((err) => {
+      console.log(`(x) Failed to pull from db --> ${err}`)
+      reject(err)
+    })
+  })
+}
+
 module.exports = {
   insert,
   getAll,
-  getSearchResults
+  getSearchResults,
+  getItem
 }
