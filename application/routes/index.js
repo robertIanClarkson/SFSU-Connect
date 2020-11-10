@@ -15,9 +15,9 @@ router.get('/', function(req, res, next) {
 router.post('/search', function(req, res, next) {
   console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
   let searchData = req.body
-  test.getSearchResults(searchData.category, searchData.text).then((rows) => {    
-    res.send(rows)
-  })
+//   test.getSearchResults(searchData.category, searchData.text).then((rows) => {    
+//     res.send(rows)
+//   })
 });
 
 module.exports = router;
