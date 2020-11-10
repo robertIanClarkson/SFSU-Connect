@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	// --------------------------CSS---------------------------------
+	link(rel='stylesheet', href='/stylesheets/item.css')
+	// --------------------------CSS---------------------------------
+
+	// ---------------------------	CONTENT----------------------------
+	.row
+		// split screen in half with 2 floating containers
+		#infoBox
+			h4#header Title
+			p#title(class="highlight") #{item.title}
+			h4#header Description
+			p#description(class="highlight") #{item.description}
+			h3#price(class="highlight" style="float:left") #{item.price}
+			button#itembutton(style="float:right") Contact
+
+		#imageBox
+			img#image(src=item.image alt="this if image does not exist")
+			textarea#textarea1.materialize-textarea
+			label(for='textarea1') Textarea
+	// ---------------------------	CONTENT----------------------------
+
+	// ---------------------------	JS ----------------------------
+
+	// ---------------------------	JS ----------------------------
