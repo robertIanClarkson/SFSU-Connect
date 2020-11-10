@@ -1,5 +1,10 @@
 extends layout
 block content
+  // -----------------------------CSS-----------------------------------------
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  // -------------------------------------------------------------------------
+
+  // -----------------------------CONTENT-------------------------------------
   .row
     .col.s5.push-s6    
       .registerForm
@@ -35,5 +40,8 @@ block content
   
               .col.s9.push-s2
                 a(href='login') Already have an account? Log In!
+  // -------------------------------------------------------------------------
 
-    script(src='javascripts/register.js')
+  // -----------------------------JAVASCRIPT----------------------------------
+  script(src='javascripts/register.js')
+  // -------------------------------------------------------------------------
