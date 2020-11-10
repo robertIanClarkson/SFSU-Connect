@@ -16,7 +16,7 @@ block content
       .col.row.s5.push-s1
         h7 ITEM NAME:
         p  
-        input(type='textarea' , ID = "ItemName" , name = "itemname", required)
+        input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
         p
         h7 DESCRIPTION: 
         textarea(name="description", ID="DescriptionArea", required)
@@ -76,7 +76,7 @@ block content
         .row
           .col.push-s4
             p
-            button(ID = "Buttons" type = 'submit') SUBMIT
+            button(ID = "PostItemButton" type = 'submit') SUBMIT
     //---------------------Javascript-------------------
 
     script(src='javascripts/postitem.js')

@@ -1,4 +1,4 @@
-#Buttons{
+#PostItemButton{
     border-radius: 25px;
     background:purple;
     padding: 20px;
@@ -11,6 +11,6 @@
     
 }
 
-#ItemName{
+#PostItemName{
     width: 400px;
 }
