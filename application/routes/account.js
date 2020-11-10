@@ -4,25 +4,25 @@ var router = express.Router();
 /* GET */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('account', { title: 'Account' });
+    res.render('account', { title: 'Account' })
   } else {
-    res.render('login', { title: 'Login' });
+    res.redirect('login')
   }
 });
 
 router.get('/items', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('inbox', { title: 'Inbox' });
+    res.render('userItems', { title: 'Inbox' })
   } else {
-    res.render('login', { title: 'Login' });
+    res.redirect('login')
   }
 });
 
 router.get('/inbox', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('inbox', { title: 'Inbox' });
+    res.render('inbox', { title: 'Inbox' })
   } else {
-    res.render('login', { title: 'Login' });
+    res.redirect('login')
   }
   
 });
