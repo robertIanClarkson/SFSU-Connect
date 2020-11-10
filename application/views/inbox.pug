@@ -2,6 +2,12 @@ extends layout
 
 block content
     //- Square cards
+
+    // ---------------------------- INBOX ------------------------
+    link(rel='stylesheet', href='/stylesheets/inbox.css')
+    // ---------------------------- INBOX ------------------------
+
+    // -------------------------- CONTENT ------------------------
     .row
         .col.s1 1
         .col.s1 2
@@ -21,12 +27,6 @@ block content
             .inbox
                 i.small.material-icons mail
                 |  Inbox
-        .col.s10
-            .subject
-                p Subject
-
-    .row
-        .col.s2
             .inbox-list
                 ul 
                     li 
@@ -36,9 +36,33 @@ block content
                     li
                     i.small.material-icons mail
                     |  Amy
-
         .col.s10
+            .subject
+                p Subject
             .mail-body
                 | this is the body of the email 
 
                 | assdasdasd
+
+    //- .row
+    //-     .col.s2
+    //-         .inbox-list
+    //-             ul 
+    //-                 li 
+    //-                 i.small.material-icons mail
+    //-                 |  Inbox
+
+    //-                 li
+    //-                 i.small.material-icons mail
+    //-                 |  Amy
+
+    //-     .col.s10
+    //-         .mail-body
+    //-             | this is the body of the email 
+
+    //-             | assdasdasd
+    // -------------------------- CONTENT ------------------------
+
+    // ---------------------------- JS ---------------------------
+    
+    // ---------------------------- JS ---------------------------
