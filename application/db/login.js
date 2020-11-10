@@ -1,4 +1,4 @@
-var db = require('./index')
+var db = require('./db')
 
 function getUserWithID(id) {
   let sqlCommand = `SELECT * FROM user WHERE id='${id}'`

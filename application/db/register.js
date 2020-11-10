@@ -1,4 +1,4 @@
-var db = require('./index')
+var db = require('./db')
 
 function newUser(first, last, email, password) {
   let sqlCommand = `INSERT INTO user 

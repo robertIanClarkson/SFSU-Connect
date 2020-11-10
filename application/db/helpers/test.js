@@ -1,4 +1,4 @@
-var db = require('./../index')
+var db = require('./../db')
 
 function insert(name, message) {
   return new Promise((resolve, reject) => {
