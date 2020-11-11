@@ -2,7 +2,7 @@ var db = require('./db')
 
 function getNItems(n) {
   return new Promise((resolve, reject) => {
-    db.query(`SELECT item.name AS itemName, item.price, item.image, user.name AS userName
+    db.query(`SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
               FROM item
               JOIN user ON item.user_id = user.id
               ORDER BY item.created DESC
