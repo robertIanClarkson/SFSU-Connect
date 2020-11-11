@@ -10,14 +10,14 @@ block content
 		// split screen in half with 2 floating containers
 		#infoBox
 			h4#header Title
-			p#title(class="highlight") #{item.title}
+			p#title(class="highlight") #{item.name}
 			h4#header Description
 			p#description(class="highlight") #{item.description}
 			h3#price(class="highlight" style="float:left") #{item.price}
 			button#itembutton(style="float:right") Contact
 
 		#imageBox
-			img#image(src=item.image alt="this if image does not exist")
+			img#image(src='/images/items/' + item.image alt="this if image does not exist")
 			textarea#textarea1.materialize-textarea
 			label(for='textarea1') Textarea
 	// ---------------------------	CONTENT----------------------------
