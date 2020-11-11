@@ -14,3 +14,8 @@
 #PostItemName{
     width: 400px;
 }
+
+#PostItemPrice{
+    background-color: white;
+    height: 30px;
+}
