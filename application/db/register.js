@@ -1,10 +1,10 @@
 var db = require('./db')
 
-function newUser(first, last, email, password) {
+function newUser(name, email, password) {
   let sqlCommand = `INSERT INTO user 
-                      (first_name, last_name, email, password) 
+                      (name, email, password) 
                       VALUES
-                      ('${first}', '${last}', '${email}', '${password}');`
+                      ('${name}', '${email}', '${password}');`
   return new Promise((resolve, reject) => {
     db.query(sqlCommand)
       .then(() => {

@@ -30,7 +30,7 @@ var config = {
   host: 'team-1.c04boetuas7w.us-west-1.rds.amazonaws.com',
   user: 'admin',
   password: 'team1_db',
-  database: 'test'
+  database: 'sfsu_connect'
 }
 
 var db = new Database(config)
