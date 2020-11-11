@@ -1,57 +1,57 @@
-var currentCategory = 'All'
+var currentCategoryNewItem = 'All'
 
 $('#category-dropdown-trigger-newItem').dropdown();
 
-$('#all-catpost').click(function() {
-  currentCategory = 'All'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('trip_origin')
+$('#all-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'All'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('trip_origin')
 });
 
-$('#art-catpost').click(function() {
-  currentCategory = 'Art'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('palette')
+$('#art-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Art'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('palette')
 });
 
-$('#books-catpost').click(function() {
-  currentCategory = 'Books'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('book')
+$('#books-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Books'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('book')
 });
 
-$('#clothes-catpost').click(function() {
-  currentCategory = 'Clothes'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('checkroom')
+$('#clothes-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Clothes'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('checkroom')
 });
 
-$('#electronics-catpost').click(function() {
-  currentCategory = 'Electronics'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('camera_alt')
+$('#electronics-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Electronics'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('camera_alt')
 });
 
-$('#home-catpost').click(function() {
-  currentCategory = 'Home & Kitchen'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('countertops')
+$('#home-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Home & Kitchen'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('countertops')
 });
 
-$('#misc-catpost').click(function() {
-  currentCategory = 'Miscellaneous'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('pedal_bike')
+$('#misc-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Miscellaneous'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('pedal_bike')
 });
 
-$('#toys-catpost').click(function() {
-  currentCategory = 'Toys & Games'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('sports_esports')
+$('#toys-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Toys & Games'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('sports_esports')
 });
 
-$('#tutoring-catpost').click(function() {
-  currentCategory = 'Tutoring'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('face')
+$('#tutoring-catpost-newItem').click(function() {
+  currentCategoryNewItem = 'Tutoring'
+  $('#trigger-cat-newItem').text(currentCategoryNewItem)
+  $('#trigger-icon-newItem').text('face')
 });

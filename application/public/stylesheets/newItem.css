@@ -10,6 +10,9 @@
     height: 150px;
     
 }
+#category-dropdown-trigger-newItem {
+    width: 40%;
+}
 
 #PostItemName{
     width: 400px;
