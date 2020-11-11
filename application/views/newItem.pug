@@ -3,8 +3,9 @@ extends layout
 block content   
   //--------------------------- CSS--------------------------
   link(rel='stylesheet', href='/stylesheets/postitem.css')
+  //---------------------------------------------------------
 
-  //--------------------------Content
+  //--------------------------Content------------------------
   .row
     p
     form(action="/item/new", method="post")
@@ -28,13 +29,13 @@ block content
 
         h7 Choose A Category: 
         p
-        a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
+        a#category-dropdown-trigger-newItem(class='dropdown-trigger btn' data-target='category-dropdown')
           .row
             .col.s2
               i#trigger-icon.material-icons trip_origin 
             .col.s10
               span#trigger-cat.left All
-        ul#category-dropdown(class='dropdown-content' required)
+        ul#category-dropdown-newItem(class='dropdown-content' required)
           li
             a#all-catpost
               i.material-icons trip_origin 
@@ -77,6 +78,8 @@ block content
           .col.push-s4
             p
             button(ID = "PostItemButton" type = 'submit') SUBMIT
-    //---------------------Javascript-------------------
+    //---------------------------------------------------------
 
-    script(src='javascripts/postitem.js')
+    //---------------------Javascript-------------------
+    script(src='javascripts/newItem.js')
+    //---------------------------------------------------------
