@@ -4,7 +4,10 @@ var router = express.Router();
 /* GET */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('account', { title: 'Account' })
+    res.render('account', { 
+      title: 'Account',
+      user: req.user
+    })
   } else {
     res.redirect('login')
   }
