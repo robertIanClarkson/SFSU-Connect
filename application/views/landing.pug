@@ -33,13 +33,16 @@ block content
       // the code below are the hard code for 8 item to show
       #itemCard
         .row
-          each item in items
-            .col.s12.m6.l4
-              .card
-                .card-image
-                  img(src="../images/items/" + item.image)
-                .card-title= item.itemName
-                .card-content= item.userName
+          if items
+            each item in items
+              .col.s12.m6.l4
+                .card
+                  .card-image
+                    img(src="/images/items/" + item.image)
+                  .card-title= item.itemName
+                  .card-content= item.userName
+          else
+            h3.center Sorry, there are no items right now
     //- 	.row
     //- 		.col.s3
     //- 			.card
