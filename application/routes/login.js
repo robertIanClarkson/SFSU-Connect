@@ -26,9 +26,11 @@ router.post('/', function(req, res, next) {
       }); 
     }
     req.logIn(user, function(err) {
+      // console.log(user)
+      // console.log(err)
       if (err) { return next(err); }
       // SUCCESS
-      return res.redirect('/');
+      return res.redirect('/')
     });
   })(req, res, next);
 });

@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 // PRIORITY 1
 router.post('/', function(req, res, next) {
   console.log(`POST: 'register' --> ${JSON.stringify(req.body)}`)
-  db.newUser(req.body.first, req.body.last, req.body.email, req.body.password)
+  db.newUser(req.body.name, req.body.email, req.body.password)
   .then((result) => {
     console.log(`register --> ${result}`)
     res.render('landing', {

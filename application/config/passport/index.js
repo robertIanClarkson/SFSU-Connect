@@ -6,14 +6,16 @@ const login = require('./../../db/login')
 
 passport.serializeUser((user, done) => {
   // console.log('serialize')
-  done(null, user.id);
+  done(null, user);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((user, done) => {
   // console.log('deserialize')
-  login.getUserWithID(id)
-    .then((user) => done(null, user))
-    .catch(error => done(error));
+  // console.log(user)
+  done(null, user)
+  // login.getUserWithID(user.id)
+    // .then((user) => done(null, user))
+    // .catch(error => done(new Error(error), false));
 });
 
 // Login
@@ -25,12 +27,13 @@ function(username, password, done) {
   let email = username // passport bullshit
   login.getUserWithEmail(email)
     .then((user) => {
+      // console.log(user)
       if(user.password == password) {
+        // console.log('match')
         return done(null, {
           id: user.id, 
-          email: user.email,
-          first_name: user.first_name,
-          last_name: user.last_name
+          name: user.name,
+          email: user.email
         })
       } else {
         return done(null, false)
