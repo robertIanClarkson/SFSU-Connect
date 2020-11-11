@@ -6,15 +6,16 @@ const login = require('./../../db/login')
 
 passport.serializeUser((user, done) => {
   console.log('serialize')
-  done(null, user.id);
+  done(null, user);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((user, done) => {
   console.log('deserialize')
-  console.log(id)
-  login.getUserWithID(id)
-    .then((user) => done(null, user))
-    .catch(error => done(new Error(error), false));
+  console.log(user)
+  done(null, user)
+  // login.getUserWithID(user.id)
+    // .then((user) => done(null, user))
+    // .catch(error => done(new Error(error), false));
 });
 
 // Login
