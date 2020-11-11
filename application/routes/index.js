@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('./../db/index');
 
 /* GET */
 // router.get('/', function(req, res, next) {
@@ -7,7 +8,19 @@ var router = express.Router();
 // });
 
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Home' });
+  db.getNItems(8)
+  .then((items) => {
+    res.render('landing', { 
+      title: 'Home',
+      items: items
+    });
+  })
+  .catch((err) => {
+    console.log(err)
+    res.render('landing', { 
+      title: 'Home',
+    });
+  })
 });
 
 /* POST */
