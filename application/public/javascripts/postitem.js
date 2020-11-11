@@ -1,3 +1,4 @@
+
 var currentCategory = 'All'
 
 $('#category-dropdown-trigger').dropdown();

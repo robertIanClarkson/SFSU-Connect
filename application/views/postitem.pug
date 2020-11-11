@@ -7,7 +7,7 @@ block content
   //--------------------------Content
   .row
     p
-    form(action="/item/new", method="post")
+    form(action="/item/new", method="post", enctype='multipart/form-data')
       .col.s5.push-s1
         img(src="/images/itemplaceholder.png")
         input(type='file', name = "uploadImage", accept = 'image/png, image/jpg', required)
@@ -23,7 +23,7 @@ block content
         p
                 
         h7 PRICE $ 
-        input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
+        input(type='number', min='0.00' , name = "price", step = "0.01" , required)
         p
 
         h7 Choose A Category: 
@@ -76,7 +76,7 @@ block content
         .row
           .col.push-s4
             p
-            button(ID = "PostItemButton" type = 'submit') SUBMIT
+            button(ID = "PostItemButton" type = 'submit' name='postupload') SUBMIT
     //---------------------Javascript-------------------
 
     script(src='javascripts/postitem.js')
