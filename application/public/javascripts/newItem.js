@@ -1,6 +1,6 @@
 var currentCategory = 'All'
 
-$('#category-dropdown-trigger').dropdown();
+$('#category-dropdown-trigger-newItem').dropdown();
 
 $('#all-catpost').click(function() {
   currentCategory = 'All'
