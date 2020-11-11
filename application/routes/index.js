@@ -10,10 +10,18 @@ var db = require('./../db/index');
 router.get('/', function(req, res, next) {
   db.getNItems(8)
   .then((items) => {
-    res.render('landing', { 
-      title: 'Home',
-      items: items
-    });
+    if (req.isAuthenticated()) {
+      res.render('landing', { 
+        title: 'Home',
+        items: items,
+        user: req.user
+      });
+    } else {
+      res.render('landing', { 
+        title: 'Home',
+        items: items
+      });
+    }
   })
   .catch((err) => {
     console.log(err)

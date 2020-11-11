@@ -30,11 +30,8 @@ function(username, password, done) {
       // console.log(user)
       if(user.password == password) {
         // console.log('match')
-        return done(null, {
-          id: user.id, 
-          name: user.name,
-          email: user.email
-        })
+        console.log(user)
+        return done(null, user)
       } else {
         return done(null, false)
       }

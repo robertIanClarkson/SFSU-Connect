@@ -3,7 +3,14 @@ var router = express.Router();
 
 /* GET */
 router.get('/', function(req, res, next) {
-  res.render('about', { title: 'About Us' });
+  if (req.isAuthenticated()) {
+    res.render('about', { 
+      title: 'About Us',
+      user: req.user
+    });
+  } else {
+    res.render('about', { title: 'About Us' });
+  }
 });
 
 router.get('/:name', function(req, res, next) {

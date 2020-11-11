@@ -15,7 +15,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/items', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('userItems', { title: 'Inbox' })
+    res.render('userItems', { 
+      title: 'Inbox',
+      user: req.user
+    })
   } else {
     res.redirect('login')
   }
@@ -23,11 +26,13 @@ router.get('/items', function(req, res, next) {
 
 router.get('/inbox', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('inbox', { title: 'Inbox' })
+    res.render('inbox', { 
+      title: 'Inbox',
+      user: req.user
+    })
   } else {
     res.redirect('login')
   }
-  
 });
 
 /* POST */
