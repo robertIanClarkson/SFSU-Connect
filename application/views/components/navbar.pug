@@ -12,10 +12,17 @@ link(rel='stylesheet', href='/stylesheets/navbar.css')
         li
           a.about(href="/about") About
         li
-          a.login(href="/login") Sign Out
+          if user
+            form#signout(action="/login/logout", method="post")
+              a.login(href="javascript:$('#signout').submit()") Logout
+          else
+            a.login(href="/login") Login
         li
           a.href(href="/account")
-            img.circle.responsive-img(src='/images/profile_pics/taylor.png' style='height:64px; padding:5px;')
+            if user
+              img.circle.responsive-img(src='/images/profile_pics/' + user.image style='height:64px; padding:5px;')
+            else
+              img.circle.responsive-img(src='/images/profile_pics/none.png' style='height:64px; padding:5px;')
       .col
         include search
  

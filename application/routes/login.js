@@ -35,4 +35,9 @@ router.post('/', function(req, res, next) {
   })(req, res, next);
 });
 
+router.post('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+})
+
 module.exports = router;

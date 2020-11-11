@@ -4,24 +4,50 @@ var router = express.Router();
 /* GET */
 // this will get replaced with below '/:id'
 router.get('/', function(req, res, next) {
-  res.render('item', { title: 'Item' });  
+  if (req.isAuthenticated()) {
+    res.render('item', { 
+      title: 'Item' ,
+      user: req.user
+    }); 
+  } else {
+    res.render('item', { 
+      title: 'Item' 
+    }); 
+  }
 });
 
 router.get('/new', function(req, res, next) {
   if (req.isAuthenticated()) {
-    res.render('newItem', { title: 'New Item' });
+    res.render('newItem', { 
+      title: 'New Item',
+      user: req.user
+    });
   } else {
     res.redirect('/login');
   }
 });
 
 router.get('/thankyou', function(req, res, next) {
-  res.render('thankyou', { title: 'Thanks!' });
+  if (req.isAuthenticated()) {
+    res.render('thankyou', { 
+      title: 'Thanks!',
+      user: req.user
+    });
+  } else {
+    res.render('thankyou', { title: 'Thanks!' })
+  }
 });
 
 router.get('/:id', function(req, res, next) {
   console.log(`GET: 'item/${req.params.id}'`)
-  res.render('item', { title: 'Item' });  
+  if (req.isAuthenticated()) {
+    res.render('item', { 
+      title: 'Item', 
+      user: req.user
+    })
+  } else {
+    res.render('item', { title: 'Item' })  
+  }
 });
 
 
