@@ -7,7 +7,6 @@ var router = express.Router();
 // });
 
 router.get('/', function(req, res, next) {
-    console.log('hello')
     res.render('index', { title: 'Home' });
 });
 

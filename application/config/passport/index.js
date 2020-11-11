@@ -5,13 +5,13 @@ const login = require('./../../db/login')
 //set up database actions for user
 
 passport.serializeUser((user, done) => {
-  console.log('serialize')
+  // console.log('serialize')
   done(null, user);
 });
 
 passport.deserializeUser((user, done) => {
-  console.log('deserialize')
-  console.log(user)
+  // console.log('deserialize')
+  // console.log(user)
   done(null, user)
   // login.getUserWithID(user.id)
     // .then((user) => done(null, user))
@@ -27,9 +27,9 @@ function(username, password, done) {
   let email = username // passport bullshit
   login.getUserWithEmail(email)
     .then((user) => {
-      console.log(user)
+      // console.log(user)
       if(user.password == password) {
-        console.log('match')
+        // console.log('match')
         return done(null, {
           id: user.id, 
           name: user.name,
