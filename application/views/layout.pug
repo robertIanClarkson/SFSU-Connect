@@ -2,7 +2,7 @@ doctype html
 html
   head
     title= title
-
+    
     //- JQuery
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
 
@@ -19,35 +19,6 @@ html
     //- personal css
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-    //- footer css
-    link(rel='stylesheet', href='/stylesheets/footer.css')
-
-    //- postitem css
-    link(rel='stylesheet', href='/stylesheets/postitem.css')
-
-    //- register css
-    link(rel='stylesheet', href='/stylesheets/register.css')
-
-    //- inbox css
-    
-    
-    //- about css
-    link(rel='stylesheet', href='/stylesheets/about.css')
-
-    //- landing css
-    link(rel='stylesheet', href='/stylesheets/landing.css')
-
-    //- Thankyou for posting css
-    link(rel='stylesheet', href='/stylesheets/thankyouforposting.css')
-    
-    //- nav bar css
-    link(rel='stylesheet', href='/stylesheets/navbar.css')
-    
-    //- account css
-    link(rel='stylesheet', href='/stylesheets/account.css')
-
-    //- search css
-    link(rel='stylesheet', href='/stylesheets/category.css')
-  
   body
+    include components/navbar
     block content

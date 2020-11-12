@@ -1,38 +1,26 @@
-var mysql = require('mysql');
+var db = require('./db')
 
-// Learned how to promisify mySQL via:
-// https://codeburst.io/node-js-mysql-and-promises-4c3be599909b
-class Database {
-  constructor(config) {
-    this.connection = mysql.createConnection(config);
-  }
-  query(sql, args) {
-    return new Promise((resolve, reject) => {
-      this.connection.query(sql, args, (err, rows) => {
-        if (err)
-          return reject(err);
-        resolve(rows);
-      });
-    });
-  }
-  close() {
-    return new Promise((resolve, reject) => {
-      this.connection.end(err => {
-        if (err)
-          return reject(err);
-        resolve();
-      });
-    });
-  }
+function getNItems(n) {
+  return new Promise((resolve, reject) => {
+    db.query(`SELECT item.name AS itemName, item.price, item.image, user.name AS userName
+              FROM item
+              JOIN user ON item.user_id = user.id
+              ORDER BY item.created DESC
+              LIMIT ?`, [n])
+      .then((rows) => {
+        if(rows.length == 0) {
+          reject(`(x) ERROR --> Database did not return any items`)
+        }
+        else {
+          resolve(rows)
+        }
+      })
+      .catch((err) => {
+        reject(`(${err}) ERROR --> DB call failed`)
+      })
+  });
 }
 
-var config = {
-  host: 'team-1.c04boetuas7w.us-west-1.rds.amazonaws.com',
-  user: 'admin',
-  password: 'team1_db',
-  database: 'test'
+module.exports = {
+  getNItems
 }
-
-var db = new Database(config)
-
-module.exports = db;
