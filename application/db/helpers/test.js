@@ -33,10 +33,10 @@ function getSearchResults(category, text) {
   return new Promise((resolve, reject) => {
     let sqlCommand
     if(category=='All') {
-      sqlCommand = `SELECT * FROM Items WHERE TRUE`
+      sqlCommand = `SELECT * FROM item WHERE TRUE`
     }
     else {
-      sqlCommand = `SELECT * FROM Items WHERE CategoriesName = '${category}'`
+      sqlCommand = `SELECT * FROM item WHERE CategoriesName = '${category}'`
     }
     let wordsArray = text.split(' ') // break search string into words
     for (word of wordsArray) {

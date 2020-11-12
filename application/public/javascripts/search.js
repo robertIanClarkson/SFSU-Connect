@@ -65,16 +65,10 @@ $('#search-submit').click(function() {
     text: searchText
   }
 
-  $.post( "search", searchData, function( data, status ) {
-    $('#search-results').empty()
-    for(item of data){
-      $('#search-results').append(`<img class="responsive-img" src=images/items/${item.image}>`)
-      $('#search-results').append(`<p>NAME: ${item.name}</p>`)
-      $('#search-results').append(`<p>DESCRIPTION: ${item.description}</p>`)
-      $('#search-results').append(`<p>PRICE: $${item.price}</p>`)
-      $('#search-results').append(`<div class='divider'></div>`)
-    }
-  });
+  $.post( "search", searchData)
+  .done((result) => {
+    $('html').html(result);
+  })
 });
 /***********************DROPDOWN FOR VP**********************/
 
