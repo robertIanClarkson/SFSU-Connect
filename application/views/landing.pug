@@ -37,10 +37,11 @@ block content
             each item in items
               .col.s12.m6.l4
                 .card
-                  .card-image
-                    img(src="/images/items/" + item.image)
-                  .card-title= item.itemName
-                  .card-content= item.userName
+                  a(href="item/" + item.id)
+                    .card-image
+                      img(src="/images/items/" + item.image)
+                    .card-title= item.itemName
+                    .card-content= item.userName
           else
             h3.center Sorry, there are no items right now
     //- 	.row

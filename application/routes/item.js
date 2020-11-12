@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../db/item');
 
 /* GET */
 // this will get replaced with below '/:id'
@@ -40,14 +41,18 @@ router.get('/thankyou', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   console.log(`GET: 'item/${req.params.id}'`)
-  if (req.isAuthenticated()) {
+  db.getItemByID(req.params.id)
+  .then((item) => {
     res.render('item', { 
       title: 'Item', 
-      user: req.user
+      user: req.user,
+      item: item
     })
-  } else {
-    res.render('item', { title: 'Item' })  
-  }
+  })
+  .catch((err) => {
+    console.log(err)
+    res.render('landing', { title: 'Home' });
+  });
 });
 
 

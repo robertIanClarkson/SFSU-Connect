@@ -1,18 +1,15 @@
 var db = require('./db')
 
-function getNItems(n) {
+function getItemByID(id) {
   return new Promise((resolve, reject) => {
-    db.query(`SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
-              FROM item
-              JOIN user ON item.user_id = user.id
-              ORDER BY item.created DESC
-              LIMIT ?`, [n])
+    db.query(`SELECT * FROM item
+              WHERE id = ?`, [id])
       .then((rows) => {
         if(rows.length == 0) {
           reject(`(x) ERROR --> Database did not return any items`)
         }
         else {
-          resolve(rows)
+          resolve(rows[0])
         }
       })
       .catch((err) => {
@@ -22,5 +19,5 @@ function getNItems(n) {
 }
 
 module.exports = {
-  getNItems
+  getItemByID
 }
