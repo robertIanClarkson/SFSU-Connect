@@ -36,7 +36,7 @@ function getSearchResults(category, text) {
       sqlCommand = `SELECT * FROM item WHERE TRUE`
     }
     else {
-      sqlCommand = `SELECT * FROM item WHERE CategoriesName = '${category}'`
+      sqlCommand = `SELECT * FROM item WHERE category_name = '${category}'`
     }
     let wordsArray = text.split(' ') // break search string into words
     for (word of wordsArray) {
