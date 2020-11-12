@@ -37,14 +37,30 @@ router.get('/', function(req, res, next) {
 router.post('/search', function(req, res, next) {
   console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
   let searchData = req.body
-  test.getSearchResults(searchData.category, searchData.text)
-  .then((items) => {
-    console.log('success');
-    res.render('landing', { 
-      title: 'Home',
-      items: items
-    });
-  })
+  db.getNItemsSearch(8,searchData.category,searchData.text)
+      .then((items) => {
+        console.log(items)
+        if (req.isAuthenticated()) {
+          res.redirect('/')
+          res.render('landing', {
+            title: 'Home',
+            items: items,
+            user: req.user
+          });
+        } else {
+          console.log("got to render")
+          res.render('landing', {
+            title: 'Home',
+            items: items
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        res.render('landing', {
+          title: 'Home'
+        });
+      })
 });
 
 module.exports = router;
