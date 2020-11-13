@@ -69,7 +69,7 @@ $('#search-submit').click(function() {
     text: searchText
   }
 
-  window.location.href = (`/search?category=${currentCategory}&text=${searchText}`)
+  window.location.href = (`/search?category=${encodeURIComponent(currentCategory)}&text=${encodeURIComponent(searchText)}`)
 });
 /***********************DROPDOWN FOR VP**********************/
 
