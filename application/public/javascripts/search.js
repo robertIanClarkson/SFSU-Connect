@@ -67,7 +67,7 @@ $('#search-submit').click(function() {
 
   $.post( "search", searchData)
   .done((result) => {
-    $('html').html(result);
+    document.write(result);
   })
 });
 /***********************DROPDOWN FOR VP**********************/
