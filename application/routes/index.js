@@ -15,19 +15,22 @@ router.get('/', function(req, res, next) {
       res.render('landing', { 
         title: 'Home',
         items: items,
+        category: 'All',
         user: req.user
       });
     } else {
       res.render('landing', { 
         title: 'Home',
-        items: items
+        items: items,
+        category: 'All'
       });
     }
   })
   .catch((err) => {
     console.log(err)
     res.render('landing', { 
-      title: 'Home'
+      title: 'Home',
+      category: 'All'
     });
   })
 });
@@ -37,10 +40,10 @@ router.get('/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
   console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
   console.log(req.query)
-  console.log(Object.keys(req.query).length)
+  // console.log(Object.keys(req.query).length)
   searchData = req.query
 
-  test.getSearchResults(searchData.category, searchData.text,searchData.type)
+  test.getSearchResults(searchData.category, searchData.text,searchData.filter)
   .then((items) => {
     // console.log(items);
     if(req.isAuthenticated()) {
@@ -48,13 +51,16 @@ router.get('/search', function(req, res, next) {
         title: 'Home',
         items: items,
         user: req.user,
-        data:searchData.text
+        category: searchData.category,
+        search: searchData.text
       });
     } else {
       res.render('landing', {
         title: 'Home',
         items: items,
-        data:searchData.text
+        data:searchData.text,
+        category: searchData.category,
+        search: searchData.text
       });
     }
 

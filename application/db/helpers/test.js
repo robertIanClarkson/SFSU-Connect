@@ -46,16 +46,16 @@ function getSearchResults(category, text, input = '4') {
       sqlCommand += ` AND ( item.name LIKE '%${word}%' OR description LIKE '%${word}%' )`
     }
     switch (input) {
-      case '1':
+      case 'price:high->low':
         sqlCommand += ` ORDER BY item.price DESC`
         break;
-      case '2':
+      case 'price:low->high':
         sqlCommand += ` ORDER BY item.price ASC`
         break;
-      case '3':
+      case 'date:old->new':
         sqlCommand += ` ORDER BY item.created ASC`
         break;
-      case '4':
+      case 'date:new->old':
         sqlCommand += ` ORDER BY item.created DESC`
         break;
       default:
