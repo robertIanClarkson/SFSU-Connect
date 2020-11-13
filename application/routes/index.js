@@ -9,11 +9,14 @@ var test = require('../db/helpers/test');
 // });
 
 router.get('/', function(req, res, next) {
-  test.getSearchResults('All', "")
-    .then((items) => {
+  Promise.all([
+    test.getSearchResults('All', ""),
+    db.numItems_N_days(100)
+  ]).then(([items, numItems]) => {
       if (req.isAuthenticated()) {
         res.render('landing', { 
           title: 'Home',
+          numItems: numItems,
           items: items,
           category: 'All',
           user: req.user
@@ -21,6 +24,7 @@ router.get('/', function(req, res, next) {
       } else {
         res.render('landing', { 
           title: 'Home',
+          numItems: numItems,
           items: items,
           category: 'All'
         });
