@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('./../db/index');
+var test = require('../db/helpers/test');
 
 /* GET */
 // router.get('/', function(req, res, next) {
@@ -33,12 +34,18 @@ router.get('/', function(req, res, next) {
 
 /* POST */
 // PRIORITY 1
-router.post('/search', function(req, res, next) {
+router.get('/search', function(req, res, next) {
   console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
-  let searchData = req.body
-//   test.getSearchResults(searchData.category, searchData.text).then((rows) => {    
-//     res.send(rows)
-//   })
+  console.log(req.query)
+  let searchData = req.query
+  test.getSearchResults(searchData.category, searchData.text)
+  .then((items) => {
+    console.log(items);
+    res.render('landing', { 
+      title: 'Home',
+      items: items
+    });
+  })
 });
 
 module.exports = router;
