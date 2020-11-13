@@ -29,50 +29,18 @@ block content
 
         h7 Choose A Category: 
         p
-        a#category-dropdown-trigger-newItem(class='dropdown-trigger btn' data-target='category-dropdown')
-          .row
-            .col.s2
-              i#trigger-icon.material-icons trip_origin 
-            .col.s10
-              span#trigger-cat.left All
-        ul#category-dropdown-newItem(class='dropdown-content' required)
-          li
-            a#all-catpost
-              i.material-icons trip_origin 
-              |All
-          li
-            a#art-catpost
-              i.material-icons palette 
-              |Art
 
-          li
-            a#books-catpost
-              i.material-icons book 
-              |Books
-          li
-            a#clothes-catpost
-              i.material-icons checkroom 
-              |Clothes
-          li
-            a#electronics-catpost
-              i.material-icons camera_alt 
-              |Electronics
-          li
-            a#home-catpost
-              i.material-icons countertops 
-              |Home &amp; Kitchen
-          li
-            a#misc-catpost
-              i.material-icons pedal_bike 
-              |Miscellaneous
-          li
-            a#toys-catpost
-              i.material-icons sports_esports 
-              |Toys &amp; Games
-          li
-            a#tutoring-catpost
-              i.material-icons face 
-              |Tutoring
+        .col.s3.m3#seleteBar
+          label Browser Select
+          select.browser-default#option
+            option(value='ALL' selected) ALL
+            option(value='Art') Art
+            option(value='Books') Books
+            option(value='Clothes') Clothes
+            option(value='Electronics') Electronics
+            option(value='Home & Kitchen') Home & Kitchen
+            option(value='Toys & Games') Toys & Games
+            option(value='Tutoring') Tutoring
                     
         .row
           .col.push-s4
