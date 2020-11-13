@@ -4,13 +4,14 @@ block content
   // -----------------------------------CSS-----------------------------------
   link(rel='stylesheet' href='/stylesheets/landing.css')
   // -----------------------------------CSS-----------------------------------
-  //- Square cards
 
   // ---------------------------------CONTENT---------------------------------
   #content
-    #welcome-text
-      .row
-        h2 Welcome to SFSU Connect #{numOfIitem} item has been added in the pass 7 days
+    if numItems
+      #welcome-text
+        .row
+          h2 Welcome to SFSU Connect! 
+          h4 #{numItems} items have been added in the pass 7 days
 
     #item-list
       .row#filterbar
@@ -20,11 +21,11 @@ block content
         .col.s3.m3#seleteBar
           label Browser Select
           select.browser-default#option
-            option(value='' disabled='' selected='') Choose your option
+            option(value='' disabled) Choose your option
             option(value='1') Price: High to Low
             option(value='2') Price: Low to High
             option(value='3') Date: Old to New
-            option(value='4') Date: New to Old
+            option(value='4' selected) Date: New to Old
         .col.s1.m1#submitButton 
           button.btn.waves-effect.waves-light(type='submit' name='action')
             | Filter
@@ -44,103 +45,6 @@ block content
                     .card-content= item.userName
           else
             h3.center Sorry, there are no items right now
-    //- 	.row
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 	.row
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
-
-    //- 		.col.s3
-    //- 			.card
-    //- 				.card-image
-    //- 					img(src="../images/download.jpg")
-
-    //- 				.card-content
-    //- 					p
-    //- 					| I am a very simple card. I am good at containing small bits of information.
-    //- 					| I am convenient because I require little markup to use effectively.
-    //- 				.card-action
-    //- 					a(href='#') This is a link
   // ---------------------------------CONTENT---------------------------------
   
   // ----------------------------------JS------------------------------

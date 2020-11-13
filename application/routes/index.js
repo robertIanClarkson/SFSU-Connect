@@ -9,40 +9,41 @@ var test = require('../db/helpers/test');
 // });
 
 router.get('/', function(req, res, next) {
-  db.getNItems(8)
-  .then((items) => {
-    if (req.isAuthenticated()) {
+  Promise.all([
+    test.getSearchResults('All', ""),
+    db.numItems_N_days(100)
+  ]).then(([items, numItems]) => {
+      if (req.isAuthenticated()) {
+        res.render('landing', { 
+          title: 'Home',
+          numItems: numItems,
+          items: items,
+          category: 'All',
+          user: req.user
+        });
+      } else {
+        res.render('landing', { 
+          title: 'Home',
+          numItems: numItems,
+          items: items,
+          category: 'All'
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err)
       res.render('landing', { 
         title: 'Home',
-        items: items,
-        category: 'All',
-        user: req.user
-      });
-    } else {
-      res.render('landing', { 
-        title: 'Home',
-        items: items,
         category: 'All'
       });
-    }
-  })
-  .catch((err) => {
-    console.log(err)
-    res.render('landing', { 
-      title: 'Home',
-      category: 'All'
-    });
-  })
+    })
 });
 
 /* POST */
 // PRIORITY 1
 router.get('/search', function(req, res, next) {
-  console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
-  console.log(req.query)
-  // console.log(Object.keys(req.query).length)
+  console.log(`POST: 'search' --> ${JSON.stringify(req.query)}`)
   searchData = req.query
-
   test.getSearchResults(searchData.category, searchData.text,searchData.filter)
   .then((items) => {
     // console.log(items);
