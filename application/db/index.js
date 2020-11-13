@@ -76,6 +76,5 @@ function getFItemsSearch(type,category,text) {
 }
 module.exports = {
     getNItems,
-    getNItemsSearch,
     getFItemsSearch
 }
