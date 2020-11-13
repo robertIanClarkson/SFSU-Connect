@@ -9,5 +9,5 @@ $('#submitButton').click(function() {
         text: searchText,
         type: type
     }
-    window.location.href = (`/searchF?category=${currentCategory}&text=${searchText}&type=${type}`)
+    window.location.href = (`/search?category=${currentCategory}&text=${searchText}&type=${type}`)
 });
