@@ -47,10 +47,10 @@ function getSearchResults(category, text, input = '4') {
     }
     switch (input) {
       case '1':
-        sqlCommand += ` ORDER BY item.price ASC`
+        sqlCommand += ` ORDER BY item.price DESC`
         break;
       case '2':
-        sqlCommand += ` ORDER BY item.price DESC`
+        sqlCommand += ` ORDER BY item.price ASC`
         break;
       case '3':
         sqlCommand += ` ORDER BY item.created ASC`
@@ -71,6 +71,27 @@ function getSearchResults(category, text, input = '4') {
       console.log(`(x) Failed to pull from db --> ${err}`)
       reject(err)
     })
+  })
+}
+
+function getUserItems(user) {
+  console.log(user.id)
+  return new Promise((resolve, reject) => {
+    let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
+                      FROM item
+                      JOIN user ON item.user_id = user.id`
+
+    sqlCommand += ` WHERE user.id = '${user.id}'`
+    db.query(sqlCommand)
+        .then((rows) => {
+          // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
+          console.log(`(+) pulled from db --> ${rows.length} records`)
+          resolve(rows)
+        })
+        .catch((err) => {
+          console.log(`(x) Failed to pull from db --> ${err}`)
+          reject(err)
+        })
   })
 }
 
@@ -99,5 +120,6 @@ module.exports = {
   insert,
   getAll,
   getSearchResults,
-  getItem
+  getItem,
+  getUserItems
 }
