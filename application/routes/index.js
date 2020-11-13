@@ -38,11 +38,8 @@ router.get('/', function(req, res, next) {
 /* POST */
 // PRIORITY 1
 router.get('/search', function(req, res, next) {
-  console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
-  console.log(req.query)
-  // console.log(Object.keys(req.query).length)
+  console.log(`POST: 'search' --> ${JSON.stringify(req.query)}`)
   searchData = req.query
-
   test.getSearchResults(searchData.category, searchData.text,searchData.filter)
   .then((items) => {
     // console.log(items);
