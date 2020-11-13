@@ -53,8 +53,11 @@ link(rel='stylesheet', href='/stylesheets/search.css')
     
     //- user search input
     .col.s7
-      - var searchPlaceholder = "Type what you are looking for here"
-      input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate")
+      if data
+        input#search-input.white-text(value=data type="text" class="validate")
+      else
+        - var searchPlaceholder = "Type what you are looking for here"
+        input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate")
     
     //- submit
     .col.s1

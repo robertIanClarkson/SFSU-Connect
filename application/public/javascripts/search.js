@@ -3,59 +3,88 @@ var currentCategory = 'All'
 
 $('#category-dropdown-trigger').dropdown();
 
-$('#all-cat').click(function() {
+
+
+$('#all-cat').click(function () {
+  all();
+});
+all = function() {
   currentCategory = 'All'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('trip_origin')
-});
+}
 
-$('#art-cat').click(function() {
+$('#art-cat').click(function () {
+  art();
+});
+art = function() {
   currentCategory = 'Art'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('palette')
-});
+}
 
-$('#books-cat').click(function() {
+$('#books-cat').click(function () {
+  books();
+});
+books = function() {
   currentCategory = 'Books'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('book')
-});
+}
 
-$('#clothes-cat').click(function() {
+$('#clothes-cat').click(function () {
+  clothes()
+});
+clothes = function() {
   currentCategory = 'Clothes'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('checkroom')
-});
+}
 
-$('#electronics-cat').click(function() {
+$('#electronics-cat').click(function () {
+  elec();
+});
+elec = function() {
   currentCategory = 'Electronics'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('camera_alt')
-});
+}
 
-$('#home-cat').click(function() {
+$('#home-cat').click(function () {
+  home();
+});
+home = function() {
   currentCategory = 'Home & Kitchen'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('countertops')
-});
+}
 
-$('#misc-cat').click(function() {
+$('#misc-cat').click(function () {
+  misc();
+});
+misc = function() {
   currentCategory = 'Miscellaneous'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('pedal_bike')
-});
+}
 
-$('#toys-cat').click(function() {
+$('#toys-cat').click(function () {
+  toys();
+});
+toys = function() {
   currentCategory = 'Toys & Games'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('sports_esports')
-});
+}
 
-$('#tutoring-cat').click(function() {
+$('#tutoring-cat').click(function () {
+  toys();
+});
+tutoring = function() {
   currentCategory = 'Tutoring'
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('face')
-});
+}
 
 $('#search-submit').click(function() {
   var searchText = $('#search-input').val();
@@ -64,12 +93,22 @@ $('#search-submit').click(function() {
     category: currentCategory,
     text: searchText
   }
+  /*
+  $.get('/search', searchData)
+      .done((result) => {
+        document.write(result);
+      })
+*/
 
   $.post( "search", searchData)
   .done((result) => {
     document.write(result);
-  })
+    document.close();
+    console.log(document.cookie)
+  });
 });
+
+
 /***********************DROPDOWN FOR VP**********************/
 
 /********************LANDING PAGE LATEST ITEM****************/
