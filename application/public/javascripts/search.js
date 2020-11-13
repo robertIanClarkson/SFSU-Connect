@@ -93,22 +93,9 @@ $('#search-submit').click(function() {
     category: currentCategory,
     text: searchText
   }
-  /*
-  $.get('/search', searchData)
-      .done((result) => {
-        document.write(result);
-      })
-*/
 
-  $.post( "search", searchData)
-  .done((result) => {
-    document.write(result);
-    document.close();
-    console.log(document.cookie)
-  });
+  window.location.href = (`/search?category=${currentCategory}&text=${searchText}`)
 });
-
-
 /***********************DROPDOWN FOR VP**********************/
 
 /********************LANDING PAGE LATEST ITEM****************/
