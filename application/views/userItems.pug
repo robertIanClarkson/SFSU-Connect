@@ -14,50 +14,19 @@ block content
               .card-content
                   h5.white-text.text-darken-2 My Products
 
-    .container
+    #itemCard
         .row
-            .col.s3
-                .card
-                    .card-image 
-                        img(src="/images/download.jpg")
-                        
-                    .card-content
-                        p
-                        | Product1
-                    .card-action
-                        a(href='#') Product Link
-            
-            .col.s3
-                .card
-                    .card-image
-                        img(src="/images/download.jpg")
-
-                    .card-content
-                        p
-                        | Product2
-                    .card-action
-                        a(href='#') Product Link
-            
-            .col.s3
-                .card
-                    .card-image
-                        img(src="/images/download.jpg")
-
-                    .card-content
-                        p
-                        | Product3
-                    .card-action
-                        a(href='#') Product Link
-            .col.s3
-                .card
-                    .card-image
-                        img(src="/images/download.jpg")
-
-                    .card-content
-                        p
-                        | Product4
-                    .card-action
-                        a(href='#') Product Link
+            if items
+                each item in items
+                    .col.s12.m6.l4
+                        .card
+                            a(href="/item/" + item.id)
+                                .card-image
+                                    img(src="/images/items/" + item.image)
+                                .card-title= item.itemName
+                                .card-content= item.userName
+            else
+                h3.center You have no items right now
     // -------------------------------------------------------------------------------
 
     // -------------------------------JAVASCRIPT--------------------------------------

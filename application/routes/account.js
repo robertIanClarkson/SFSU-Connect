@@ -1,4 +1,5 @@
 var express = require('express');
+const test = require("../db/helpers/test");
 var router = express.Router();
 
 /* GET */
@@ -14,16 +15,25 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/items', function(req, res, next) {
-  if (req.isAuthenticated()) {
-    res.render('userItems', { 
-      title: 'Inbox',
-      user: req.user
-    })
-  } else {
-    res.redirect('login')
-  }
-});
+  console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
 
+  searchData = req.query
+
+  test.getUserItems(req.user)
+      .then((items) => {
+        // console.log(items);
+        if (req.isAuthenticated()) {
+          res.render('userItems', {
+            title: 'Home',
+            items: items,
+            user: req.user,
+            data: searchData.text
+          });
+        } else {
+          res.redirect('login')
+        }
+      })
+});
 router.get('/inbox', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.render('inbox', { 
