@@ -65,10 +65,7 @@ $('#search-submit').click(function() {
     text: searchText
   }
 
-  $.post( "search", searchData)
-  .done((result) => {
-    document.write(result);
-  })
+  window.location.href = (`/search?category=${currentCategory}&text=${searchText}`)
 });
 /***********************DROPDOWN FOR VP**********************/
 
