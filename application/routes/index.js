@@ -42,19 +42,47 @@ router.get('/search', function(req, res, next) {
   .then((items) => {
     // console.log(items);
     if(req.isAuthenticated()) {
-      res.render('landing', { 
+      res.render('landing', {
         title: 'Home',
         items: items,
         user: req.user
       });
     } else {
-      res.render('landing', { 
+      res.render('landing', {
         title: 'Home',
         items: items
       });
     }
-    
+
   })
+});
+router.get('/searchF', function(req, res, next) {
+  console.log(`POST: 'search' --> ${JSON.stringify(req.query)}`)
+  let FilterData = req.query
+  db.getFItemsSearch(FilterData.type,FilterData.category,FilterData.text)
+      .then((items) => {
+        console.log(items)
+        if (req.isAuthenticated()) {
+          res.render('landing', {
+            title: 'Home',
+            items: items,
+            user: req.user,
+            data:FilterData.text
+          });
+        } else {
+          res.render('landing', {
+            title: 'Home',
+            items: items,
+            data:FilterData.text
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        res.render('landing', {
+          title: 'Home'
+        });
+      })
 });
 
 module.exports = router;
