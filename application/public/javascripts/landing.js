@@ -1,13 +1,19 @@
+var filters = {
+    1: 'price:high->low',
+    2: 'price:low->high',
+    3: 'date:old->new',
+    4: 'date:new->old'
+}
 
 
 $('#submitButton').click(function() {
-    var type = $('#option').val();
-    var searchText = $('#search-input').val();
+    var filter = $('#option').val()
+    var searchText = $('#search-input').val()
+    var category = $('#trigger-cat').text()
 
-    searchData = {
-        category: currentCategory,
-        text: searchText,
-        type: type
-    }
-    window.location.href = (`/search?category=${currentCategory}&text=${searchText}&type=${type}`)
+    // console.log(filters[filter])
+    // console.log(searchText)
+    // console.log(category)
+
+    window.location.href = (`/search?category=${category}&text=${searchText}&filter=${filters[filter]}`)
 });
