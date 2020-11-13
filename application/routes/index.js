@@ -9,30 +9,30 @@ var test = require('../db/helpers/test');
 // });
 
 router.get('/', function(req, res, next) {
-  db.getNItems(8)
-  .then((items) => {
-    if (req.isAuthenticated()) {
+  test.getSearchResults('All', "")
+    .then((items) => {
+      if (req.isAuthenticated()) {
+        res.render('landing', { 
+          title: 'Home',
+          items: items,
+          category: 'All',
+          user: req.user
+        });
+      } else {
+        res.render('landing', { 
+          title: 'Home',
+          items: items,
+          category: 'All'
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err)
       res.render('landing', { 
         title: 'Home',
-        items: items,
-        category: 'All',
-        user: req.user
-      });
-    } else {
-      res.render('landing', { 
-        title: 'Home',
-        items: items,
         category: 'All'
       });
-    }
-  })
-  .catch((err) => {
-    console.log(err)
-    res.render('landing', { 
-      title: 'Home',
-      category: 'All'
-    });
-  })
+    })
 });
 
 /* POST */

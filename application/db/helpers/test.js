@@ -29,7 +29,7 @@ function getAll() {
   })
 }
 
-function getSearchResults(category, text, input = '4') {
+function getSearchResults(category, text, filter='date:new->old') {
   return new Promise((resolve, reject) => {
     let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
                       FROM item
@@ -45,7 +45,7 @@ function getSearchResults(category, text, input = '4') {
       // append to SQL command
       sqlCommand += ` AND ( item.name LIKE '%${word}%' OR description LIKE '%${word}%' )`
     }
-    switch (input) {
+    switch (filter) {
       case 'price:high->low':
         sqlCommand += ` ORDER BY item.price DESC`
         break;
