@@ -8,7 +8,7 @@ function getNItems(n) {
               ORDER BY item.created DESC
               LIMIT ?`, [n])
             .then((rows) => {
-                if (rows.length == 0) {
+                if (rows.length === 0) {
                     reject(`(x) ERROR --> Database did not return any items`)
                 } else {
                     resolve(rows)
@@ -22,7 +22,7 @@ function getNItems(n) {
 function getNItemsSearch(n,category,text) {
     return new Promise((resolve, reject) => {
         let sqlCommand
-        if(category=='All') {
+        if(category==='All') {
             sqlCommand = `SELECT item.name AS itemName, item.price, item.image, user.name AS userName 
                             FROM item 
                             join user on item.user_id = user.id
@@ -57,6 +57,7 @@ function getNItemsSearch(n,category,text) {
     });
 }
 function getFItemsSearch(type,category,text) {
+    console.log("sql got ",type," ",category," ",text)
     return new Promise((resolve, reject) => {
         let sqlCommand
         if(category==='All') {

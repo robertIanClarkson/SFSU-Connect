@@ -36,13 +36,10 @@ router.get('/', function(req, res, next) {
 // PRIORITY 1
 router.get('/search', function(req, res, next) {
   console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
-  let searchData = req.body
-  console.log(req.cookies)
+  let searchData = req.query
   db.getNItemsSearch(8,searchData.category,searchData.text)
       .then((items) => {
         console.log(items)
-        res.cookie('category',searchData.category)
-        res.cookie('text',searchData.text)
         if (req.isAuthenticated()) {
           res.render('landing', {
             title: 'Home',
@@ -65,12 +62,10 @@ router.get('/search', function(req, res, next) {
         });
       })
 });
-router.post('/searchF', function(req, res, next) {
-  console.log(`POST: 'search' --> ${JSON.stringify(req.body)}`)
-  let FilterData = req.body
-  console.log(req.cookies['category'])
-  console.log(FilterData.type)
-  db.getFItemsSearch(FilterData.type,req.cookies['category'],req.cookies['text'])
+router.get('/searchF', function(req, res, next) {
+  console.log(`POST: 'search' --> ${JSON.stringify(req.query)}`)
+  let FilterData = req.query
+  db.getFItemsSearch(FilterData.type,FilterData.category,FilterData.text)
       .then((items) => {
         console.log(items)
         if (req.isAuthenticated()) {
@@ -78,13 +73,13 @@ router.post('/searchF', function(req, res, next) {
             title: 'Home',
             items: items,
             user: req.user,
-            data: req.cookies['text']
+            data:FilterData.text
           });
         } else {
           res.render('landing', {
             title: 'Home',
             items: items,
-            data: req.cookies['text']
+            data:FilterData.text
           });
         }
       })

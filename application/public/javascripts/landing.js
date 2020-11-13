@@ -2,16 +2,12 @@
 
 $('#submitButton').click(function() {
     var type = $('#option').val();
+    var searchText = $('#search-input').val();
 
     searchData = {
+        category: currentCategory,
+        text: searchText,
         type: type
     }
-    console.log(type)
-    if (type != null)
-        $.post( "searchF",searchData)
-            .done((result) => {
-                document.write(result);
-                document.close();
-                console.log(document.cookie)
-            });
+    window.location.href = (`/searchF?category=${currentCategory}&text=${searchText}&type=${type}`)
 });
