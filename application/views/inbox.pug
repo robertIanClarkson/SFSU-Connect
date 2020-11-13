@@ -9,31 +9,59 @@ block content
 
   // -------------------------- CONTENT ------------------------
 
-  .row#inboxbg
-    .col.s2#sidebar
-      #inbox
-        i.small.material-icons#mailIcon mail
-          h6 Inbox
-      .row
-      #inbox-list
-        ul
-          li
-          i.small.material-icons#mailIcon mail
-          |  Inbox
-          .divider
-          li
-          i.small.material-icons#mailIcon mail
-          |  Amy
-          .divider
+  .row#titleRow
+    .col.s2#itemName
+      p items
+      .divider
+    .col.s2#senderName
+      p sender name
+      .divider
+    .col.s8#messageBlock
+      p message
+      .divider
 
-    .col.s10#messageBox
-      #subject
-        p Subject
-      .row
-      #mail-body
-        | this is the body of the email 
+  .row#messageRow
+    if messages
+      each message in messages
+        .col.s2#itemName
+          p #{message.item}
+          .divider
+        .col.s2#senderName
+          p #{message.sender}
+          .divider
+        .col.s8#messageBlock
+          p #{message.message}
+          .divider
+    else 
+      h3.center There are no Messages.
 
-        | assdasdasd
+
+  // code below is for later when we use tab
+  //- .row#inboxbg
+  //-   .col.s2#sidebar
+  //-     #inbox
+  //-       i.small.material-icons#mailIcon mail
+  //-         h6 Inbox
+  //-     .row
+  //-     #inbox-list
+  //-       ul
+  //-         li
+  //-         i.small.material-icons#mailIcon mail
+  //-         |  Inbox
+  //-         .divider
+  //-         li
+  //-         i.small.material-icons#mailIcon mail
+  //-         |  Amy
+  //-         .divider
+
+  //-   .col.s10#messageBox
+  //-     #subject
+  //-       p Subject
+  //-     .row
+  //-     #mail-body
+  //-       | this is the body of the email 
+
+  //-       | assdasdasd
 
   // -------------------------- CONTENT ------------------------
 
