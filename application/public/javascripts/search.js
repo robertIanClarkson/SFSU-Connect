@@ -1,60 +1,64 @@
 /***********************DROPDOWN FOR VP**********************/
-var currentCategory = 'All'
+var category_icon = {
+  'All': 'trip_origin',
+  'Art': 'palette',
+  'Books': 'book',
+  'Clothes': 'checkroom',
+  'Electronics': 'camera_alt',
+  'Home & Kitchen': 'countertops',
+  'Miscellaneous': 'pedal_bike',
+  'Toys & Games': 'sports_esports',
+  'Tutoring': 'face'
+}
+
+function changeCategory(newCategory) {
+  currentCategory = newCategory
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text(category_icon[currentCategory])
+}
 
 $('#category-dropdown-trigger').dropdown();
 
-$('#all-cat').click(function() {
-  currentCategory = 'All'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('trip_origin')
+$( document ).ready(function() {
+  currentCategory = $('#trigger-cat').text()
+  $('#trigger-icon').text(category_icon[currentCategory])
+})
+
+$('#all-cat').click(function () {
+  changeCategory('All')
 });
 
-$('#art-cat').click(function() {
-  currentCategory = 'Art'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('palette')
+$('#art-cat').click(function () {
+  changeCategory('Art')
 });
 
-$('#books-cat').click(function() {
-  currentCategory = 'Books'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('book')
+$('#books-cat').click(function () {
+  changeCategory('Books')
 });
 
-$('#clothes-cat').click(function() {
-  currentCategory = 'Clothes'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('checkroom')
+$('#clothes-cat').click(function () {
+  changeCategory('Clothes')
 });
 
-$('#electronics-cat').click(function() {
-  currentCategory = 'Electronics'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('camera_alt')
+$('#electronics-cat').click(function () {
+  changeCategory('Electronics')
 });
 
-$('#home-cat').click(function() {
-  currentCategory = 'Home & Kitchen'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('countertops')
+$('#home-cat').click(function () {
+  changeCategory('Home & Kitchen')
 });
 
-$('#misc-cat').click(function() {
-  currentCategory = 'Miscellaneous'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('pedal_bike')
+$('#misc-cat').click(function () {
+  changeCategory('Miscellaneous')
+});
+  
+
+$('#toys-cat').click(function () {
+  changeCategory('Toys & Games')
 });
 
-$('#toys-cat').click(function() {
-  currentCategory = 'Toys & Games'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('sports_esports')
-});
-
-$('#tutoring-cat').click(function() {
-  currentCategory = 'Tutoring'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('face')
+$('#tutoring-cat').click(function () {
+  changeCategory('Tutoring')
 });
 
 $('#search-submit').click(function() {
@@ -65,7 +69,7 @@ $('#search-submit').click(function() {
     text: searchText
   }
 
-  window.location.href = (`/search?category=${currentCategory}&text=${searchText}`)
+  window.location.href = (`/search?category=${encodeURIComponent(currentCategory)}&text=${encodeURIComponent(searchText)}`)
 });
 /***********************DROPDOWN FOR VP**********************/
 

@@ -29,7 +29,7 @@ function getAll() {
   })
 }
 
-function getSearchResults(category, text) {
+function getSearchResults(category, text, filter='date:new->old') {
   return new Promise((resolve, reject) => {
     let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
                       FROM item
@@ -44,6 +44,22 @@ function getSearchResults(category, text) {
     for (word of wordsArray) {
       // append to SQL command
       sqlCommand += ` AND ( item.name LIKE '%${word}%' OR description LIKE '%${word}%' )`
+    }
+    switch (filter) {
+      case 'price:high->low':
+        sqlCommand += ` ORDER BY item.price DESC`
+        break;
+      case 'price:low->high':
+        sqlCommand += ` ORDER BY item.price ASC`
+        break;
+      case 'date:old->new':
+        sqlCommand += ` ORDER BY item.created ASC`
+        break;
+      case 'date:new->old':
+        sqlCommand += ` ORDER BY item.created DESC`
+        break;
+      default:
+        console.log("got a value other than 1-4 for filter setting")
     }
     db.query(sqlCommand)
     .then((rows) => {

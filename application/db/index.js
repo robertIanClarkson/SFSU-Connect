@@ -22,6 +22,11 @@ function getNItems(n) {
   });
 }
 
+function numItems_N_days(n) {
+  return n
+}
+
 module.exports = {
-  getNItems
+    getNItems,
+    numItems_N_days
 }

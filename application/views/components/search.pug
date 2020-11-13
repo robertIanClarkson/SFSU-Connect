@@ -12,7 +12,10 @@ link(rel='stylesheet', href='/stylesheets/search.css')
           .col.s2
             i#trigger-icon.material-icons trip_origin 
           .col.s10
-            span#trigger-cat.left All
+            if category
+              span#trigger-cat.left #{category}
+            else
+              span#trigger-cat.left All
       ul#category-dropdown(class='dropdown-content')
         li
           a#all-cat 
@@ -53,8 +56,11 @@ link(rel='stylesheet', href='/stylesheets/search.css')
     
     //- user search input
     .col.s7
-      - var searchPlaceholder = "Type what you are looking for here"
-      input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate")
+      if search
+        input#search-input.white-text(value=search type="text" class="validate")
+      else
+        - var searchPlaceholder = "Type what you are looking for here"
+        input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate")
     
     //- submit
     .col.s1
