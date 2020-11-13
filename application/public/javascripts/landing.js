@@ -15,5 +15,5 @@ $('#submitButton').click(function() {
     // console.log(searchText)
     // console.log(category)
 
-    window.location.href = (`/search?category=${category}&text=${searchText}&filter=${filters[filter]}`)
+    window.location.href = (`/search?category=${encodeURIComponent(category)}&text=${encodeURIComponent(searchText)}&filter=${filters[filter]}`)
 });
