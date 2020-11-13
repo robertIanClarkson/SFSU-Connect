@@ -40,11 +40,20 @@ router.get('/search', function(req, res, next) {
   let searchData = req.query
   test.getSearchResults(searchData.category, searchData.text)
   .then((items) => {
-    console.log(items);
-    res.render('landing', { 
-      title: 'Home',
-      items: items
-    });
+    // console.log(items);
+    if(req.isAuthenticated()) {
+      res.render('landing', { 
+        title: 'Home',
+        items: items,
+        user: req.user
+      });
+    } else {
+      res.render('landing', { 
+        title: 'Home',
+        items: items
+      });
+    }
+    
   })
 });
 
