@@ -21,9 +21,9 @@ function newUser(name, email, password) {
       .then((hash) => {
         console.log(hash)
         let sqlCommand = `INSERT INTO user 
-                      (name, email, password) 
+                      (name, email, password, image) 
                       VALUES
-                      ('${name}', '${email}', '${hash}');`
+                      ('${name}', '${email}', '${hash}', 'none.png');`
         db.query(sqlCommand)
           .then(() => {
             resolve('ok')
