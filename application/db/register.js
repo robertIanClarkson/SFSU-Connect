@@ -19,7 +19,7 @@ function newUser(name, email, password) {
     console.log(password)
     encryptPassword(password)
       .then((hash) => {
-        console.log(hash)
+        // console.log(hash)
         let sqlCommand = `INSERT INTO user 
                       (name, email, password, image) 
                       VALUES
