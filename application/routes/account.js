@@ -1,4 +1,5 @@
 var express = require('express');
+const db = require('../db/db');
 const test = require("../db/helpers/test");
 var router = express.Router();
 
@@ -43,6 +44,17 @@ router.get('/inbox', function(req, res, next) {
   } else {
     res.redirect('login')
   }
+});
+
+router.get('/inbox', function(req,res,next) {
+  db.getMessages(req.user.id)
+    .then((messages) =>{
+      res.render('inbox',{
+        item: messages.item,
+        sender: messages.sender,
+        messages: messages.message
+      })
+    })
 });
 
 /* POST */
