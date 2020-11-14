@@ -61,7 +61,24 @@ router.get('/:id', function(req, res, next) {
 // PRIORITY 1
 router.post('/new', function(req, res, next) {
   console.log(`POST: 'item/new' --> ${JSON.stringify(req.body)}`)
-  res.render('thankyou', { title: 'Thanks!' });
+  if(req.isAuthenticated()) {
+    // MAKE DB CALL HERE
+    res.render('thankyou', { 
+      title: 'Thanks!',
+      user: req.user
+    });
+  } else {
+    // USER TRYING TO POST BUT NOT LOGGED IN (SHOULDNT BE POSSIBLE)
+    res.render('error', {
+      title: 'Error',
+      message: 'Unauthorized',
+      error: {
+        status: 401,
+        stack: 'Trying to post a new item when unauthorized'
+      }
+    })
+  }
+  
 });
 
 module.exports = router;
