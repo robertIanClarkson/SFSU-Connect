@@ -11,7 +11,7 @@ block content
     form(action="/item/new", method="post")
       .col.s5.push-s1
         img(src="/images/itemplaceholder.png")
-        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg', required)
+        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
             
         
       .col.row.s5.push-s1
@@ -32,8 +32,8 @@ block content
 
         .col.s3.m3#seleteBar
           label Browser Select
-          select.browser-default#option
-            option(value='ALL' selected) ALL
+          select.browser-default#option(name="category" required)
+            option(value='' disabled selected) Category
             option(value='Art') Art
             option(value='Books') Books
             option(value='Clothes') Clothes
