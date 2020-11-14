@@ -18,12 +18,12 @@ block content
 
 		#imageBox
 			img#image( alt="this if image does not exist")
-			form#messageForm
+			form(action="/item/message" method="post")#messageForm
 				.input-field
-					textarea#messageArea.materialize-textarea(required='')
+					textarea#messageArea.materialize-textarea(name='message' required)
 					label(for='messageArea') Textarea
 	// ---------------------------	CONTENT----------------------------
 
 	// ---------------------------	JS ----------------------------
-
+	script(src='/javascripts/item.js')
 	// ---------------------------	JS ----------------------------

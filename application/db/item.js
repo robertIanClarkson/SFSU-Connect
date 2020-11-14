@@ -18,6 +18,10 @@ function getItemByID(id) {
   });
 }
 
+function newMessage(itemid, userid){
+  
+}
+
 module.exports = {
   getItemByID
 }

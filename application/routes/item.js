@@ -64,4 +64,9 @@ router.post('/new', function(req, res, next) {
   res.render('thankyou', { title: 'Thanks!' });
 });
 
+router.post('/message', function(req, res, next){
+  console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
+  res.send("Message Send!")
+});
+
 module.exports = router;
