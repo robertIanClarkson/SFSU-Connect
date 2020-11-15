@@ -64,7 +64,8 @@ router.post('/new', function(req, res, next) {
 
 router.post('/message', function(req, res, next){
   console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
-  db.newMessage(req.body.id, req.user, req.body.message)
+  if(req.isAuthenticated()) {
+    db.newMessage(req.user.id, req.body.item_id, req.body.message)
     .then((result) =>{
       console.log(`result --> ${result}`)
       res.redirect('back');
@@ -73,6 +74,10 @@ router.post('/message', function(req, res, next){
       console.log(`Send Message Error: ${errno}`)
       res.redirect('back');
     })
+  } else {
+    // not authenticated
+  }
+  
 });
 
 module.exports = router;
