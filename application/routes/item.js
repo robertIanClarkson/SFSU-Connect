@@ -55,8 +55,6 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-
-
 /* POST */
 // PRIORITY 1
 router.post('/new', function(req, res, next) {
@@ -66,7 +64,15 @@ router.post('/new', function(req, res, next) {
 
 router.post('/message', function(req, res, next){
   console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
-  res.send("Message Send!")
+  db.newMessage(req.body.id, req.user, req.body.message)
+    .then((result) =>{
+      console.log(`result --> ${result}`)
+      res.redirect('back');
+    })
+    .catch((errno) =>{
+      console.log(`Send Message Error: ${errno}`)
+      res.redirect('back');
+    })
 });
 
 module.exports = router;

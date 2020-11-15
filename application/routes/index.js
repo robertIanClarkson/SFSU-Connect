@@ -8,10 +8,6 @@ var test = require('../db/helpers/test');
 //     res.render('index', { title: 'Home' });
 // });
 
-router.get('/item', function(req, res, next) {
-    res.render('item', { title: 'Home' });
-});
-
 router.get('/', function(req, res, next) {
   Promise.all([
     test.getSearchResults('All', ""),

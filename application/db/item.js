@@ -18,10 +18,23 @@ function getItemByID(id) {
   });
 }
 
-function newMessage(itemid, userid){
-  
+function newMessage(itemid, userid, message){
+  let sqlCommand = `INSERT INTO message 
+                      (itemid, userid, message) 
+                      VALUES
+                      ('${itemid}', '${userid}', '${message}';`
+  return new Promise((resolve, reject) => {
+    db.query(sqlCommand)
+      .then(() => {
+        resolve('ok')
+      })
+      .catch((err) => {
+        reject(err.errno)
+      })
+  });              
 }
 
 module.exports = {
-  getItemByID
+  getItemByID,
+  newMessage
 }
