@@ -55,6 +55,7 @@ router.get('/inboxv2', function(req,res,next) {
   if (req.isAuthenticated()) {
     account.getMessages(req.user.id)
       .then((messages) =>{
+        console.log(messages)
         res.render('inboxv2', {
           title: 'Inbox',
           user: req.user,
