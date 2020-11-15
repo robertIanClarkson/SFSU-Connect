@@ -55,3 +55,7 @@ $('#tutoring-catpost').click(function() {
   $('#trigger-cat').text(currentCategory)
   $('#trigger-icon').text('face')
 });
+
+$(document).ready(function(){
+  $('select').formSelect();
+});
