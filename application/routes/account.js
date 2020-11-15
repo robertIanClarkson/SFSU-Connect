@@ -46,15 +46,17 @@ router.get('/inbox', function(req, res, next) {
   }
 });
 
-router.get('/inbox', function(req,res,next) {
-  db.getMessages(req.user.id)
-    .then((messages) =>{
-      res.render('inbox',{
-        item: messages.item,
-        sender: messages.sender,
-        messages: messages.message
+router.get('/inboxv2', function(req,res,next) {
+  if (req.isAuthenticated()) {
+    db.getMessages(req.user.id)
+      .then((messages) =>{
+        res.render('inbox',{
+          title:"Inbox",
+          user: req.user,
+          messages: messages
+        })
       })
-    })
+  }
 });
 
 /* POST */
