@@ -36,22 +36,8 @@ router.get('/items', function(req, res, next) {
         }
       })
 });
-router.get('/inbox', function(req, res, next) {
-  if (req.isAuthenticated()) {
-    res.render('inbox', { 
-      title: 'Inbox',
-      user: req.user
-    })
-  } else {
-    res.redirect('login')
-  }
-});
-/**
- * REMINDER: 
- * HAVE TO CHANGE THE a TAG IN ACCOUNT.PUG BACK TO INBOX.PUG
- */
 
-router.get('/inboxv2', function(req,res,next) {
+router.get('/inbox', function(req,res,next) {
   if (req.isAuthenticated()) {
     account.getMessages(req.user.id)
       .then((messages) =>{
