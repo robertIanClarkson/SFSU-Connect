@@ -23,15 +23,14 @@ block content
   .row#messageRow
     if messages
       each message in messages
-        .col.s2#itemDate
-          p #{message.date}
-          .divider
-        .col.s2#senderName
-          p #{message.sender}
-          .divider
-        .col.s8#messageBlock
-          p #{message.message}
-          .divider
+        .row
+          .col.s2#itemDate
+            p #{message.date}
+          .col.s2#senderName
+            p #{message.sender}
+          .col.s8#messageBlock
+            p #{message.message}
+        .divider
     else 
       h3.center There are no Messages.
 

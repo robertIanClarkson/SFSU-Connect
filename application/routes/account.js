@@ -1,5 +1,6 @@
 var express = require('express');
 const db = require('../db/db');
+const account = require('../db/account');
 const test = require("../db/helpers/test");
 var router = express.Router();
 
@@ -45,17 +46,22 @@ router.get('/inbox', function(req, res, next) {
     res.redirect('login')
   }
 });
+/**
+ * 
+ */
 
 router.get('/inboxv2', function(req,res,next) {
   if (req.isAuthenticated()) {
-    db.getMessages(req.user.id)
+    account.getMessages(req.user.id)
       .then((messages) =>{
-        res.render('inbox',{
-          title:"Inbox",
+        res.render('inboxv2', {
+          title: 'Inbox',
           user: req.user,
           messages: messages
         })
       })
+  } else {
+    res.redirect('login')
   }
 });
 
