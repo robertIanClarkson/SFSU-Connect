@@ -55,12 +55,19 @@ router.get('/inboxv2', function(req,res,next) {
   if (req.isAuthenticated()) {
     account.getMessages(req.user.id)
       .then((messages) =>{
-        console.log(messages)
-        res.render('inboxv2', {
-          title: 'Inbox',
-          user: req.user,
-          messages: messages
-        })
+        if(messages.length != 0) {
+          res.render('inboxv2', {
+            title: 'Inbox',
+            user: req.user,
+            messages: messages
+          })
+        } else {
+          res.render('inboxv2', {
+            title: 'Inbox',
+            user: req.user
+          })
+        }
+        
       })
   } else {
     res.redirect('login')
