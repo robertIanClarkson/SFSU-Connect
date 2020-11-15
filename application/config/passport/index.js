@@ -23,7 +23,7 @@ function(username, password, done) {
     .then((user) => {
       if(user.password == password) {
         delete user.password
-        console.log(user)
+        // console.log(user)
         return done(null, user)
       } else {
         return done(null, false)

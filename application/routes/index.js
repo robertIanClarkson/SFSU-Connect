@@ -68,4 +68,8 @@ router.get('/search', function(req, res, next) {
   })
 });
 
+router.get('/inboxv2', function(req, res, next) {
+  res.render('inboxv2', { title: 'About Us' });
+});
+
 module.exports = router;
