@@ -47,7 +47,8 @@ router.get('/inbox', function(req, res, next) {
   }
 });
 /**
- * 
+ * REMINDER: 
+ * HAVE TO CHANGE THE a TAG IN ACCOUNT.PUG BACK TO INBOX.PUG
  */
 
 router.get('/inboxv2', function(req,res,next) {
