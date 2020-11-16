@@ -75,7 +75,7 @@ var uploader = multer({storage: storage});
 router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
     let filePath = req.file.path;
     let fileName = req.file.filename;
-    console.log(filePath);
+    // console.log(filePath);
     let thumbnailName = `thumbnail-${fileName}`;
     let thumbnailPath = req.file.destination + "/" + thumbnailName;
     let userID = req.user.id;
@@ -84,9 +84,9 @@ router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
     let price = req.body.price;
     let category = req.body.category;
 
-    sharp(filePath).resize(200).toFile(thumbnailPath);
+    sharp(filePath).resize(400).toFile(thumbnailPath);
 
-    console.log(name + ' $ ' + description + ' $ ' + price + ' $ ' + category + ' $ ' + fileName + ' $ ' + userID);
+    // console.log(name + ' $ ' + description + ' $ ' + price + ' $ ' + category + ' $ ' + fileName + ' $ ' + userID);
     
     let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id)
                     VALUES (?, ?, ?, ?, ?, ?)`
