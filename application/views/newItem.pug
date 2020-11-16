@@ -8,40 +8,39 @@ block content
   //--------------------------Content------------------------
   .row
     p
-    form(action="/item/new", method="post")
-      .col.s5.push-s1
+    form(action="/item/new", method="post", enctype="multipart/form-data")
+      .col.s6
         img(src="/images/itemplaceholder.png")
         input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
             
         
-      .col.row.s5.push-s1
+      .col.s6
         h7 ITEM NAME:
-        p  
+        br
         input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
-        p
+        br
+        br
         h7 DESCRIPTION: 
+        br
         textarea(name="description", ID="DescriptionArea", required)
-        p
-                
+        br
+        br
         h7 PRICE $ 
+        br
         input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
-        p
-
-        h7 Choose A Category: 
-        p
-
-        .col.s3.m3#seleteBar
-          label Browser Select
-          select.browser-default#option(name="category" required)
-            option(value='' disabled selected) Category
+        br
+        br
+        .input-field
+          select(name='category')
+            option(value='' disabled selected) Choose a category
             option(value='Art') Art
             option(value='Books') Books
             option(value='Clothes') Clothes
             option(value='Electronics') Electronics
-            option(value='Home & Kitchen') Home & Kitchen
-            option(value='Toys & Games') Toys & Games
+            option(value='Home & Kitchen') Home &amp; Kitchen
+            option(value='Miscellaneous') Miscellaneous
+            option(value='Toys & Games') Toys &amp; Games
             option(value='Tutoring') Tutoring
-                    
         .row
           .col.push-s4
             p
