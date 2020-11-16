@@ -35,9 +35,9 @@ function newMessage(sender_id, item_id, message){
           .then((receiver_users) => {
             console.log(receiver_users[0])
             let insertMessage = `INSERT INTO message  
-                                    (user_id_sender, user_id_reciever, subject, message)
+                                    (item_id, user_id_sender, user_id_reciever, subject, message)
                                     VALUES
-                                    ('${sender_id}', '${receiver_users[0].id}', '${items[0].name}', '${message}');`
+                                    ('${item_id}', '${sender_id}', '${receiver_users[0].id}', '${items[0].name}', '${message}');`
             db.query(insertMessage)
               .then((result) => {
                 console.log('OK')
