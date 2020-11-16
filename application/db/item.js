@@ -18,6 +18,35 @@ function getItemByID(id) {
   });
 }
 
+function newMessage(sender_id, item_id, message){
+  return new Promise((resolve, reject) => {
+      let getItem = `SELECT * FROM item WHERE id='${item_id}';`
+      db.query(getItem)
+          .then((items) => {
+              console.log(items[0])
+              let getReceiverUser = `SELECT * FROM user WHERE id='${items[0].user_id}';`
+              db.query(getReceiverUser)
+                  .then((receiver_users) => {
+                      console.log(receiver_users[0])
+                      let insertMessage = `INSERT INTO message  
+                                    (item_id, user_id_sender, user_id_reciever, subject, message)
+                                    VALUES
+                                    ('${item_id}', '${sender_id}', '${receiver_users[0].id}', '${items[0].name}', '${message}');`
+                      db.query(insertMessage)
+                          .then((result) => {
+                              console.log('OK')
+                              console.log(result)
+                              resolve('OK')
+                          })
+                  })
+                  .catch((err) => {
+                      reject(err.errno)
+                  })
+          });
+  });
+}
+
 module.exports = {
-  getItemByID
+  getItemByID,
+  newMessage
 }

@@ -31,7 +31,7 @@ function getAll() {
 
 function getSearchResults(category, text, filter='date:new->old') {
   return new Promise((resolve, reject) => {
-    let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
+    let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, item.created, user.name AS userName
                       FROM item
                       JOIN user ON item.user_id = user.id`
     if(category=='All') {
@@ -40,6 +40,7 @@ function getSearchResults(category, text, filter='date:new->old') {
     else {
       sqlCommand += ` WHERE category_name = '${category}'`
     }
+    sqlCommand += ` AND approved  = 1 AND available = 1`
     let wordsArray = text.split(' ') // break search string into words
     for (word of wordsArray) {
       // append to SQL command

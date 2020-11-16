@@ -11,12 +11,13 @@ var test = require('../db/helpers/test');
 router.get('/', function(req, res, next) {
   Promise.all([
     test.getSearchResults('All', ""),
-    db.numItems_N_days(100)
+    db.numItems_N_days()
   ]).then(([items, numItems]) => {
+      // console.log(items)
       if (req.isAuthenticated()) {
         res.render('landing', { 
           title: 'Home',
-          numItems: numItems,
+          numItems: numItems[0].number,
           items: items,
           category: 'All',
           user: req.user
@@ -24,7 +25,7 @@ router.get('/', function(req, res, next) {
       } else {
         res.render('landing', { 
           title: 'Home',
-          numItems: numItems,
+          numItems: numItems[0].number,
           items: items,
           category: 'All'
         });
@@ -66,6 +67,10 @@ router.get('/search', function(req, res, next) {
     }
 
   })
+});
+
+router.get('/inboxv2', function(req, res, next) {
+  res.render('inboxv2', { title: 'About Us' });
 });
 
 module.exports = router;

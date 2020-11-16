@@ -13,15 +13,18 @@ block content
 			p#title(class="highlight") #{item.name}
 			h4#header Description
 			p#description(class="highlight") #{item.description}
-			h3#price(class="highlight" style="float:left") #{item.price}
-			button#itembutton(style="float:right") Contact
+			h3#price(class="highlight" style="float:left") $#{item.price}
+			button#itembutton(style="float:right" type="submit" form="messageForm") Contact
 
 		#imageBox
 			img#image(src='/images/items/' + item.image alt="this if image does not exist")
-			textarea#textarea1.materialize-textarea
-			label(for='textarea1') Textarea
+			form(action="/item/message" method="post")#messageForm
+				.input-field
+					input(type="hidden", name="item_id", value=item.id)
+					textarea#messageArea.materialize-textarea(name='message' autocomplete="off" required)
+					label(for='messageArea') Message Owner
 	// ---------------------------	CONTENT----------------------------
 
 	// ---------------------------	JS ----------------------------
-
+	script(src='/javascripts/item.js')
 	// ---------------------------	JS ----------------------------

@@ -8,72 +8,39 @@ block content
   //--------------------------Content------------------------
   .row
     p
-    form(action="/item/new", method="post")
-      .col.s5.push-s1
+    form(action="/item/new", method="post", enctype="multipart/form-data")
+      .col.s6
         img(src="/images/itemplaceholder.png")
-        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg', required)
+        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
             
         
-      .col.row.s5.push-s1
+      .col.s6
         h7 ITEM NAME:
-        p  
+        br
         input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
-        p
+        br
+        br
         h7 DESCRIPTION: 
+        br
         textarea(name="description", ID="DescriptionArea", required)
-        p
-                
+        br
+        br
         h7 PRICE $ 
+        br
         input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
-        p
-
-        h7 Choose A Category: 
-        p
-        a#category-dropdown-trigger-newItem(class='dropdown-trigger btn' data-target='category-dropdown')
-          .row
-            .col.s2
-              i#trigger-icon.material-icons trip_origin 
-            .col.s10
-              span#trigger-cat.left All
-        ul#category-dropdown-newItem(class='dropdown-content' required)
-          li
-            a#all-catpost
-              i.material-icons trip_origin 
-              |All
-          li
-            a#art-catpost
-              i.material-icons palette 
-              |Art
-
-          li
-            a#books-catpost
-              i.material-icons book 
-              |Books
-          li
-            a#clothes-catpost
-              i.material-icons checkroom 
-              |Clothes
-          li
-            a#electronics-catpost
-              i.material-icons camera_alt 
-              |Electronics
-          li
-            a#home-catpost
-              i.material-icons countertops 
-              |Home &amp; Kitchen
-          li
-            a#misc-catpost
-              i.material-icons pedal_bike 
-              |Miscellaneous
-          li
-            a#toys-catpost
-              i.material-icons sports_esports 
-              |Toys &amp; Games
-          li
-            a#tutoring-catpost
-              i.material-icons face 
-              |Tutoring
-                    
+        br
+        br
+        .input-field
+          select(name='category')
+            option(value='' disabled selected) Choose a category
+            option(value='Art') Art
+            option(value='Books') Books
+            option(value='Clothes') Clothes
+            option(value='Electronics') Electronics
+            option(value='Home & Kitchen') Home &amp; Kitchen
+            option(value='Miscellaneous') Miscellaneous
+            option(value='Toys & Games') Toys &amp; Games
+            option(value='Tutoring') Tutoring
         .row
           .col.push-s4
             p

@@ -25,4 +25,8 @@
     display: inline-flex;
     vertical-align: center;
 }
+
+.divider-right {
+    border-right:1px solid grey;
+}
 /*-----------------------------------------------------------*/
