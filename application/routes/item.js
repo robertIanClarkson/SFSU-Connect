@@ -11,12 +11,12 @@ var crypto = require('crypto');
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.render('item', { 
-      title: 'Item' ,
+      title: item.name ,
       user: req.user
     }); 
   } else {
     res.render('item', { 
-      title: 'Item' 
+      title: item.name 
     }); 
   }
 });
@@ -48,7 +48,7 @@ router.get('/:id', function(req, res, next) {
   item.getItemByID(req.params.id)
   .then((item) => {
     res.render('item', { 
-      title: 'Item', 
+      title: item.name, 
       user: req.user,
       item: item
     })

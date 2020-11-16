@@ -24,7 +24,7 @@ function getNItems(n) {
 
 function numItems_N_days() {
     return new Promise((resolve, reject) => {
-        db.query(`SELECT COUNT(*) AS number FROM item WHERE created > (NOW() - INTERVAL 7 DAY)`)
+        db.query(`SELECT COUNT(*) AS number FROM item WHERE created > (NOW() - INTERVAL 7 DAY) AND item.available = 1 AND item.approved = 1`)
             .then(Result => {
                 resolve(Result)
         }).catch((err) => {
