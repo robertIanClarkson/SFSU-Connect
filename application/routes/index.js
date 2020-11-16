@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
     test.getSearchResults('All', ""),
     db.numItems_N_days(100)
   ]).then(([items, numItems]) => {
+      // console.log(items)
       if (req.isAuthenticated()) {
         res.render('landing', { 
           title: 'Home',
