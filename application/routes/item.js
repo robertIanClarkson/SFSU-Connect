@@ -59,15 +59,6 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-
-
-/* POST */
-// PRIORITY 1
-// router.post('/new', function(req, res, next) {
-//   console.log(`POST: 'item/new' --> ${JSON.stringify(req.body)}`)
-//   res.render('thankyou', { title: 'Thanks!' });
-// });
-
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
         callback(null, "public/images/items");

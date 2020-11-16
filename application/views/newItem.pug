@@ -11,7 +11,7 @@ block content
     form(action="/item/new", method="post", enctype="multipart/form-data")
       .col.s6
         img(src="/images/itemplaceholder.png")
-        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg', required)
+        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
             
         
       .col.s6
@@ -30,7 +30,6 @@ block content
         input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
         br
         br
-        
         .input-field
           select(name='category')
             option(value='' disabled selected) Choose a category
@@ -42,7 +41,6 @@ block content
             option(value='Miscellaneous') Miscellaneous
             option(value='Toys & Games') Toys &amp; Games
             option(value='Tutoring') Tutoring
-
         .row
           .col.push-s4
             p
