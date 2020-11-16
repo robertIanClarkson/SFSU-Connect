@@ -40,6 +40,7 @@ function getSearchResults(category, text, filter='date:new->old') {
     else {
       sqlCommand += ` WHERE category_name = '${category}'`
     }
+    sqlCommand += ` AND approved  = 1 AND available = 1`
     let wordsArray = text.split(' ') // break search string into words
     for (word of wordsArray) {
       // append to SQL command
