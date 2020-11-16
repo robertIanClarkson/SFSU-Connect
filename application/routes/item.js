@@ -68,11 +68,11 @@ router.post('/message', function(req, res, next){
     db.newMessage(req.user.id, req.body.item_id, req.body.message)
     .then((result) =>{
       console.log(`result --> ${result}`)
-      res.redirect('back');
+      res.redirect('/');
     })
     .catch((errno) =>{
       console.log(`Send Message Error: ${errno}`)
-      res.redirect('back');
+      res.redirect('/');
     })
   } else {
     // not authenticated
