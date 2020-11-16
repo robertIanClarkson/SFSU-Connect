@@ -11,7 +11,7 @@ var test = require('../db/helpers/test');
 router.get('/', function(req, res, next) {
   Promise.all([
     test.getSearchResults('All', ""),
-    db.numItems_N_days(100)
+    db.numItems_N_days()
   ]).then(([items, numItems]) => {
       if (req.isAuthenticated()) {
         res.render('landing', { 

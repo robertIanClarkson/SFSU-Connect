@@ -22,8 +22,15 @@ function getNItems(n) {
   });
 }
 
-function numItems_N_days(n) {
-  return n
+function numItems_N_days() {
+    return new Promise((resolve, reject) => {
+        db.query(`SELECT COUNT(*) FROM item WHERE created > (NOW() - INTERVAL 7 DAY)`)
+            .then(Result => {
+                resolve(Result)
+        }).catch((err) => {
+            reject(`(${err}) ERROR --> DB call failed`)
+        })
+    })
 }
 
 module.exports = {
