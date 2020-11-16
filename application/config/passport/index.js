@@ -1,4 +1,5 @@
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const login = require('./../../db/login')
 
@@ -21,13 +22,21 @@ function(username, password, done) {
   let email = username // passport bullshit
   login.getUserWithEmail(email)
     .then((user) => {
-      if(user.password == password) {
-        delete user.password
-        // console.log(user)
-        return done(null, user)
-      } else {
-        return done(null, false)
-      }
+      bcrypt.compare(password, user.password)
+        .then((isPassword) => {
+          if(isPassword) {
+            delete user.password
+            // console.log(user)
+            return done(null, user)
+          } else {
+            return done(null, false)
+          }
+        })
+        .catch((error) => {
+          // failed to compare passwords
+          console.log(error)
+          done(null, false)
+        })
     })
     .catch((err) => {
       console.log(err)
