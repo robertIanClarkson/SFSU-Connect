@@ -1,4 +1,4 @@
-var db = require('./db')
+let db = require('./db');
 
 function getNItems(n) {
   return new Promise((resolve, reject) => {
@@ -9,7 +9,7 @@ function getNItems(n) {
               ORDER BY item.created DESC
               LIMIT ?`, [n])
       .then((rows) => {
-        if(rows.length == 0) {
+        if(rows.length === 0) {
           reject(`(x) ERROR --> Database did not return any items`)
         }
         else {
@@ -24,7 +24,7 @@ function getNItems(n) {
 
 function numItems_N_days() {
     return new Promise((resolve, reject) => {
-        db.query(`SELECT COUNT(*) FROM item WHERE created > (NOW() - INTERVAL 7 DAY)`)
+        db.query(`SELECT COUNT(*) AS number FROM item WHERE created > (NOW() - INTERVAL 7 DAY)`)
             .then(Result => {
                 resolve(Result)
         }).catch((err) => {
@@ -34,6 +34,5 @@ function numItems_N_days() {
 }
 
 module.exports = {
-    getNItems,
     numItems_N_days
 }

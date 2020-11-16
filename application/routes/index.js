@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
       if (req.isAuthenticated()) {
         res.render('landing', { 
           title: 'Home',
-          numItems: numItems,
+          numItems: numItems[0].number,
           items: items,
           category: 'All',
           user: req.user
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
       } else {
         res.render('landing', { 
           title: 'Home',
-          numItems: numItems,
+          numItems: numItems[0].number,
           items: items,
           category: 'All'
         });
