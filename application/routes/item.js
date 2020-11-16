@@ -73,6 +73,7 @@ var storage = multer.diskStorage({
 var uploader = multer({storage: storage});
 
 router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
+  try{
     let filePath = req.file.path;
     let fileName = req.file.filename;
     // console.log(filePath);
@@ -97,7 +98,9 @@ router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
-    
+  } catch(error) {
+    console.log(error)
+  }
 })
 
 router.post('/message', function(req, res, next){
