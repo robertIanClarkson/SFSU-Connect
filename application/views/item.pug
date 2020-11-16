@@ -18,6 +18,8 @@ block content
 
 		#imageBox
 			img#image(src='/images/items/' + item.image alt="this if image does not exist")
+			if error
+				h6.red-text Error: #{error}
 			form(action="/item/message" method="post")#messageForm
 				.input-field
 					input(type="hidden", name="item_id", value=item.id)

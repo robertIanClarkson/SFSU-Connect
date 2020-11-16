@@ -114,6 +114,10 @@ router.post('/message', function(req, res, next){
     })
   } else {
     // not authenticated
+    res.render('login', {
+      title: "Login",
+      error: "Please Login to send a message"
+    })
   }
   
 });
