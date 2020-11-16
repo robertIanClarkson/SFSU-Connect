@@ -1,44 +1,18 @@
 var db = require('./db')
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-
-function encryptPassword(password) {
-  return new Promise((resolve, reject) => {
-    bcrypt.hash(password, saltRounds)
-      .then(function(hash) {
-        resolve(hash)
-      })
-      .catch((error) => {
-        reject(`Failed to encrypt password: ${error}`)
-      })
-  })
-}
 
 function newUser(name, email, password) {
-  return new Promise((resolve, reject) => {
-    console.log(password)
-    encryptPassword(password)
-      .then((hash) => {
-        // console.log(hash)
-        let sqlCommand = `INSERT INTO user 
+  let sqlCommand = `INSERT INTO user 
                       (name, email, password, image) 
                       VALUES
-                      ('${name}', '${email}', '${hash}', 'none.png');`
-        db.query(sqlCommand)
-          .then(() => {
-            resolve('ok')
-          })
-          .catch((err) => {
-            // failed to query DB
-            reject(err.errno)
-          })
+                      ('${name}', '${email}', '${password}', 'none.png');`
+  return new Promise((resolve, reject) => {
+    db.query(sqlCommand)
+      .then(() => {
+        resolve('ok')
       })
-      .catch((error) => {
-        // failed to hash password
-        reject(error)
+      .catch((err) => {
+        reject(err.errno)
       })
-    
-    
   });
 }
 
