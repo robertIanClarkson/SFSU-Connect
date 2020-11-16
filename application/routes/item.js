@@ -100,4 +100,22 @@ router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
     
 })
 
+router.post('/message', function(req, res, next){
+  console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
+  if(req.isAuthenticated()) {
+    db.newMessage(req.user.id, req.body.item_id, req.body.message)
+    .then((result) =>{
+      console.log(`result --> ${result}`)
+      res.redirect('/');
+    })
+    .catch((errno) =>{
+      console.log(`Send Message Error: ${errno}`)
+      res.redirect('/');
+    })
+  } else {
+    // not authenticated
+  }
+  
+});
+
 module.exports = router;
