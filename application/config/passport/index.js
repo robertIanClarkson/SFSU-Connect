@@ -3,8 +3,6 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const login = require('./../../db/login')
 
-//set up database actions for user
-
 passport.serializeUser((user, done) => {
   done(null, user);
 });
@@ -23,7 +21,7 @@ passport.use(new LocalStrategy({
     login.getUserWithEmail(email)
       .then((user) => {
         bcrypt.compare(password, user.password)
-          .then(function(isPassword) {
+          .then((isPassword) => {
             if(isPassword) {
               delete user.password
               // console.log(user)
