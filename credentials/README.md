@@ -7,9 +7,9 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
-    - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+    - http://ec2-54-151-54-31.us-west-1.compute.amazonaws.com
 2. SSH username
-    - ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+    - ubuntu@ec2-54-151-54-31.us-west-1.compute.amazonaws.com
 3. SSH password or key.
     <br> If a ssh key is used please upload the key to the credentials folder.
     - team1v2.pem
@@ -27,8 +27,8 @@
 SSH Instructions:
     - Download the file 'team1v2.pem' that is in this folder
     - In your local terminal:
-        - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
-        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+        - $ ssh -i path/to/.pem/file ubuntu@ec2-54-151-54-31.us-west-1.compute.amazonaws.com
+        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-151-54-31.us-west-1.compute.amazonaws.com
     - Once connected:
         - pm2 (if this fails make sure you run 'npm install')
             - pm2 see status
@@ -63,7 +63,7 @@ SSH Instructions:
                 - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
                 - $ make kill
     - in your local browser:
-        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+        - http://ec2-54-151-54-31.us-west-1.compute.amazonaws.com
     - all 'shell script run' ExpressJS logs are kept in:
         - $ ~/Logs/terminal.txt
     - all pm2 logs are kept in:

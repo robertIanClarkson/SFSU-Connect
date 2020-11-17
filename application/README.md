@@ -10,8 +10,8 @@ You are free to organize the contents of the folder as you see fit. But remember
 # SSH Instructions
     - Download the file 'team1v2.pem' that is in this folder
     - In your local terminal:
-        - $ ssh -i path/to/.pem/file ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
-        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+        - $ ssh -i path/to/.pem/file ubuntu@ec2-54-151-54-31.us-west-1.compute.amazonaws.com
+        - Example: ssh -i ~/.ssh/team1v2.pem ubuntu@ec2-54-151-54-31.us-west-1.compute.amazonaws.com
     - Once connected:
         - pm2 (if this fails make sure you run 'npm install')
             - pm2 see status
@@ -46,7 +46,7 @@ You are free to organize the contents of the folder as you see fit. But remember
                 - $ cd ~/Github/csc648-03-fa20-team01-robertIanClarkson/application
                 - $ make kill
     - in your local browser:
-        - http://ec2-54-176-147-4.us-west-1.compute.amazonaws.com
+        - http://ec2-54-151-54-31.us-west-1.compute.amazonaws.com
     - all 'shell script run' ExpressJS logs are kept in:
         - $ ~/Logs/terminal.txt
     - all pm2 logs are kept in:
