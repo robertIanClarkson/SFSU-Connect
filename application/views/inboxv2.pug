@@ -10,25 +10,34 @@ block content
   // -------------------------- CONTENT ------------------------
 
   .row#titleRow
-    .col.s2#itemDate
-      p Date
+    .col.s2.divider-right#itemDate
+      h5 
+        u DATE
       .divider
-    .col.s2#senderName
-      p Sender
+    .col.s2.divider-right#senderName
+      h5 
+        u FROM
       .divider
-    .col.s8#messageBlock
-      p Message
+    .col.s2.divider-right#messageBlock
+      h5 
+        u SUBJECT
+      .divider
+    .col.s6#messageBlock
+      h5 
+        u MESSAGE
       .divider
 
   .row#messageRow
     if messages
       each message in messages
         .row
-          .col.s2#itemDate
+          .col.s2.divider-right#itemDate
             p #{message.date}
-          .col.s2#senderName
+          .col.s2.divider-right#senderName
             p #{message.sender}
-          .col.s8#messageBlock
+          .col.s2.divider-right#messageSubject
+            p #{message.subject}
+          .col.s6#messageBlock
             p #{message.message}
         .divider
     else 

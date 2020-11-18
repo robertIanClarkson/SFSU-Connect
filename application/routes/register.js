@@ -18,8 +18,9 @@ router.post('/', function(req, res, next) {
   db.newUser(req.body.name, req.body.email, req.body.password)
   .then((result) => {
     console.log(`register --> ${result}`)
-    res.render('landing', {
-      title: 'Home'
+    res.render('login', {
+      title: 'Login',
+      error: "You are registered! Just login"
     })
   })
   .catch((errno) => {

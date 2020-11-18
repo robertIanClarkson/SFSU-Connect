@@ -27,7 +27,7 @@ block content
             option(value='3') Date: Old to New
             option(value='4' selected) Date: New to Old
         .col.s1.m1#submitButton 
-          button.btn.waves-effect.waves-light.yellow.darken-1(type='submit' name='action')
+          button.btn.waves-effect.waves-light(type='submit' name='action')
             | Filter
             i.material-icons.right send
 
@@ -40,9 +40,21 @@ block content
                 .card
                   a(href="/item/" + item.id)
                     .card-image
-                      img(src="/images/items/" + item.image)
-                    .card-title= item.itemName
-                    .card-content= item.userName
+                      img(src="/images/items/thumbnail-" + item.image)
+                    .card-title
+                      .row.valign-wrapper
+                        .col.s4
+                          h6 #{item.itemName}
+                        .col.s8
+                          h5.right $#{item.price} 
+                      .divider
+                      .row
+                        .col.s6
+                          p.left #{item.userName}
+                        .col.s6
+                          p.right #{item.created}
+                      
+                    //- .card-content= item.userName
           else
             h3.center Sorry, there are no items right now
   // ---------------------------------CONTENT---------------------------------

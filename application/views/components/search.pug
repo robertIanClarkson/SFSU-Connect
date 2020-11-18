@@ -57,11 +57,11 @@ link(rel='stylesheet', href='/stylesheets/search.css')
     //- user search input
     .col.s7
       if search
-        input#search-input.white-text(value=search type="text" class="validate")
+        input#search-input.white-text(value=search type="text" class="validate" maxlength='40')
       else
         - var searchPlaceholder = "Type what you are looking for here"
-        input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate")
-    
+        input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate" maxlength='40')
+
     //- submit
     .col.s1
       a#search-submit.btn
