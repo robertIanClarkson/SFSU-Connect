@@ -37,8 +37,6 @@ function newUser(name, email, password) {
         // failed to hash password
         reject(error)
       })
-    
-    
   });
 }
 

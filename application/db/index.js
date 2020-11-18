@@ -1,5 +1,6 @@
 let db = require('./db');
 
+
 function getNItems(n) {
   return new Promise((resolve, reject) => {
     db.query(`SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
