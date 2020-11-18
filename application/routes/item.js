@@ -88,9 +88,9 @@ router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
 
     // console.log(name + ' $ ' + description + ' $ ' + price + ' $ ' + category + ' $ ' + fileName + ' $ ' + userID);
     
-    let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id)
-                    VALUES (?, ?, ?, ?, ?, ?)`
-    db.query(baseSQL, [name, description, price, category, fileName, userID])
+    // let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id)
+    //                 VALUES (?, ?, ?, ?, ?, ?)`
+    item.newItem(name, description, price, category, fileName, userID)
     .then(() => {
       res.render('thankyou', { title: 'Thanks!' });
     })
@@ -102,7 +102,7 @@ router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
 router.post('/message', function(req, res, next){
   console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
   if(req.isAuthenticated()) {
-    db.newMessage(req.user.id, req.body.item_id, req.body.message)
+    item.newMessage(req.user.id, req.body.item_id, req.body.message)
     .then((result) =>{
       console.log(`result --> ${result}`)
       res.redirect('/');

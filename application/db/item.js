@@ -47,7 +47,20 @@ function newMessage(sender_id, item_id, message){
   });
 }
 
+function newItem(name, description, price, category, fileName, userID){
+  let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
+                  VALUES ('${name}', '${description}', '${price}', '${category}', '${fileName}', '${userID}')`
+  db.query(baseSQL)
+    .then(() =>{
+      resolve('ok')
+    })
+    .catch((err) =>{
+      reject(err.errno)
+    })
+}
+
 module.exports = {
   getItemByID,
-  newMessage
+  newMessage,
+  newItem
 }
