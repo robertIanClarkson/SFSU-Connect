@@ -1,0 +1,53 @@
+extends layout
+
+block content   
+  //--------------------------- CSS--------------------------
+  link(rel='stylesheet', href='/stylesheets/newItem.css')
+  //---------------------------------------------------------
+
+  //--------------------------Content------------------------
+  .row
+    p
+    form(action="/item/new", method="post")
+      .col.s5.push-s1
+        img(src="/images/itemplaceholder.png")
+        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
+            
+        
+      .col.row.s5.push-s1
+        h7 ITEM NAME:
+        p  
+        input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
+        p
+        h7 DESCRIPTION: 
+        textarea(name="description", ID="DescriptionArea", required)
+        p
+                
+        h7 PRICE $ 
+        input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
+        p
+
+        h7 Choose A Category: 
+        p
+
+        .col.s3.m3#seleteBar
+          label Browser Select
+          select.browser-default#option(name="category" required)
+            option(value='' disabled selected) Category
+            option(value='Art') Art
+            option(value='Books') Books
+            option(value='Clothes') Clothes
+            option(value='Electronics') Electronics
+            option(value='Home & Kitchen') Home & Kitchen
+            option(value='Toys & Games') Toys & Games
+            option(value='Tutoring') Tutoring
+                    
+        .row
+          .col.push-s4
+            p
+            button(ID = "PostItemButton" type = 'submit') SUBMIT
+    //---------------------------------------------------------
+
+    //---------------------Javascript-------------------
+    script(src='/javascripts/newItem.js')
+    //---------------------------------------------------------

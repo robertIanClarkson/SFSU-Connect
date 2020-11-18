@@ -1,16 +1,28 @@
-.inbox{
-    background-color: slateblue;
+#inboxbg {
+    /* background-color: gray; */
     height: 100%;
 }
-.inbox-list{
-    background-color: slateblue;
+
+#inbox{
+    background-color: #6a5acd;
+    height: 100%;
+    padding: 4%;
 }
-.subject{
-    border: 5px outset gray;
+#inbox-list{
+    background-color: slateblue;
+    padding-bottom: 100%;
+}
+#subject{
+    border: 5px outset black;
 }
 
-.mail-body{
-    border: 5px outset gray;
+#mail-body{
+    border: 5px outset black;
     height: 500px;
+}
+
+#mailIcon{
+    display: inline-flex;
+    vertical-align: center;
 }
 /*-----------------------------------------------------------*/

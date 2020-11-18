@@ -1,60 +1,64 @@
 /***********************DROPDOWN FOR VP**********************/
-var currentCategory = 'All'
+var category_icon = {
+  'All': 'trip_origin',
+  'Art': 'palette',
+  'Books': 'book',
+  'Clothes': 'checkroom',
+  'Electronics': 'camera_alt',
+  'Home & Kitchen': 'countertops',
+  'Miscellaneous': 'pedal_bike',
+  'Toys & Games': 'sports_esports',
+  'Tutoring': 'face'
+}
+
+function changeCategory(newCategory) {
+  currentCategory = newCategory
+  $('#trigger-cat').text(currentCategory)
+  $('#trigger-icon').text(category_icon[currentCategory])
+}
 
 $('#category-dropdown-trigger').dropdown();
 
-$('#all-cat').click(function() {
-  currentCategory = 'All'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('trip_origin')
+$( document ).ready(function() {
+  currentCategory = $('#trigger-cat').text()
+  $('#trigger-icon').text(category_icon[currentCategory])
+})
+
+$('#all-cat').click(function () {
+  changeCategory('All')
 });
 
-$('#art-cat').click(function() {
-  currentCategory = 'Art'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('palette')
+$('#art-cat').click(function () {
+  changeCategory('Art')
 });
 
-$('#books-cat').click(function() {
-  currentCategory = 'Books'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('book')
+$('#books-cat').click(function () {
+  changeCategory('Books')
 });
 
-$('#clothes-cat').click(function() {
-  currentCategory = 'Clothes'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('checkroom')
+$('#clothes-cat').click(function () {
+  changeCategory('Clothes')
 });
 
-$('#electronics-cat').click(function() {
-  currentCategory = 'Electronics'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('camera_alt')
+$('#electronics-cat').click(function () {
+  changeCategory('Electronics')
 });
 
-$('#home-cat').click(function() {
-  currentCategory = 'Home & Kitchen'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('countertops')
+$('#home-cat').click(function () {
+  changeCategory('Home & Kitchen')
 });
 
-$('#misc-cat').click(function() {
-  currentCategory = 'Miscellaneous'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('pedal_bike')
+$('#misc-cat').click(function () {
+  changeCategory('Miscellaneous')
+});
+  
+
+$('#toys-cat').click(function () {
+  changeCategory('Toys & Games')
 });
 
-$('#toys-cat').click(function() {
-  currentCategory = 'Toys & Games'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('sports_esports')
-});
-
-$('#tutoring-cat').click(function() {
-  currentCategory = 'Tutoring'
-  $('#trigger-cat').text(currentCategory)
-  $('#trigger-icon').text('face')
+$('#tutoring-cat').click(function () {
+  changeCategory('Tutoring')
 });
 
 $('#search-submit').click(function() {
@@ -65,15 +69,26 @@ $('#search-submit').click(function() {
     text: searchText
   }
 
-  $.post( "search", searchData, function( data, status ) {
-    $('#search-results').empty()
-    for(item of data){
-      $('#search-results').append(`<img class="responsive-img" src=images/items/${item.image}>`)
-      $('#search-results').append(`<p>NAME: ${item.name}</p>`)
-      $('#search-results').append(`<p>DESCRIPTION: ${item.description}</p>`)
-      $('#search-results').append(`<p>PRICE: $${item.price}</p>`)
-      $('#search-results').append(`<div class='divider'></div>`)
-    }
-  });
+  window.location.href = (`/search?category=${encodeURIComponent(currentCategory)}&text=${encodeURIComponent(searchText)}`)
 });
 /***********************DROPDOWN FOR VP**********************/
+
+/********************LANDING PAGE LATEST ITEM****************/
+$("#itemCard").ready(function(){
+  // code
+  var itemsPerRow = 4;
+
+  // $.post("landing", function(data, status){
+  //   for(item of data){ // for all item in the data
+  //     for(i=0; i<2; i++){  // 2 row
+  //       for(j=0; j<itemsPerRow; j++){ // #'s of item for each row
+  //           $("#itemCard").append('<div class="col s3"')
+  //           $('#itemCard').append(`<div class="card-title"><p>${item.title}</p>`);
+  //           $('#itemCard').append(`'<div class="card"><div class="card-image"><img class="responsive-img" src=images/items/${item.image}></div>`)
+  //           $('#itemCard').append(`<div class="card-content"><p>${item.description}</p>`);
+  //       }
+  //     }
+  //   }
+  // });
+});
+/********************LANDING PAGE LATEST ITEM****************/

@@ -1,0 +1,54 @@
+#imageBox{
+    float: left;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+#infoBox{
+    float: right;
+    max-width: 50%;
+    width: 50%;
+    background-color: blueviolet;
+    border-radius: 50px;
+}
+#image{
+    max-height: 30vmax;
+    border: 20px;
+    height: 50vmax;
+    width: auto;
+    max-width: 90%;
+    object-fit: contain;
+}
+#title #description {
+    background-color: deeppink;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px;
+}
+#price {
+    background-color: deeppink;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    width: 100px;
+}
+#itembutton {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    background-color: gold;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+#header{
+    margin-left: 20px;
+}
+#description{
+    height: 10vmax;
+}
+/*
+#itembutton {
+    background-color: deeppink;
+}
+*/

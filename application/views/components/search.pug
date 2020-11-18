@@ -1,7 +1,10 @@
+// -------------------------------CSS----------------------------------------
+link(rel='stylesheet', href='/stylesheets/search.css')
+// --------------------------------------------------------------------------
 
+// -------------------------------CONTENT------------------------------------
 .container
   .row.valign-wrapper
-    
     //- category dropdown
     .col.s4
       a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
@@ -9,7 +12,10 @@
           .col.s2
             i#trigger-icon.material-icons trip_origin 
           .col.s10
-            span#trigger-cat.left All
+            if category
+              span#trigger-cat.left #{category}
+            else
+              span#trigger-cat.left All
       ul#category-dropdown(class='dropdown-content')
         li
           a#all-cat 
@@ -50,27 +56,18 @@
     
     //- user search input
     .col.s7
-      - var searchPlaceholder = "Type what you are looking for here"
-      input#search-input(placeholder=searchPlaceholder type="text" class="validate")
+      if search
+        input#search-input.white-text(value=search type="text" class="validate")
+      else
+        - var searchPlaceholder = "Type what you are looking for here"
+        input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate")
     
     //- submit
     .col.s1
       a#search-submit.btn
         i.material-icons search
-  
-  //- search results
-  .divider
-  h5 
-    u Search Results
-  #search-results.row
+// --------------------------------------------------------------------------
 
-  //- THIS IS IF WE CAN FIGURE OUT HOW TO SAVE THE CATEGORY IN A FORM WHICH IS HONESTLY THE BETTER WAY BC WE DONT HAVE TO USE AS MUCH JS
-  //- if items 
-  //-   for item in items
-  //-     p #{item.id}.) At #{item.date}, '#{item.name}' inserted '#{item.message}'.
-  
-
-
-
-    
-script(src='javascripts/search.js')
+// -------------------------------JAVASCRIPT---------------------------------
+script(src='/javascripts/search.js')
+// --------------------------------------------------------------------------
