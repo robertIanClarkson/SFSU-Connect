@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  //- Square cards
+
+  // ---------------------------- INBOX ------------------------
+  link(rel='stylesheet' href='/stylesheets/inbox.css')
+  // ---------------------------- INBOX ------------------------
+
+  // -------------------------- CONTENT ------------------------
+
+  .row#titleRow
+    .col.s2#itemDate
+      p Date
+      .divider
+    .col.s2#senderName
+      p Sender
+      .divider
+    .col.s8#messageBlock
+      p Message
+      .divider
+
+  .row#messageRow
+    if messages
+      each message in messages
+        .row
+          .col.s2#itemDate
+            p #{message.date}
+          .col.s2#senderName
+            p #{message.sender}
+          .col.s8#messageBlock
+            p #{message.message}
+        .divider
+    else 
+      h3.center There are no Messages.
+
+  // -------------------------- CONTENT ------------------------
+
+  // ---------------------------- JS ---------------------------
+
+  // ---------------------------- JS ---------------------------
