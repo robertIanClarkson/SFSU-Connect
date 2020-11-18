@@ -1,18 +1,22 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db/item');
+var item = require('../db/item');
+var db = require('../db/db')
+var multer = require('multer');
+var sharp = require('sharp');
+var crypto = require('crypto');
 
 /* GET */
 // this will get replaced with below '/:id'
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.render('item', { 
-      title: 'Item' ,
+      title: item.name ,
       user: req.user
     }); 
   } else {
     res.render('item', { 
-      title: 'Item' 
+      title: item.name 
     }); 
   }
 });
@@ -41,10 +45,10 @@ router.get('/thankyou', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   console.log(`GET: 'item/${req.params.id}'`)
-  db.getItemByID(req.params.id)
+  item.getItemByID(req.params.id)
   .then((item) => {
     res.render('item', { 
-      title: 'Item', 
+      title: item.name, 
       user: req.user,
       item: item
     })
@@ -55,27 +59,63 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, "public/images/items");
+    },
+    filename: function(req, file, callback) {
+        let fileExtension = file.mimetype.split("/")[1];
+        let randomName = crypto.randomBytes(16).toString("hex");
+        callback(null, `${randomName}.${fileExtension}`)
+    }
+});
 
+var uploader = multer({storage: storage});
 
-/* POST */
-// PRIORITY 1
-router.post('/new', function(req, res, next) {
-  console.log(`POST: 'item/new' --> ${JSON.stringify(req.body)}`)
-  if(req.isAuthenticated()) {
-    // MAKE DB CALL HERE
-    res.render('thankyou', { 
-      title: 'Thanks!',
-      user: req.user
+router.post('/new', uploader.single('uploadImage'), (req, res, next) => {
+    let filePath = req.file.path;
+    let fileName = req.file.filename;
+    // console.log(filePath);
+    let thumbnailName = `thumbnail-${fileName}`;
+    let thumbnailPath = req.file.destination + "/" + thumbnailName;
+    let userID = req.user.id;
+    let name = req.body.itemname;
+    let description = req.body.description;
+    let price = req.body.price;
+    let category = req.body.category;
+
+    sharp(filePath).resize(400).toFile(thumbnailPath);
+
+    // console.log(name + ' $ ' + description + ' $ ' + price + ' $ ' + category + ' $ ' + fileName + ' $ ' + userID);
+    
+    let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id)
+                    VALUES (?, ?, ?, ?, ?, ?)`
+    db.query(baseSQL, [name, description, price, category, fileName, userID])
+    .then(() => {
+      res.render('thankyou', { title: 'Thanks!' });
+    })
+    .catch((err) => {
+      console.log(err);
     });
+})
+
+router.post('/message', function(req, res, next){
+  console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
+  if(req.isAuthenticated()) {
+    db.newMessage(req.user.id, req.body.item_id, req.body.message)
+    .then((result) =>{
+      console.log(`result --> ${result}`)
+      res.redirect('/');
+    })
+    .catch((errno) =>{
+      console.log(`Send Message Error: ${errno}`)
+      res.redirect('/');
+    })
   } else {
-    // USER TRYING TO POST BUT NOT LOGGED IN (SHOULDNT BE POSSIBLE)
-    res.render('error', {
-      title: 'Error',
-      message: 'Unauthorized',
-      error: {
-        status: 401,
-        stack: 'Trying to post a new item when unauthorized'
-      }
+    // not authenticated
+    res.render('login', {
+      title: "Login",
+      error: "Please Login to send a message"
     })
   }
   
