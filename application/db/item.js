@@ -51,17 +51,17 @@ function newMessage(sender_id, item_id, message){
 }
 
 function insertItem(name, description, price, category, fileName, userID){
-  let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
+    return new Promise(((resolve, reject) => {
+        let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
                   VALUES ('${name}', '${description}', '${price}', '${category}', '${fileName}', '${userID}')`
-  let myPromise = item.query(baseSQL)
-    .then(() =>{
-      resolve('ok')
-    })
-    .catch((err) =>{
-      reject(err.errno)
-    })
-  
-  return myPromise;
+        item.query(baseSQL)
+            .then((myPromise) =>{
+                resolve(myPromise)
+            })
+            .catch((err) =>{
+                reject(err.errno)
+            })
+    }))
 }
 
 let storage = multer.diskStorage({
@@ -75,26 +75,26 @@ let storage = multer.diskStorage({
   }
 });
 
-var myPromise;
-
 function newItem(req, res) {
-  let uploader = multer({storage: storage}).single('uploadImage');
-  uploader(req, res, ()=>{
-    let filePath = req.file.path;
-    let fileName = req.file.filename;
-    let thumbnailName = `thumbnail-${fileName}`;
-    let thumbnailPath = req.file.destination + "/" + thumbnailName;
-    let userID = req.user.id;
-    let name = req.body.itemname;
-    let description = req.body.description;
-    let price = req.body.price;
-    let category = req.body.category;
-  
-    sharp(filePath).resize(400).toFile(thumbnailPath);
-  
-    myPromise = insertItem(name, description, price, category, fileName, userID)
-  });
-  return myPromise;
+    return new Promise(((resolve, reject) => {
+        let uploader = multer({storage: storage}).single('uploadImage');
+        uploader(req, res, ()=>{
+            let filePath = req.file.path;
+            let fileName = req.file.filename;
+            let thumbnailName = `thumbnail-${fileName}`;
+            let thumbnailPath = req.file.destination + "/" + thumbnailName;
+            let userID = req.user.id;
+            let name = req.body.itemname;
+            let description = req.body.description;
+            let price = req.body.price;
+            let category = req.body.category;
+
+            sharp(filePath).resize(400).toFile(thumbnailPath);
+
+            insertItem(name, description, price, category, fileName, userID).then((myPromise) => { resolve(myPromise)})
+        });
+    }))
+
 };
 
 module.exports = {
