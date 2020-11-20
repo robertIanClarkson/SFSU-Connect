@@ -55,10 +55,11 @@ function insertItem(name, description, price, category, fileName, userID){
         let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
                   VALUES ('${name}', '${description}', '${price}', '${category}', '${fileName}', '${userID}')`
         item.query(baseSQL)
-            .then((myPromise) =>{
-                resolve(myPromise)
+            .then(() =>{
+                resolve('ok')
             })
             .catch((err) =>{
+                console.log('Failed at DB insert')
                 reject(err.errno)
             })
     }))
@@ -91,7 +92,17 @@ function newItem(req, res) {
 
             sharp(filePath).resize(400).toFile(thumbnailPath);
 
-            insertItem(name, description, price, category, fileName, userID).then((myPromise) => { resolve(myPromise)})
+            insertItem(name, description, price, category, fileName, userID)
+              .then((result) => { 
+                if(result == 'ok') {
+                  resolve('ok')
+                } else {
+                  reject('something went wrong in insertItem')
+                }
+              })
+              .catch((err) => {
+                reject(err)
+              })
         });
     }))
 
