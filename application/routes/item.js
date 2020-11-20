@@ -43,13 +43,21 @@ router.get('/thankyou', function(req, res, next) {
 });
 
 router.post('/new', (req, res, next) => {
-    console.log(req);
+    // console.log(req);
     item.newItem(req, res)
     .then(() => {
       res.redirect('/item/thankyou');
     })
     .catch((err) => {
       console.log(err);
+      res.render('error', {
+        title: "Error",
+        message: "Failed to POST a new item",
+        error: {
+          status: err,
+          stack: ""
+        }
+      })
     });
 })
 
