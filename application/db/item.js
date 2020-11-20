@@ -52,16 +52,16 @@ function newMessage(sender_id, item_id, message){
 
 function insertItem(name, description, price, category, fileName, userID){
     return new Promise(((resolve, reject) => {
-        let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
-                  VALUES ('${name}', '${description}', '${price}', '${category}', '${fileName}', '${userID}')`
-        item.query(baseSQL)
-            .then(() =>{
-                resolve('ok')
-            })
-            .catch((err) =>{
-                console.log('Failed at DB insert')
-                reject(err.errno)
-            })
+      let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
+                      VALUES (?, ?, ?, ?, ?, ?)`
+      item.query(baseSQL, [name, description, price, category, fileName, userID])
+        .then(() =>{
+          resolve('ok')
+        })
+        .catch((err) =>{
+          console.log('Failed at DB insert')
+          reject(err.errno)
+        })
     }))
 }
 
@@ -94,11 +94,7 @@ function newItem(req, res) {
 
             insertItem(name, description, price, category, fileName, userID)
               .then((result) => { 
-                if(result == 'ok') {
-                  resolve('ok')
-                } else {
-                  reject('something went wrong in insertItem')
-                }
+                resolve('ok')
               })
               .catch((err) => {
                 reject(err)
