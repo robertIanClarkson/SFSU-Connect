@@ -1,12 +1,10 @@
-
-.rounded{
-    border-radius: 15px;
+.rounded {
+  border-radius: 15px;
 }
 
 #login {
-    padding: 50px;
+  padding: 50px;
 }
-#loginButton
-{
-    color:#2f0f66;
+#loginButton {
+  color: #2f0f66;
 }
