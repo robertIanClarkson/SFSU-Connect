@@ -1,10 +1,10 @@
 .registerForm {
   padding: 50px;
   background: white;
-  border-radius: 25px;
+  border-radius: 50px;
 }
 
-.registerButton {
+#submitregister {
   border-radius: 25px;
   background-color: purple;
   padding: 20px;
@@ -12,5 +12,6 @@
 }
 
 body {
-  background-image: url("");
+  background-image: url("../images/Background/Register.png");
+  background-size: cover;
 }
