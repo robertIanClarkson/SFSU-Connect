@@ -6,7 +6,8 @@
 #login {
     padding: 50px;
 }
-#loginButton
+.loginButton
 {
-    color:#4E0D3A;
+    background-color:#4E0D3A;
+    align-content: right;
 }
