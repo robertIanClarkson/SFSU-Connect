@@ -1,9 +1,9 @@
 var db = require('./db')
 
 function getUserWithID(id) {
-  let sqlCommand = `SELECT * FROM user WHERE id='${id}'`
+  let sqlCommand = `SELECT * FROM user WHERE id=?`
   return new Promise((resolve, reject) => {
-    db.query(sqlCommand)
+    db.query(sqlCommand, [id])
       .then((rows) => {
         if(rows.length == 0) {
           reject(`(x) ERROR --> No user with: id=${id}`)
@@ -22,9 +22,9 @@ function getUserWithID(id) {
 }
 
 function getUserWithEmail(email) {
-  let sqlCommand = `SELECT * FROM user WHERE email='${email}'`
+  let sqlCommand = `SELECT * FROM user WHERE email=?`
   return new Promise((resolve, reject) => {
-    db.query(sqlCommand)
+    db.query(sqlCommand, [email])
       .then((rows) => {
         if(rows.length == 0) {
           reject(`(x) ERROR --> No user with: email=${email}`)
