@@ -6,7 +6,7 @@ var filters = {
 }
 
 
-$('#submitButton').click(function() {
+$('#seleteBar').change(function() {
     var filter = $('#option').val()
     var searchText = $('#search-input').val()
     var category = $('#trigger-cat').text()
