@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  // -----------------------------------CSS-----------------------------------
+  link(rel='stylesheet' href='/stylesheets/landing.css')
+  // -----------------------------------CSS-----------------------------------
+
+  // ---------------------------------CONTENT---------------------------------
+  #content
+
+    #item-list
+      .row#filterbar
+        .col.s2.m3
+          if items
+            h3 #{items.length} item was found
+
+        .col.s3.m3#seleteBar
+          label Filter
+          select.browser-default#option
+            option(value='' selected disabled hidden) Choose your option
+            option(value='1') Price: High to Low
+            option(value='2') Price: Low to High
+            option(value='3') Date: Old to New
+            option(value='4') Date: New to Old
+
+      #itemCard
+        .row
+          if items
+            each item in items
+              .col.s12.m6.l4
+                .card
+                  a(href="/item/" + item.id)
+                    .card-image
+                      img(src="/images/items/thumbnail-" + item.image)
+                    .card-title
+                      .row.valign-wrapper
+                        .col.s4
+                          h6 #{item.itemName}
+                        .col.s8
+                          h5.right $#{item.price} 
+                      .divider
+                      .row
+                        .col.s6
+                          p.left #{item.userName}
+                        .col.s6
+                          p.right #{item.created}
+                      
+                    //- .card-content= item.userName
+          else
+            h3.center Sorry, there are no items right now
+  // ---------------------------------CONTENT---------------------------------
+  
+  // ----------------------------------JS------------------------------
+  script(src='/javascripts/filterBar.js')
+  // ----------------------------------JS------------------------------
+
