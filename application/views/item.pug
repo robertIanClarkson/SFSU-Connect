@@ -9,22 +9,25 @@ block content
 	.row
 		// split screen in half with 2 floating containers
 		#infoBox
-			h4#header Title
-			p#title(class="highlight") #{item.name}
-			h4#header Description
-			p#description(class="highlight") #{item.description}
-			h3#price(class="highlight" style="float:left") $#{item.price}
-			button#itembutton(style="float:right" type="submit" form="messageForm") Contact
-
+			.row
+				h4#header Title
+				p#title(class="highlight") #{item.name}
+				h4#header Description
+				p#description(class="highlight") #{item.description}
+				h3#price(class="highlight" style="float:left") $#{item.price}
+				button#itembutton(style="float:right" type="submit" form="messageForm") Contact
+			.row
+				form(action="/item/message" method="post")#messageForm
+					.input-field
+						//label(for='messageArea') Message Owner
+						input(type="hidden", name="item_id", value=item.id)
+						textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
+						
 		#imageBox
-			img#image(src='/images/items/' + item.image alt="this if image does not exist")
+			img#image(src='/images/items/' + item.image alt='image not found')
 			if error
 				h6.red-text Error: #{error}
-			form(action="/item/message" method="post")#messageForm
-				.input-field
-					input(type="hidden", name="item_id", value=item.id)
-					textarea#messageArea.materialize-textarea(name='message' autocomplete="off" required)
-					label(for='messageArea') Message Owner
+
 	// ---------------------------	CONTENT----------------------------
 
 	// ---------------------------	JS ----------------------------
