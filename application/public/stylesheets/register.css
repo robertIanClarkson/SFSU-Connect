@@ -5,10 +5,10 @@
 }
 
 #submitregister {
-  border-radius: 25px;
-  background-color: purple;
-  padding: 20px;
+  border-radius: 100px;
+  background-color: #5D1049;
   color: white;
+  height: 50px;
 }
 
 body {
