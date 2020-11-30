@@ -10,7 +10,7 @@ link(rel='stylesheet', href='/stylesheets/search.css')
       a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
         .row
           .col.s2
-            i#trigger-icon.material-icons trip_origin 
+            #trigger-icon.material-icons trip_origin 
           .col.s10
             if category
               span#trigger-cat.left #{category}
@@ -62,10 +62,10 @@ link(rel='stylesheet', href='/stylesheets/search.css')
         - var searchPlaceholder = "Type what you are looking for here"
         input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate" maxlength='40')
 
-    //- submit
+    //- submit button
     .col.s1
       a#search-submit.btn
-        i.material-icons search
+        #search-icon.material-icons search
 // --------------------------------------------------------------------------
 
 // -------------------------------JAVASCRIPT---------------------------------

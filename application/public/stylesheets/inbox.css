@@ -1,28 +1,28 @@
 #inboxbg {
-  /* background-color: gray; */
-  height: 100%;
+    /* background-color: gray; */
+    height: 100%;
 }
 
-#inbox {
-  background-color: #6a5acd;
-  height: 100%;
-  padding: 4%;
+#inbox{
+    background-color: #6a5acd;
+    height: 100%;
+    padding: 4%;
 }
-#inbox-list {
-  background-color: slateblue;
-  padding-bottom: 100%;
+#inbox-list{
+    background-color: slateblue;
+    padding-bottom: 100%;
 }
-#subject {
-  border: 5px outset black;
-}
-
-#mail-body {
-  border: 5px outset black;
-  height: 500px;
+#subject{
+    border: 5px outset black;
 }
 
-#mailIcon {
-  display: inline-flex;
-  vertical-align: center;
+#mail-body{
+    border: 5px outset black;
+    height: 500px;
+}
+
+#mailIcon{
+    display: inline-flex;
+    vertical-align: center;
 }
 /*-----------------------------------------------------------*/
