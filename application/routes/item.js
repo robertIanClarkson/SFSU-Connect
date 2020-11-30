@@ -4,7 +4,6 @@ var item = require('../db/item');
 var db = require('../db/db')
 var multer = require('multer');
 
-
 /* GET */
 // this will get replaced with below '/:id'
 router.get('/', function(req, res, next) {

@@ -11,6 +11,11 @@
     
 }
 
-#PostItemName{
-    width: 400px;
+#PostItemName {
+  width: 510px;
+}
+
+#PostItemPrice{
+  background-color: white;
+  height: 30px; 
 }

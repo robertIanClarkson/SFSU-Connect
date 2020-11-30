@@ -1,10 +1,10 @@
-#accountbody{
-    background-color: #ffffff;
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#accountbody {
+  background-color: #ffffff;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-#accimg{
-    height: 400px;
-    width: 400px;
+#accimg {
+  height: 400px;
+  width: 400px;
 }

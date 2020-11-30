@@ -21,6 +21,11 @@
   margin-top: 2%;
 }
 
-#seleteBar {
+#selectBar {
   margin-top: 1%;
+}
+
+#imageSize {
+  width: 200px;
+  height: 200px;
 }
