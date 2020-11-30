@@ -8,11 +8,13 @@ block content
   // ---------------------------------CONTENT---------------------------------
   #content
     p This site is for student to buy and sell their books at a community price
-    if numItems
-      #welcome-text
-        .row
-          h2 Welcome to SFSU Connect! 
+    #welcome-text
+      .row
+        h2 Welcome to SFSU Connect!
+        if numItems 
           h4 #{numItems} items have been added in the pass 7 days
+        else
+          h4 no items have been added in the pass 7 days
 
     #item-list
       .row#filterbar
