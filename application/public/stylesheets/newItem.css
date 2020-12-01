@@ -8,8 +8,15 @@
 #DescriptionArea {
   background-color: white;
   height: 150px;
+
 }
 
 #PostItemName {
-  width: 400px;
+  width: 510px;
 }
+
+#PostItemPrice{
+  background-color: white;
+  height: 30px; 
+}
+

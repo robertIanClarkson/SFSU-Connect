@@ -9,11 +9,12 @@ block content
   .row
     p
     form(action="/item/new", method="post", enctype="multipart/form-data")
-      .col.s6
+      .col.s5.push-s3   
+
         img(src="/images/itemplaceholder.png")
         input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
-            
-      .col.s6
+        br
+        br
         h7 ITEM NAME:
         br
         input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
@@ -26,11 +27,11 @@ block content
         br
         h7 PRICE $ 
         br
-        input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
+        input(type='number', ID="PostItemPrice", name = "price", min="0.00", step="0.01", required)
         br
         br
         .input-field
-          select(name='category', required)
+          select(name='category',required)
             option(value='' disabled selected) Choose a category
             option(value='Art') Art
             option(value='Books') Books
