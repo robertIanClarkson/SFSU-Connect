@@ -5,9 +5,10 @@ let crypto = require('crypto');
 
 function getItemByID(id) {
   return new Promise((resolve, reject) => {
-    item.query(`SELECT * FROM item
-              WHERE id = ?
-              AND item.available = 1 AND item.approved = 1`, [id])
+    let getItemQuery = `SELECT * FROM item
+                        WHERE id = ?
+                        AND item.available = 1 AND item.approved = 1`
+    item.query(getItemQuery, [id])
       .then((rows) => {
         if(rows.length == 0) {
           reject(`(x) ERROR --> Database did not return any items`)
@@ -24,19 +25,19 @@ function getItemByID(id) {
 
 function newMessage(sender_id, item_id, message){
   return new Promise((resolve, reject) => {
-      let getItem = `SELECT * FROM item WHERE id='${item_id}';`
-      item.query(getItem)
+      let getItem = `SELECT * FROM item WHERE id=?;`
+      item.query(getItem, [item_id])
           .then((items) => {
-              console.log(items[0])
-              let getReceiverUser = `SELECT * FROM user WHERE id='${items[0].user_id}';`
-              item.query(getReceiverUser)
+              // console.log(items[0])
+              let getReceiverUser = `SELECT * FROM user WHERE id=?;`
+              item.query(getReceiverUser, [items[0].user_id])
                   .then((receiver_users) => {
                       console.log(receiver_users[0])
                       let insertMessage = `INSERT INTO message  
                                     (item_id, user_id_sender, user_id_reciever, subject, message)
                                     VALUES
-                                    ('${item_id}', '${sender_id}', '${receiver_users[0].id}', '${items[0].name}', '${message}');`
-                      item.query(insertMessage)
+                                    (?, ?, ?, ?, ?);`
+                      item.query(insertMessage, [item_id, sender_id, receiver_users[0].id, items[0].name, message])
                           .then((result) => {
                               console.log('OK')
                               console.log(result)
@@ -52,15 +53,16 @@ function newMessage(sender_id, item_id, message){
 
 function insertItem(name, description, price, category, fileName, userID){
     return new Promise(((resolve, reject) => {
-        let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
-                  VALUES ('${name}', '${description}', '${price}', '${category}', '${fileName}', '${userID}')`
-        item.query(baseSQL)
-            .then((myPromise) =>{
-                resolve(myPromise)
-            })
-            .catch((err) =>{
-                reject(err.errno)
-            })
+      let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
+                      VALUES (?, ?, ?, ?, ?, ?)`
+      item.query(baseSQL, [name, description, price, category, fileName, userID])
+        .then(() =>{
+          resolve('ok')
+        })
+        .catch((err) =>{
+          console.log('Failed at DB insert')
+          reject(err.errno)
+        })
     }))
 }
 
@@ -91,7 +93,13 @@ function newItem(req, res) {
 
             sharp(filePath).resize(400).toFile(thumbnailPath);
 
-            insertItem(name, description, price, category, fileName, userID).then((myPromise) => { resolve(myPromise)})
+            insertItem(name, description, price, category, fileName, userID)
+              .then((result) => { 
+                resolve('ok')
+              })
+              .catch((err) => {
+                reject(err)
+              })
         });
     }))
 
