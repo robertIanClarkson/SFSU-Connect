@@ -10,26 +10,26 @@ block content
 
     .row.center-align
       .col.s12
-        .card.deep-purple
+        .card.myaccountcard.card
           .card-content
             h5.white-text.text-darken-2 My Account
       .col.s5.push-s6
         img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
       .col.s5.pull-s5
-        .card.deep-purple
+        .card.myaccountcard2.card
           .card-content.white-text-action
             a(href="/account/items") Manage Items
             .row
             a(href="/account/inbox") Inbox
       .col.s5.pull-s5
-        .card.deep-purple
+        .card.myaccountcard3.card
           .card-content.white-text
             .row.valign-wrapper
               .col.s10
                 h5 My Information
               .col.s2
                 form(action="/account/edit" method="post")
-                  button.btn.right(type='submit') 
+                  button.editbutton.btn.right(type='submit') 
                     i.material-icons.right create
             if user
               .row
