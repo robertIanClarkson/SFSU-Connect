@@ -1,9 +1,14 @@
 extends layout
-
 block content
+    // -----------------------------CSS-----------------------------------------
+    link(rel='stylesheet', href='/stylesheets/about.css')
+    // -------------------------------------------------------------------------
+
+    // -----------------------------CONTENT-------------------------------------
     //- Square cards
     .container
       //- Back Button
+      .row
       .row
         a.aboutHButton.btn.href(href="/")
           .col.s4
@@ -20,33 +25,33 @@ block content
             .row
                 .col.s12
                   a(href="/about/robert")
-                    .card.pink.lighten-4
+                    .card.robertcard
                       .card-image
                         img(src="/images/profile_pics/robert.jpg")
                         span.card-title Robert
-                      .card-content.black-text
+                      .card-content
                         h5 Team Lead
           //- Cody
           .col.s4
             .row
                 .col.s12
                   a(href="/about/cody")
-                    .card.green.lighten-4
+                    .card.codycard
                       .card-image
                         img(src="/images/profile_pics/cody.jpg")
                         span.card-title Cody
-                      .card-content.black-text
+                      .card-content
                         h5 Backend Lead
           //- Taylor
           .col.s4
             .row
                 .col.s12
                   a(href="/about/taylor")
-                    .card.purple.lighten-4
+                    .card.taylorcard
                       .card-image
                         img(src="/images/profile_pics/taylor.png")
                         span.card-title Taylor
-                      .card-content.black-text
+                      .card-content
                         h5 Frontend Lead
         //- ROW 2
         .row
@@ -55,32 +60,36 @@ block content
             .row
                 .col.s12
                   a(href="/about/kevin")
-                    .card.blue.lighten-4
+                    .card.kevincard
                       .card-image
                         img(src="/images/profile_pics/kevin.png")
                         span.card-title Kevin
-                      .card-content.black-text
+                      .card-content
                         h5 Gitmaster
           //- Hong
           .col.s4
             .row
                 .col.s12
                   a(href="/about/hong")
-                    .card.deep-orange.lighten-4
+                    .card.hongcard
                       .card-image
                         img(src="/images/profile_pics/hong.jpg")
                         span.card-title Hong
-                      .card-content.black-text
+                      .card-content
                         h5 Developer
           //- Gerardo
           .col.s4
             .row
                 .col.s12
                   a(href="/about/gerardo")
-                    .card.yellow.lighten-4
+                    .card.gerardocard
                       .card-image
                         img(src="/images/profile_pics/gerardo.png")
                         span.card-title Gerardo
-                      .card-content.black-text
+                      .card-content
                         h5 Developer
-
+      // -------------------------------------------------------------------------
+      
+      // -----------------------------JAVASCRIPT----------------------------------
+      
+      // -------------------------------------------------------------------------
