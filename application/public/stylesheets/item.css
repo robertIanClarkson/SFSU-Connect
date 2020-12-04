@@ -20,19 +20,21 @@
   object-fit: contain;
 }
 #title #description {
+  font-family: "Rubik", sans-serif;
   background-color: #FFCA28;
   border-radius: 15px;
   padding: 15px;
   margin: 20px;
 }
 #price {
+  font-family: "Rubik", sans-serif;
   background-color: #FFCA28;
   border-radius: 10px;
   padding: 10px;
   margin: 30px;
 }
 #itembutton {
-  font-family: "Raleway", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 48px;
   background-color: #FFCA28;
   border-radius: 10px;
