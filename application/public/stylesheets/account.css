@@ -1,10 +1,31 @@
 #accountbody {
   background-color: #ffffff;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 96px;
 }
 
 #accimg {
   height: 400px;
   width: 400px;
+}
+.myaccountcard
+{
+  background-color:#4E0D3A;
+}
+.myaccountcard2
+{
+  background-color:#4E0D3A;
+}
+.myaccountcard3
+{
+  background-color:#4E0D3A;
+}
+.editbutton
+{
+  background-color: #FFCA28;
+}
+a {
+  color: white;
 }
