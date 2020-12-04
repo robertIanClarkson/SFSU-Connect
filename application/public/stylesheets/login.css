@@ -5,8 +5,13 @@
 #login {
   padding: 50px;
 }
-#loginButton
-{
+
+#loginButton {
     background-color:#4E0D3A;
     align-content: right;
+}
+
+body {
+  background-image: url("../images/Background/Login.jpg");
+  background-size: cover;
 }

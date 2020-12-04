@@ -27,6 +27,9 @@ pm2_status:
 	pm2 ls
 
 pm2_start:
+	pm2 start bin/www --name "team1_webserver" --log ~/Logs/pm2_logs.txt --time
+
+pm2_start_watch:
 	pm2 start bin/www --watch --name "team1_webserver" --log ~/Logs/pm2_logs.txt --time
 
 pm2_restart:
