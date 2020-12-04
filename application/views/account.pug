@@ -23,13 +23,28 @@ block content
             a(href="/account/inbox") Inbox
       .col.s5.pull-s5
         .card.deep-purple
-          .card-content.white-text
+          .card-content.white-text#edit(style="display: none")
+            .row.valign-wrapper
+              .col.s10
+                h5 Edit
+              .col.s2
+                button.btn.right(type="button" onclick="closeForm();")
+                  i.material-icons.right create
+            .loginForm.rounded
+              form(action="/edit", method="post")
+                h5 Change Password
+
+                input.validate(type='password', name = "password", placeholder='choose a password', required)
+
+                .row
+                  a.href.right(href="/account")
+                    button.loginButton.btn.right.rounded(type = 'submit') Change
+          .card-content.white-text#standard
             .row.valign-wrapper
               .col.s10
                 h5 My Information
               .col.s2
-                form(action="/account/edit" method="post")
-                  button.btn.right(type='submit') 
+                  button.btn.right(type="button" onclick="openForm();")
                     i.material-icons.right create
             if user
               .row
@@ -38,6 +53,7 @@ block content
               span Email: #{user.email}
               .row
               span Created: #{user.created}
+
             else
               .row
               span Name: Something went wrong...
@@ -48,17 +64,5 @@ block content
   // ----------------------------------------------------------------------
   
   // ---------------------------------JAVASCRIPT---------------------------
-
-  // ----------------------------------------------------------------------                 
-
-//- code for when ready to test
-//-           .col.s5.pull-s5
-//-             .card.deep-purple
-//-                .card-content.white-text-action
-//-                   span.card-title My Information
-//-                   .row
-//-                   p First Name: #{user.first_name}
-//-                   .row
-//-                   p Last Name: #{user.last_name}
-//-                   .row
-//-                   p Email: #{user.email}
+  script(src='/javascripts/account.js')
+  // ----------------------------------------------------------------------
