@@ -8,7 +8,7 @@
   float: right;
   max-width: 50%;
   width: 50%;
-  background-color: blueviolet;
+  background-color: #4E0D3A;
   border-radius: 50px;
 }
 #image {
@@ -20,35 +20,31 @@
   object-fit: contain;
 }
 #title #description {
-  background-color: deeppink;
+  background-color: #FFCA28;
   border-radius: 15px;
   padding: 15px;
   margin: 20px;
 }
 #price {
-  background-color: deeppink;
+  background-color: #FFCA28;
   border-radius: 10px;
   padding: 10px;
-  margin: 20px;
-  width: 100px;
+  margin: 30px;
 }
 #itembutton {
   font-family: "Raleway", sans-serif;
-  font-weight: 600;
   font-size: 48px;
-  background-color: gold;
+  background-color: #FFCA28;
   border-radius: 10px;
   padding: 10px;
   margin: 20px;
 }
 #header {
   margin-left: 20px;
+
 }
 #description {
   height: 10vmax;
+  
 }
-/*
-#itembutton {
-    background-color: deeppink;
-}
-*/
+
