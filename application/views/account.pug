@@ -37,10 +37,18 @@ block content
                 button.btn.right(type="button" onclick="closeForm();")
                   i.material-icons.right create
             .loginForm.rounded
-              form(action="/edit", method="post")
-                h5 Change Password
+              form(action="/account/edit", method="post")
+                h5 original Password
+
+                input.validate(type='password', name = "Original_password", placeholder='choose a password', required)
+
+                h5 new Password
 
                 input.validate(type='password', name = "password", placeholder='choose a password', required)
+
+                h5 confirm new Password
+
+                input.validate(type='password', name = "Confirm_password", placeholder='choose a password', required)
 
                 .row
                   a.href.right(href="/account")

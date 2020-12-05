@@ -75,6 +75,17 @@ router.post('/newImage', function(req, res, next) {
 router.post('/edit', function(req, res, next) {
   console.log(`POST: 'account/edit' --> ${JSON.stringify(req.body)}`)
   res.sendStatus(200)
+  account.updatePassword(req.user.id,req.body.password)
+      .then(() => {
+        if (req.isAuthenticated()) {
+          res.render('account', {
+            title: 'Account',
+            user: req.user
+          })
+        } else {
+          res.redirect('login')
+        }
+      })
 });
 
 // PRIORITY 2

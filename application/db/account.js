@@ -1,6 +1,8 @@
 var db = require('./db')
 let multer = require('multer');
 let crypto = require('crypto');
+const register = require('./register')
+
 
 function getMessages(userid){
   return new Promise((resolve, reject) => {
@@ -51,9 +53,24 @@ function newProfileImage(req, res) {
           updateImage(fileName, userID).then((myPromise) => { resolve(myPromise)})
       });
   }))
-};
+}
+function updatePassword(userid, password){
+    return new Promise((resolve, reject) => {
+        register.encryptPassword(password)
+            .then((hash) => {
+                db.query(`UPDATE user set password = ?  where id = ?`, [hash,userid])
+                    .then(() => {
+                        resolve('OK')
+                    })
+                    .catch((err) => {
+                        reject(`(${err}) ERROR --> DB call failed`)
+                    })
+            })
+    });
+}
 
 module.exports = {
   getMessages,
-  newProfileImage
+  newProfileImage,
+  updatePassword
 }
