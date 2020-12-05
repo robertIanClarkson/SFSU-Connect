@@ -14,7 +14,13 @@ block content
           .card-content
             h5.white-text.text-darken-2 My Account
       .col.s5.push-s6
-        img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
+        form(action="/newImage", method="post")
+          .row
+            img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
+          .row
+            input(id='uploadImage' type='file', name = "uploadImage", accept = 'image/*')
+          .row
+            button(type='submit') Save
       .col.s5.pull-s5
         .card.deep-purple
           .card-content.white-text-action
