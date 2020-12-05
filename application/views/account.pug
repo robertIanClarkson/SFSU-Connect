@@ -14,7 +14,7 @@ block content
           .card-content
             h5.white-text.text-darken-2 My Account
       .col.s5.push-s6
-        form(action="/newImage", method="post")
+        form(action="account/newImage", method="post", enctype="multipart/form-data")
           .row
             img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
           .row

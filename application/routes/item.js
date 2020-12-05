@@ -43,7 +43,6 @@ router.get('/thankyou', function(req, res, next) {
 });
 
 router.post('/new', (req, res, next) => {
-    console.log(req);
     item.newItem(req, res)
     .then(() => {
       res.redirect('/item/thankyou');

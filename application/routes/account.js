@@ -60,6 +60,16 @@ router.get('/inbox', function(req,res,next) {
   }
 });
 
+router.post('/newImage', function(req, res, next) {
+  account.newProfileImage(req, res)
+  .then(() => {
+    res.redirect('/account')
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+})
+
 /* POST */
 // PRIORITY 2
 router.post('/edit', function(req, res, next) {
