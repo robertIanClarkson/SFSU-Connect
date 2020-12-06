@@ -41,15 +41,15 @@ block content
 
                 h5 new Password
 
-                input.validate(type='password', name = "password", placeholder='choose a password', required)
+                input(type='password', name = "password", id='pw1', placeholder='choose a password', required)
 
                 h5 confirm new Password
 
-                input.validate(type='password', name = "Confirm_password", placeholder='choose a password', required)
+                input(type='password', name = "Confirm_password", id='pw2', placeholder='choose a password', required, onchange='check();')
 
                 .row
                   a.href.right(href="/account")
-                    button.loginButton.btn.right.rounded(type = 'submit') Change
+                    button.loginButton.btn.right.rounded(type = 'submit', id='passChange', disabled) Change
           .card-content.white-text#standard
             .row.valign-wrapper
               .col.s10

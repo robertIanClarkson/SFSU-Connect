@@ -18,3 +18,13 @@ uploadImage.addEventListener('change', (event) => {
     }
     fileReader.readAsDataURL(file);
 });
+function check(){
+    if (document.getElementById('pw1').value === document.getElementById('pw2').value){
+        //disabled to prevent submitting if passwords dont match
+        document.getElementById('passChange').disabled = false;
+        alert("passwords match!")
+    }else {
+        document.getElementById('passChange').disabled = true;
+        alert("passwords do not match, please enter again")
+    }
+}
