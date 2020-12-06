@@ -56,17 +56,27 @@ function newProfileImage(req, res) {
 }
 function updatePassword(userid, password){
     return new Promise((resolve, reject) => {
-        register.encryptPassword(password)
-            .then((hash) => {
-                db.query(`UPDATE user set password = ?  where id = ?`, [hash,userid])
-                    .then(() => {
-                        resolve('OK')
-                    })
-                    .catch((err) => {
-                        reject(`(${err}) ERROR --> DB call failed`)
-                    })
-            })
-    });
+        let Checksql = `SELECT * FROM user WHERE id = ?`
+            db.query(Checksql, userid)
+                .then((user) => {
+                    if (user.length == 0){
+                        reject("something went wrong")
+                    }
+                    register.encryptPassword(password)
+                        .then((hash) => {
+                            let sqlPass = `UPDATE user
+                               set password = ?
+                               where id = ?`
+                            db.query(sqlPass, [hash, userid])
+                                .then(() => {
+                                    resolve('OK')
+                                })
+                                .catch((err) => {
+                                    reject(`(${err}) ERROR --> DB call failed`)
+                                })
+                        })
+                })
+        });
 }
 
 module.exports = {
