@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  // LANDING PAGE FOR THE WEBSITE
+  
   // -----------------------------------CSS-----------------------------------
   link(rel='stylesheet' href='/stylesheets/landing.css')
   // -----------------------------------CSS-----------------------------------
@@ -10,6 +12,8 @@ block content
     p This site is for student to buy and sell their books at a community price
     #welcome-text
       .row
+        // a welcome message that will show how many new item has beenn added in the pass 7 day
+        // numItems is a value we get when the page is render form routes/index.js
         h2 Welcome to SFSU Connect!
         if numItems 
           h4 #{numItems} items have been added in the pass 7 days
@@ -34,7 +38,7 @@ block content
         //-   button.btn.waves-effect.waves-light(type='submit' name='action')
         //-     | Filter
         //-     i.material-icons.right send
-
+      // Auto display all the item that is found
       #itemCard
         .row
           if items
