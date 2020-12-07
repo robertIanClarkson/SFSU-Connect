@@ -5,8 +5,10 @@
 #login {
   padding: 50px;
 }
+
 #loginButton {
-  color: #2f0f66;
+    background-color:#4E0D3A;
+    align-content: right;
 }
 
 body {
