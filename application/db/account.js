@@ -1,4 +1,8 @@
 var db = require('./db')
+let multer = require('multer');
+let crypto = require('crypto');
+const register = require('./register')
+
 
 function getMessages(userid){
   return new Promise((resolve, reject) => {
@@ -14,6 +18,69 @@ function getMessages(userid){
   });
 }
 
+function updateImage(fileName, userID){
+  return new Promise(((resolve, reject) => {
+      let baseSQL = `UPDATE user SET image = ? WHERE id = ?`
+      db.query(baseSQL, [fileName, userID])
+          .then((myPromise) =>{
+              resolve(myPromise)
+          })
+          .catch((err) =>{
+              reject(err.errno)
+          })
+  }))
+}
+
+let storage = multer.diskStorage({
+  destination: function(req, file, callback) {
+      callback(null, "public/images/profile_pics");
+  },
+  filename: function(req, file, callback) {
+      let fileExtension = file.mimetype.split("/")[1];
+      let randomName = crypto.randomBytes(16).toString("hex");
+      callback(null, `${randomName}.${fileExtension}`)
+  }
+});
+
+function newProfileImage(req, res) {
+  return new Promise(((resolve, reject) => {
+      let uploader = multer({storage: storage}).single('uploadImage');
+      uploader(req, res, ()=>{
+          let fileName = req.file.filename;
+          let userID = req.user.id;
+          req.session.passport.user.image = fileName;
+          
+          updateImage(fileName, userID).then((myPromise) => { resolve(myPromise)})
+      });
+  }))
+}
+function updatePassword(userid, password){
+    return new Promise((resolve, reject) => {
+        let Checksql = `SELECT * FROM user WHERE id = ?`
+            db.query(Checksql, userid)
+                .then((user) => {
+                    if (user.length == 0){
+                        reject("something went wrong")
+                    }
+                    register.encryptPassword(password)
+                        .then((hash) => {
+                            let sqlPass = `UPDATE user
+                               set password = ?
+                               where id = ?`
+                            db.query(sqlPass, [hash, userid])
+                                .then(() => {
+                                    resolve('OK')
+                                })
+                                .catch((err) => {
+                                    reject(`(${err}) ERROR --> DB call failed`)
+                                })
+                        })
+                })
+        });
+}
+
 module.exports = {
-  getMessages
+  getMessages,
+  newProfileImage,
+  updatePassword
 }

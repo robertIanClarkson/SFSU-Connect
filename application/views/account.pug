@@ -14,7 +14,13 @@ block content
           .card-content
             h5.white-text My Account
       .col.s5.push-s6
-        img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
+        form(action="account/newImage", method="post", enctype="multipart/form-data")
+          .row
+            img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
+          .row
+            input(id='uploadImage' type='file', name = "uploadImage", accept = 'image/*')
+          .row
+            button(type='submit') Save
       .col.s5.pull-s5
         .card.myaccountcard2.card
           .card-content.white-text-action
@@ -22,14 +28,34 @@ block content
             .row
             a(href="/account/inbox") Inbox
       .col.s5.pull-s5
-        .card.myaccountcard3.card
-          .card-content.white-text
+        .card.deep-purple
+          .card-content.white-text#edit(style="display: none")
+            .row.valign-wrapper
+              .col.s10
+                h5 Edit
+              .col.s2
+                button.btn.right(type="button" onclick="closeForm();")
+                  i.material-icons.right create
+            .loginForm.rounded
+              form(action="/account/edit", method="post")
+
+                h5 new Password
+
+                input(type='password', name = "password", id='pw1', placeholder='choose a password', required)
+
+                h5 confirm new Password
+
+                input(type='password', name = "Confirm_password", id='pw2', placeholder='choose a password', required, onchange='check();')
+
+                .row
+                  a.href.right(href="/account")
+                    button.loginButton.btn.right.rounded(type = 'submit', id='passChange', disabled) Change
+          .card-content.white-text#standard
             .row.valign-wrapper
               .col.s10
                 h5 My Information
               .col.s2
-                form(action="/account/edit" method="post")
-                  button.editbutton.btn.right(type='submit') 
+                  button.btn.right(type="button" onclick="openForm();")
                     i.material-icons.right create
             if user
               .row
@@ -38,6 +64,7 @@ block content
               span Email: #{user.email}
               .row
               span Created: #{user.created}
+
             else
               .row
               span Name: Something went wrong...
@@ -48,17 +75,5 @@ block content
   // ----------------------------------------------------------------------
   
   // ---------------------------------JAVASCRIPT---------------------------
-
-  // ----------------------------------------------------------------------                 
-
-//- code for when ready to test
-//-           .col.s5.pull-s5
-//-             .card.deep-purple
-//-                .card-content.white-text-action
-//-                   span.card-title My Information
-//-                   .row
-//-                   p First Name: #{user.first_name}
-//-                   .row
-//-                   p Last Name: #{user.last_name}
-//-                   .row
-//-                   p Email: #{user.email}
+  script(src='/javascripts/account.js')
+  // ----------------------------------------------------------------------

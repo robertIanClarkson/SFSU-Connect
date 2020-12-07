@@ -49,7 +49,7 @@ router.get('/search', function(req, res, next) {
   .then((items) => {
     // console.log(items);
     if(req.isAuthenticated()) {
-      res.render('search', {
+      res.render('searchResult', {
         title: 'Home',
         items: items,
         user: req.user,
@@ -57,7 +57,7 @@ router.get('/search', function(req, res, next) {
         search: searchData.text
       });
     } else {
-      res.render('search', {
+      res.render('searchResult', {
         title: 'Home',
         items: items,
         data:searchData.text,

@@ -60,11 +60,27 @@ router.get('/inbox', function(req,res,next) {
   }
 });
 
+router.post('/newImage', function(req, res, next) {
+  account.newProfileImage(req, res)
+  .then(() => {
+    res.redirect('/account')
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+})
+
 /* POST */
 // PRIORITY 2
 router.post('/edit', function(req, res, next) {
   console.log(`POST: 'account/edit' --> ${JSON.stringify(req.body)}`)
-  res.sendStatus(200)
+  account.updatePassword(req.user.id, req.body.password)
+      .then(() => {
+        res.redirect('/account')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 });
 
 // PRIORITY 2
