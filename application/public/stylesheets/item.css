@@ -10,6 +10,8 @@
   width: 50%;
   background-color: #4E0D3A;
   border-radius: 50px;
+  padding-right: 20px;
+  margin: 20px;
 }
 #image {
   max-height: 30vmax;
