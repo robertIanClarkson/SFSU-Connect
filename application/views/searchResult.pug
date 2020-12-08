@@ -2,6 +2,7 @@ extends layout
 
 block content
   // THE SEARCH RESULT WILL BE DISPLAY IN THIS PAGE
+
   // -----------------------------------CSS-----------------------------------
   link(rel='stylesheet' href='/stylesheets/landing.css')
   // -----------------------------------CSS-----------------------------------
@@ -50,7 +51,7 @@ block content
           else
             h3.center Sorry, there are no items right now
   // ---------------------------------CONTENT---------------------------------
-  
+  include components/footer
   // ----------------------------------JS------------------------------
   script(src='/javascripts/filterBar.js')
   // ----------------------------------JS------------------------------

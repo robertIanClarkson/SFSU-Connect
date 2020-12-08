@@ -2,7 +2,7 @@ extends layout
 
 block content
   // -------------------------------CSS---------------------------------------------
-
+  link(rel='stylesheet', href='/stylesheets/userItems.css')
   // -------------------------------------------------------------------------------
 
   // -------------------------------CONTENT-----------------------------------------
@@ -10,7 +10,7 @@ block content
 
     .row.center-align
       .col.s8.push-s2
-        .card.deep-purple
+        .card.myproductscard
           .card-content
             h5.white-text.text-darken-2 My Products
 
@@ -28,7 +28,7 @@ block content
       else
         h3.center You have no items right now
   // -------------------------------------------------------------------------------
-
+  include components/footer
   // -------------------------------JAVASCRIPT--------------------------------------
 
   // -------------------------------------------------------------------------------

@@ -6,6 +6,7 @@ block content
 
   // -----------------------------CONTENT------------------------------------
   .row
+  .row
     .col.s5.push-s6    
       .registerForm
         form(action="/register", method="post")
@@ -36,7 +37,7 @@ block content
             .col.s9.push-s2
               a(href='/login') Already have an account? Log In!
   // -------------------------------------------------------------------------
-
+  include components/footer
   // -----------------------------JAVASCRIPT----------------------------------
   script(src='/javascripts/register.js')
   // -------------------------------------------------------------------------
