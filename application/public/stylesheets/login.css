@@ -9,6 +9,7 @@
 #loginButton {
     background-color:#4E0D3A;
     align-content: right;
+    margin:20px;
 }
 
 body {
@@ -16,5 +17,7 @@ body {
   background-size: cover;
 }
 .loginForm{
-  padding: 30px;
+  padding: 40px;
+  margin: 20px;
+  
 }
