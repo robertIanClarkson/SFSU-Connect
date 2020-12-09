@@ -78,11 +78,16 @@ router.get('/:id', function(req, res, next) {
   console.log(`GET: 'item/${req.params.id}'`)
   item.getItemByID(req.params.id)
   .then((item) => {
-    res.render('item', { 
-      title: item.name, 
-      user: req.user,
-      item: item
-    })
+    if((item.available && item.approved) || item.user_id === req.user.id) {
+      res.render('item', { 
+        title: item.name, 
+        user: req.user,
+        item: item
+      })
+    }
+    else {
+      throw 'Invalid Item'
+    }
   })
   .catch((err) => {
     console.log(err)

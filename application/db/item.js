@@ -6,8 +6,7 @@ let crypto = require('crypto');
 function getItemByID(id) {
   return new Promise((resolve, reject) => {
     item.query(`SELECT * FROM item
-              WHERE id = ?
-              AND item.available = 1 AND item.approved = 1`, [id])
+              WHERE id = ?`, [id])
       .then((rows) => {
         if(rows.length == 0) {
           reject(`(x) ERROR --> Database did not return any items`)
