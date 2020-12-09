@@ -6,9 +6,10 @@ const register = require('./register')
 
 function getMessages(userid){
   return new Promise((resolve, reject) => {
-    db.query(`SELECT name As sender , subject, message,
-              message.created As date FROM message join user on message.user_id_sender = user.id
-              WHERE user_id_reciever = ?`, userid)
+    let sqlCommand = `SELECT name AS sender , subject, message,
+                      message.created AS date FROM message join user on message.user_id_sender = user.id
+                      WHERE user_id_reciever = ?`
+    db.query(sqlCommand, [userid])
       .then((rows) => {
         resolve(rows)
       })

@@ -23,8 +23,8 @@ function newUser(name, email, password) {
         let sqlCommand = `INSERT INTO user 
                       (name, email, password, image) 
                       VALUES
-                      ('${name}', '${email}', '${hash}', 'none.png');`
-        db.query(sqlCommand)
+                      (?, ?, ?, 'none.png');`
+        db.query(sqlCommand, [name, email, hash])
           .then(() => {
             resolve('ok')
           })

@@ -49,7 +49,15 @@ router.post('/new', (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+      res.render('error', {
+        title: "Error",
+        message: "Failed to POST a new item",
+        error: {
+          status: err,
+          stack: ""
+        }
+      })
+    })
 })
 
 router.post('/message', function(req, res, next){
