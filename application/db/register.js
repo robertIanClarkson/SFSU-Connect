@@ -41,5 +41,6 @@ function newUser(name, email, password) {
 }
 
 module.exports = {
-  newUser
+  newUser,
+  encryptPassword
 }

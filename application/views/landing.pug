@@ -1,45 +1,52 @@
 extends layout
 
 block content
+  // LANDING PAGE FOR THE WEBSITE
+  
   // -----------------------------------CSS-----------------------------------
   link(rel='stylesheet' href='/stylesheets/landing.css')
   // -----------------------------------CSS-----------------------------------
 
   // ---------------------------------CONTENT---------------------------------
   #content
-    if numItems
-      #welcome-text
-        .row
-          h2 Welcome to SFSU Connect! 
+    p This site is for student to buy and sell their books at a community price
+    #welcome-text
+      .row
+        // a welcome message that will show how many new item has beenn added in the pass 7 day
+        // numItems is a value we get when the page is render form routes/index.js
+        h2 Welcome to SFSU Connect!
+        if numItems 
           h4 #{numItems} items have been added in the pass 7 days
+        else
+          h4 no items have been added in the pass 7 days
 
     #item-list
       .row#filterbar
         .col.s2.m3
-          h3 item list
+          h3 Recent Items
 
-        .col.s3.m3#seleteBar
-          label Browser Select
-          select.browser-default#option
-            option(value='' disabled) Choose your option
-            option(value='1') Price: High to Low
-            option(value='2') Price: Low to High
-            option(value='3') Date: Old to New
-            option(value='4' selected) Date: New to Old
-        .col.s1.m1#submitButton 
-          button.btn.waves-effect.waves-light(type='submit' name='action')
-            | Filter
-            i.material-icons.right send
-
-      // the code below are the hard code for 8 item to show
+        //comment out filter bar for code ref. later will remove later
+        //- .col.s3.m3#seleteBar
+        //-   label Browser Select
+        //-   select.browser-default#option
+        //-     option(value='' disabled) Choose your option
+        //-     option(value='1') Price: High to Low
+        //-     option(value='2') Price: Low to High
+        //-     option(value='3') Date: Old to New
+        //-     option(value='4' selected) Date: New to Old
+        //- .col.s1.m1#submitButton 
+        //-   button.btn.waves-effect.waves-light(type='submit' name='action')
+        //-     | Filter
+        //-     i.material-icons.right send
+      // Auto display all the item that is found
       #itemCard
         .row
           if items
             each item in items
               .col.s12.m6.l4
                 .card
-                  a(href="/item/" + item.id)
-                    .card-image
+                  a(href="/item/" + item.id target="_blank" rel="noopener noreferrer")
+                    .card-image#imageSize
                       img(src="/images/items/thumbnail-" + item.image)
                     .card-title
                       .row.valign-wrapper
@@ -58,7 +65,7 @@ block content
           else
             h3.center Sorry, there are no items right now
   // ---------------------------------CONTENT---------------------------------
-  
+  include components/footer
   // ----------------------------------JS------------------------------
   script(src='/javascripts/landing.js')
   // ----------------------------------JS------------------------------

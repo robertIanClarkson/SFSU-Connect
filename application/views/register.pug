@@ -4,15 +4,14 @@ block content
   link(rel='stylesheet', href='/stylesheets/register.css')
   // -------------------------------------------------------------------------
 
-  // -----------------------------CONTENT-------------------------------------
+  // -----------------------------CONTENT------------------------------------
+  .row
   .row
     .col.s5.push-s6    
       .registerForm
         form(action="/register", method="post")
           h2 Join Us!
                 
-          h6.red-text #{error}
-
           h5 Name
           input(type='text', name = "name",  placeholder='enter your name', required)
 
@@ -33,12 +32,12 @@ block content
                 
           .row            
             .col.s9.push-s4
-              button.btn(class= "registerButton" id='submitregister' type='submit' disabled) Register
-
+              button.btn(id='submitregister' type='submit' disabled) Register
+            
             .col.s9.push-s2
               a(href='/login') Already have an account? Log In!
   // -------------------------------------------------------------------------
-
+  include components/footer
   // -----------------------------JAVASCRIPT----------------------------------
   script(src='/javascripts/register.js')
   // -------------------------------------------------------------------------

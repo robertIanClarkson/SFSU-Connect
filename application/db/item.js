@@ -6,8 +6,7 @@ let crypto = require('crypto');
 function getItemByID(id) {
   return new Promise((resolve, reject) => {
     let getItemQuery = `SELECT * FROM item
-                        WHERE id = ?
-                        AND item.available = 1 AND item.approved = 1`
+                        WHERE id = ?`
     item.query(getItemQuery, [id])
       .then((rows) => {
         if(rows.length == 0) {

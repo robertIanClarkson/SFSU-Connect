@@ -1,16 +1,21 @@
-#PostItemButton{
-    border-radius: 25px;
-    background:purple;
-    padding: 20px;
-    color: white;
+#PostItemButton {
+  border-radius: 25px;
+  background-color:#4E0D3A;
+  padding: 20px;
+  color: white;
 }
 
-#DescriptionArea{
-    background-color: white;
-    height: 150px;
-    
+#DescriptionArea {
+  background-color: white;
+  height: 150px;
+
 }
 
-#PostItemName{
-    width: 400px;
+#PostItemName {
+  width: 510px;
+}
+
+#PostItemPrice{
+  background-color: white;
+  height: 30px; 
 }
