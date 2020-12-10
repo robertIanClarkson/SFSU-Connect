@@ -19,3 +19,14 @@
   background-color: white;
   height: 30px; 
 }
+
+#content {
+  margin-top:20px;
+}
+
+#title {
+  background-color: #4E0D3A;
+  width: 100%;
+  border-radius: 20px;
+  color: #FFCA28;
+}
