@@ -2,7 +2,11 @@
   width: 100%;
   border-radius: 25px 5px 5px 25px;
   background-color: #FFCA28;
+  
+}
 
+#category-dropdown-trigger:hover {
+  background-color: #FFDD76;
 }
 
 #search-submit {
@@ -10,10 +14,33 @@
   border-radius: 5px 25px 25px 5px;
   background-color: #FFCA28;
 } 
+
+#search-submit:hover {
+  background-color: #FFDD76;
+}
+
 #trigger-icon{
   vertical-align: middle;
 }
-#search-icon
-{
+#search-icon {
   vertical-align: middle;
+}
+
+#trigger-cat, #trigger-icon, #search-icon {
+  color: #4E0D3A;
+}
+
+#category-dropdown {
+  background-color: #FFCA28;
+  border-radius: 25px 5px 25px 25px;
+}
+
+.cat-item {
+  color: #4E0D3A !important;
+  transition: background-color .25s ease;
+}
+
+.cat-item:hover {
+  background-color: #FFDD76;
+  
 }
