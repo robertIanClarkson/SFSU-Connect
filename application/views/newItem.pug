@@ -6,30 +6,34 @@ block content
   //---------------------------------------------------------
 
   //--------------------------Content------------------------
+  
   .row
-    p
-    form(action="/item/new", method="post", enctype="multipart/form-data")
-      .col.s5.push-s3   
-
+    .card#title
+      .card-content
+        h2 New Post
+  
+  form(action="/item/new", method="post", enctype="multipart/form-data")
+    .container   
+      .row
         img(src="/images/itemplaceholder.png")
+      .row
         input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
-        br
-        br
+    .container
+      .row
         h7 ITEM NAME:
-        br
+      .row
         input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
-        br
-        br
+    .container
+      .row
         h7 DESCRIPTION: 
-        br
+      .row
         textarea(name="description", ID="DescriptionArea", required)
-        br
-        br
+    .container
+      .row
         h7 PRICE $ 
-        br
+    .container
+      .row
         input(type='number', ID="PostItemPrice", name = "price", min="0.00", step="0.01", required)
-        br
-        br
         .input-field
           select(name='category',required)
             option(value='' disabled selected) Choose a category
@@ -42,9 +46,7 @@ block content
             option(value='Toys & Games') Toys &amp; Games
             option(value='Tutoring') Tutoring
         .row
-          .col.push-s4
-            p
-            button(ID = "PostItemButton" type = 'submit') SUBMIT
+          button(ID = "PostItemButton" type = 'submit') SUBMIT
     //---------------------------------------------------------
 
     //---------------------Javascript-------------------
