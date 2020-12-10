@@ -1,4 +1,8 @@
-.myproductscard
-{
+.myproductscard{
     background-color:#4E0D3A;
+    border-radius: 20px;
+}
+
+.myproductscard h4 {
+    color: #FFCA28 !important;
 }
