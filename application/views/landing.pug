@@ -9,16 +9,17 @@ block content
 
   // ---------------------------------CONTENT---------------------------------
   #content
-    p This site is for student to buy and sell their books at a community price
+    
     #welcome-text
       .row
         // a welcome message that will show how many new item has beenn added in the pass 7 day
         // numItems is a value we get when the page is render form routes/index.js
-        h2 Welcome to SFSU Connect!
+        h2.center-align Welcome to SFSU Connect!
+        h4.center-align This site is for student to buy and sell their books at a community price
         if numItems 
-          h4 #{numItems} items have been added in the pass 7 days
+          h5 #{numItems} items have been added in the pass 7 days
         else
-          h4 no items have been added in the pass 7 days
+          h5 no items have been added in the pass 7 days
 
     #item-list
       .row#filterbar
