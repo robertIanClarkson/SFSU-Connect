@@ -5,18 +5,18 @@ link(rel='stylesheet', href='/stylesheets/navbar.css')
 .navbar-fixed
   nav#navbar 
     .nav-wrapper
-      a(href="/" class="brand-logo") SFSU Connect
+      a.nav-button#logo(href="/" class="brand-logo") SFSU Connect
       ul#nav-mobile.right.hide-on-med-and-down
         li
-          a.postitem(href="/item/new") Post 
+          a.postitem.nav-button(href="/item/new") Post 
         li
-          a.about(href="/about") About
+          a.about.nav-button(href="/about") About
         li
           if user
             form#signout(action="/login/logout", method="post")
-              a.login(href="javascript:$('#signout').submit()") Logout
+              a.login.nav-button(href="javascript:$('#signout').submit()") Logout
           else
-            a.login(href="/login") Login
+            a.login.nav-button(href="/login") Login
         li
           a.href(href="/account")
             if user

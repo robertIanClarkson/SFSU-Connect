@@ -1,8 +1,22 @@
 .nav-wrapper {
   background-color: #4E0D3A !important;
+  border-radius: 0px 0px 10px 10px;
 }
 
 #navbar {
   background-color: #4E0D3A !important;
+  border-radius: 0px 0px 10px 10px;
 }
 
+#logo {
+  padding-left: 10px;
+}
+
+.nav-button {
+  color: #FFFFFF !important;
+}
+
+.nav-button:hover {
+  color: #FFCA28 !important;
+  transition: color 250ms;
+}
