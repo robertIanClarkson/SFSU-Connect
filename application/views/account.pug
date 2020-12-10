@@ -12,66 +12,65 @@ block content
       .col.s12
         .card.myaccountcard.card
           .card-content
-            h5.white-text My Account
+            h2.gold My Account
       .col.s5.push-s6
         form(action="account/newImage", method="post", enctype="multipart/form-data")
           .row
             img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
           .row
-            input(id='uploadImage' type='file', name = "uploadImage", accept = 'image/*')
+            input.left(id='uploadImage' type='file', name = "uploadImage", accept = 'image/*')
           .row
-            button(type='submit') Save
+            button.left(type='submit') Save
       .col.s5.pull-s5
         .card.myaccountcard2.card
           .card-content.white-text-action
-            a(href="/account/items") Manage Items
+            a#items.btn-large(href="/account/items") Manage Items
             .row
-            a(href="/account/inbox") Inbox
+            a#inbox.btn-large(href="/account/inbox") Inbox
       .col.s5.pull-s5
-        .card.deep-purple
+        .card.myaccountcard3.card
           .card-content.white-text#edit(style="display: none")
-            .row.valign-wrapper
-              .col.s10
-                h5 Edit
-              .col.s2
-                button.btn.right(type="button" onclick="closeForm();")
-                  i.material-icons.right create
+            .row
+              h5.gold.center Edit Password
+            .row
+              button.btn.right#editpass(type="button" onclick="closeForm();") Cancel
+                i.material-icons.right create
             .loginForm.rounded
               form(action="/account/edit", method="post")
 
-                h5 new Password
+                h5.gold.left New Password
 
-                input(type='password', name = "password", id='pw1', placeholder='choose a password', required)
+                input.white-text(type='password', name = "password", id='pw1', placeholder='choose a password', required)
 
-                h5 confirm new Password
+                h5.gold.left Confirm New Password
 
-                input(type='password', name = "Confirm_password", id='pw2', placeholder='choose a password', required, onchange='check();')
+                input.white-text(type='password', name = "Confirm_password", id='pw2', placeholder='choose a password', required, onchange='check();')
 
                 .row
                   a.href.right(href="/account")
                     button.loginButton.btn.right.rounded(type = 'submit', id='passChange', disabled) Change
           .card-content.white-text#standard
-            .row.valign-wrapper
-              .col.s10
-                h5 My Information
-              .col.s2
-                  button.btn.right(type="button" onclick="openForm();")
-                    i.material-icons.right create
+            .row
+              h5.gold My Information
+            .row
+              button.btn.center#editpass(type="button" onclick="openForm();") Edit Password
+                i.material-icons.right create
+            .row.center-align
             if user
               .row
-              span Name: #{user.name}
+              span.gold Name: #{user.name}
               .row
-              span Email: #{user.email}
+              span.gold Email: #{user.email}
               .row
-              span Created: #{user.created}
+              span.gold Created: #{user.created}
 
             else
               .row
-              span Name: Something went wrong...
+              span.gold Name: Something went wrong...
               .row
-              span Email: Something went wrong...
+              span.gold Email: Something went wrong...
               .row
-              span Created: Something went wrong...
+              span.gold Created: Something went wrong...
   // ----------------------------------------------------------------------
 
   // ---------------------------------JAVASCRIPT---------------------------

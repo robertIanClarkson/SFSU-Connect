@@ -1,26 +1,20 @@
-#accountbody {
-  background-color: #ffffff;
-  padding: 50px;
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  font-size: 96px;
-}
+
 
 #accimg {
   height: 400px;
   width: 400px;
 }
-.myaccountcard
-{
+.myaccountcard {
   background-color:#4E0D3A;
+  border-radius: 20px;
 }
-.myaccountcard2
-{
+.myaccountcard2 {
   background-color:#4E0D3A;
+  border-radius: 20px;
 }
-.myaccountcard3
-{
+.myaccountcard3 {
   background-color:#4E0D3A;
+  border-radius: 20px;
 }
 .editbutton
 {
@@ -29,3 +23,17 @@
 a {
   color: white;
 }
+
+.gold {
+  color: #FFCA28;
+}
+
+#items, #inbox, #editpass, #passChange {
+  background-color: #FFCA28;
+  color: #4E0D3A;
+  border-radius: 10px;
+  width: 100%;
+}
+#items:hover, #inbox:hover, #editpass:hover, #passChange:hover {
+  background-color: #ffdd76;
+} 
