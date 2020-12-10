@@ -1,7 +1,16 @@
 #welcome-text {
   background-color: #4E0D3A;
   text-align: center;
-  color: #fafafa;
+  color: #FFCA28;
+  border-radius: 20px;
+}
+
+#welcome-text h2 {
+  padding-top: 10px;
+}
+
+#welcome-text h5 {
+  padding-bottom: 10px;
 }
 
 #item-list {
