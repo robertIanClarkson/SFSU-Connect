@@ -16,6 +16,7 @@ body {
   background-image: url("../images/Background/Login.jpg");
   background-size: cover;
 }
+
 .loginForm{
   padding: 40px;
   margin: 20px;
