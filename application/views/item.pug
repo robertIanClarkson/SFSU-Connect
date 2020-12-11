@@ -8,28 +8,25 @@ block content
 	// --------------------------CSS---------------------------------
 
 	// ---------------------------	CONTENT----------------------------
-	.row
-	.row
+	.row#infoBox.center
 		// split screen in half with 2 floating containers
-		#infoBox
-			.row
-				h4.white-text#header Title
-				h5.white-text#title #{item.name}
-				h4.white-text#header Description
-				h5.white-text#description #{item.description}
-				h3.white-text#price(class="highlight" style="float:left") $#{item.price}
-				button.black-text#itembutton(style="float:right" type="submit" form="messageForm") Contact
-			.row
-				form(action="/item/message" method="post")#messageForm
-					.input-field
-						//label(for='messageArea') Message Owner
-						input(type="hidden", name="item_id", value=item.id)
-						textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
-						
-		#imageBox
-			img#image(src='/images/items/' + item.image alt='image not found')
-			if error
-				h6.red-text Error: #{error}
+		h4.white-text#title #{item.name}
+	.row#imageBox.center
+		img#image(src='/images/items/' + item.image alt='image not found')
+	.row#infoBox
+		h6.white-text#description #{item.description}
+		h3#price(class="highlight" style="float:left") $#{item.price}
+	.row#infoBox
+		h3#contact Contact Seller
+		form(action="/item/message" method="post")#messageForm
+			.input-field
+				//label(for='messageArea') Message Owner
+				input(type="hidden", name="item_id", value=item.id)
+				textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
+				button.btn-large.left#itembutton(type="submit" form="messageForm") Contact
+		
+			//- if error
+			//- 	h6.red-text Error: #{error}
 
 	// ---------------------------	CONTENT----------------------------
 
