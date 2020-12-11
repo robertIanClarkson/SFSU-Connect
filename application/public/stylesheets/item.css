@@ -1,4 +1,40 @@
-#imageBox {
+#infoBox {
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #4E0D3A;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+
+#itembutton {
+  background-color: #FFCA28;
+  color:  #4E0D3A;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+#image {
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 50px;
+  border-color: #4E0D3A;
+}
+
+#itembutton:hover {
+  background-color: #ffdd76;
+}
+
+#price, #contact {
+  color: #FFCA28;
+}
+
+#messageArea {
+  color: white;
+}
+
+/* #imageBox {
   float: left;
   width: 50%;
   padding: 20px;
@@ -51,4 +87,4 @@
   height: 10vmax;
   
 }
-
+ */
