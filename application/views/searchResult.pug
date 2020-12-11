@@ -12,14 +12,14 @@ block content
 
     #item-list
       .row#filterbar
-        .col.s2.m3.l3
+        .col.s4
           if items
             if items.length == 1
               h3 #{items.length} item found
             else
               h3 #{items.length} items found
 
-        .col.s3.m3.l3.push-s9.push-m5.push-l5#selectBar
+        .col.s3.right#selectBar
           label Filter
           select.browser-default#option
             option(value='' selected disabled hidden) Choose your option
