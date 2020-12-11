@@ -9,24 +9,22 @@ block content
 
   // -------------------------- CONTENT ------------------------
 
-  .row#titleRow
-    .col.s2.divider-right#itemDate
-      h5 
-        u DATE
-      .divider
-    .col.s2.divider-right#senderName
-      h5 
-        u FROM
-      .divider
-    .col.s2.divider-right#messageBlock
-      h5 
-        u SUBJECT
-      .divider
-    .col.s6#messageBlock
-      h5 
-        u MESSAGE
-      .divider
+  //- Page title
+  .row#inbox
+    h2.center Inbox
 
+  //- Legend
+  .row#titleRow
+    .col.s2#legend.divider-white-right
+      h5 DATE
+    .col.s2#legend.divider-white-right
+      h5 FROM
+    .col.s2#legend.divider-white-right
+      h5 SUBJECT
+    .col.s6#legend.divider-white-right
+      h5 MESSAGE
+
+  //- Message generator
   .row#messageRow
     if messages
       each message in messages
@@ -42,7 +40,6 @@ block content
         .divider
     else 
       h3.center There are no Messages.
-
   // -------------------------- CONTENT ------------------------
 
   // ---------------------------- JS ---------------------------
