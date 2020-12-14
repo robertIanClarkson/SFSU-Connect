@@ -8,14 +8,21 @@ block content
 	// --------------------------CSS---------------------------------
 
 	// ---------------------------	CONTENT----------------------------
+	//- Title
 	.row#infoBox.center
 		// split screen in half with 2 floating containers
 		h4.white-text#title #{item.name}
+
+	//- Image
 	.row#imageBox.center
 		img#image(src='/images/items/' + item.image alt='image not found')
+
+	//-  Description
 	.row#infoBox
 		h6.white-text#description #{item.description}
 		h3#price(class="highlight" style="float:left") $#{item.price}
+		
+	//- Contact Seller
 	.row#infoBox
 		h3#contact Contact Seller
 		form(action="/item/message" method="post")#messageForm
