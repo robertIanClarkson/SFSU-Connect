@@ -17,3 +17,7 @@ $('#submitButton').click(function() {
 
     window.location.href = (`/search?category=${encodeURIComponent(category)}&text=${encodeURIComponent(searchText)}&filter=${filters[filter]}`)
 });
+
+$("img").on("error", function () {
+    $(this).attr("src", "images/thumbnail-itemplaceholder.png");
+});
