@@ -34,12 +34,18 @@
   margin-top: 1%;
 }
 
-#imageSize {
-  width: 200px;
-  height: 200px;
-}
-
 a {
   color:#89236C;
 }
 
+#cardBody {
+  padding: 10px;
+  white-space: pre-wrap;
+  
+}
+
+#responsiveText {
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+}
