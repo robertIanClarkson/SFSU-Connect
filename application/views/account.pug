@@ -16,7 +16,7 @@ block content
       .col.s5.push-s6
         form(action="account/newImage", method="post", enctype="multipart/form-data")
           .row
-            img.responsive-img.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
+            img.responsive.circle#accimg(src='/images/profile_pics/' + user.image alt='Image Circle')
           .row
             input.left(id='uploadImage' type='file', name = "uploadImage", accept = 'image/*')
           .row

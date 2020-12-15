@@ -28,6 +28,11 @@ a {
   color: #FFCA28;
 }
 
+.responsive {
+  width: auto;
+  height: auto;
+}
+
 #items, #inbox, #editpass, #passChange {
   background-color: #FFCA28;
   color: #4E0D3A;
