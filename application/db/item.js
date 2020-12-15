@@ -80,10 +80,23 @@ function newItem(req, res) {
     return new Promise(((resolve, reject) => {
         let uploader = multer({storage: storage}).single('uploadImage');
         uploader(req, res, ()=>{
-            let filePath = req.file.path;
-            let fileName = req.file.filename;
-            let thumbnailName = `thumbnail-${fileName}`;
-            let thumbnailPath = req.file.destination + "/" + thumbnailName;
+            // Have to declear this 4 var first because they are related to req.file
+            // Which cause error when you don't upload a image
+            let filePath;
+            let fileName;            
+            let thumbnailName;
+            let thumbnailPath;
+            
+            if (typeof req.file === "undefined"){
+              filePath = "public/images/itemplaceholder.png";
+              thumbnailPath = "public/images/thumbnail-itemplaceholder.png";
+            } else {
+              filePath = req.file.path;
+              fileName = req.file.filename;            
+              thumbnailName = `thumbnail-${fileName}`;
+              thumbnailPath = req.file.destination + "/" + thumbnailName;
+            }
+            
             let userID = req.user.id;
             let name = req.body.itemname;
             let description = req.body.description;
