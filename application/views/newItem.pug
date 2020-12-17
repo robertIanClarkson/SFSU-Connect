@@ -1,36 +1,30 @@
 extends layout
 
 block content   
+  //Page for user to post new listings
   //--------------------------- CSS--------------------------
   link(rel='stylesheet', href='/stylesheets/newItem.css')
   //---------------------------------------------------------
 
   //--------------------------Content------------------------
-  .row
-    p
-    form(action="/item/new", method="post", enctype="multipart/form-data")
-      .col.s6
-        img(src="/images/itemplaceholder.png")
-        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
-            
-      .col.s6
-        h7 ITEM NAME:
-        br
+  
+  .row#title
+    h2.center New Post
+
+  //A form for user to put in listing's information. 
+  
+  form(action="/item/new", method="post", enctype="multipart/form-data")
+    .container
+      .row
+        h7 Item Name (Required):
+      .row
         input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
-        br
-        br
-        h7 DESCRIPTION: 
-        br
-        textarea(name="description", ID="DescriptionArea", required)
-        br
-        br
-        h7 PRICE $ 
-        br
-        input(type='textarea', name = "price" , pattern = "[0-9]*(\.[0-9]+)?" , required)
-        br
-        br
+
+    .container
+      H7 Choose a Category below. (Required)
+      .row
         .input-field
-          select(name='category', required)
+          select(name='category',required)
             option(value='' disabled selected) Choose a category
             option(value='Art') Art
             option(value='Books') Books
@@ -40,10 +34,28 @@ block content
             option(value='Miscellaneous') Miscellaneous
             option(value='Toys & Games') Toys &amp; Games
             option(value='Tutoring') Tutoring
+
+    .container   
+      H7 Upload a Image below. (Optional)
+      .row
+        input(type='file', ID="newpic", name = "uploadImage", accept = 'image/png, image/jpg', showing=true, onchange='display(this);')
         .row
-          .col.push-s4
-            p
-            button(ID = "PostItemButton" type = 'submit') SUBMIT
+          img(ID="holderpic", src="/images/itemplaceholder.png", hidden=false)
+          img(id="itemImg")
+    
+    .container
+      .row
+        h7 Description (Required): 
+      .row
+        textarea(name="description", ID="DescriptionArea", required)
+    .container
+      .row
+        h7 Price $ (Required)
+          input(type='number', ID="PostItemPrice", name = "price", min="0.00", step="0.01", required)
+
+    .container
+      .row
+        button(ID = "PostItemButton" type = 'submit') SUBMIT
     //---------------------------------------------------------
 
     //---------------------Javascript-------------------

@@ -1,18 +1,18 @@
 extends layout
 block content
+  //A form for new users to register for an account
   // -----------------------------CSS-----------------------------------------
   link(rel='stylesheet', href='/stylesheets/register.css')
   // -------------------------------------------------------------------------
 
-  // -----------------------------CONTENT-------------------------------------
+  // -----------------------------CONTENT------------------------------------
   .row
-    .col.s5.push-s6    
+  .row
+    .col    
       .registerForm
         form(action="/register", method="post")
           h2 Join Us!
                 
-          h6.red-text #{error}
-
           h5 Name
           input(type='text', name = "name",  placeholder='enter your name', required)
 
@@ -29,12 +29,13 @@ block content
             input(type="checkbox" , required)
             span I Agree to 
 
-          a(href='TermsConditions')  Terms and Conditions 
+          a#terms(href='TermsConditions')  Terms and Conditions 
                 
           .row            
             .col.s9.push-s4
-              button.btn(class= "registerButton" id='submitregister' type='submit' disabled) Register
-
+              button.btn(id='submitregister' type='submit' disabled) Register
+            
+            //Redirect to login page if user already have account
             .col.s9.push-s2
               a(href='/login') Already have an account? Log In!
   // -------------------------------------------------------------------------

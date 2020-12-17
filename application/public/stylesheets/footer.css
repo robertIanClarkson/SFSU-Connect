@@ -1,9 +1,25 @@
-.footer{
-    position: fixed;
-    width: 100%;
-    background-color: white;
-    color:black;
-    text-align: center;
-    left: 0;
-    bottom: 0;
+
+  /* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#4E0D3A;
+  color: white;
+  text-align: center;
+  } */
+
+.footer {
+  background-color:#4E0D3A;
+  border-radius: 10px 10px 0px 0px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }

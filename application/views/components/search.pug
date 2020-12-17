@@ -10,7 +10,7 @@ link(rel='stylesheet', href='/stylesheets/search.css')
       a#category-dropdown-trigger(class='dropdown-trigger btn' data-target='category-dropdown')
         .row
           .col.s2
-            i#trigger-icon.material-icons trip_origin 
+            #trigger-icon.material-icons trip_origin 
           .col.s10
             if category
               span#trigger-cat.left #{category}
@@ -18,39 +18,39 @@ link(rel='stylesheet', href='/stylesheets/search.css')
               span#trigger-cat.left All
       ul#category-dropdown(class='dropdown-content')
         li
-          a#all-cat 
+          a#all-cat.cat-item 
             i.material-icons trip_origin 
             |All
         li
-          a#art-cat
+          a#art-cat.cat-item
             i.material-icons palette 
             |Art
         li
-          a#books-cat
+          a#books-cat.cat-item
             i.material-icons book 
             |Books
         li
-          a#clothes-cat
+          a#clothes-cat.cat-item
             i.material-icons checkroom 
             |Clothes
         li
-          a#electronics-cat
+          a#electronics-cat.cat-item
             i.material-icons camera_alt 
             |Electronics
         li
-          a#home-cat
+          a#home-cat.cat-item
             i.material-icons countertops 
             |Home &amp; Kitchen
         li
-          a#misc-cat
+          a#misc-cat.cat-item
             i.material-icons pedal_bike 
             |Miscellaneous
         li
-          a#toys-cat
+          a#toys-cat.cat-item
             i.material-icons sports_esports 
             |Toys &amp; Games
         li
-          a#tutoring-cat
+          a#tutoring-cat.cat-item
             i.material-icons face 
             |Tutoring
     
@@ -62,10 +62,11 @@ link(rel='stylesheet', href='/stylesheets/search.css')
         - var searchPlaceholder = "Type what you are looking for here"
         input#search-input.white-text(placeholder=searchPlaceholder type="text" class="validate" maxlength='40')
 
-    //- submit
+    //- submit button
     .col.s1
       a#search-submit.btn
-        i.material-icons search
+        #search-icon.material-icons search
+
 // --------------------------------------------------------------------------
 
 // -------------------------------JAVASCRIPT---------------------------------

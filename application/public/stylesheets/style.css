@@ -1,56 +1,56 @@
 body {
-    background-color: #e6edec;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #e4c8dc;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h1 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 300;
-    font-size: 96px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 96px;
 }
 
 h2 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
-    font-size: 60px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 60px;
 }
 
 h3 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600;
-    font-size: 48px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
 }
 
 h4 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600;
-    font-size: 34px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 34px;
 }
 
 h5 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600;
-    font-size: 24px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
 }
 
 h6 {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600;
-    font-size: 20px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 span {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 p {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 #content {
-    padding: 50px;
+  padding: 50px;
 }

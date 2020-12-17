@@ -1,12 +1,29 @@
-
-.rounded{
-    border-radius: 15px;
+.rounded {
+  border-radius: 15px;
 }
 
 #login {
-    padding: 50px;
+  padding: 50px;
 }
-#loginButton
-{
-    color:#2f0f66;
+
+#loginButton {
+    background-color:#4E0D3A;
+    align-content: right;
+    margin:20px;
+    border-radius: 30px;
+}
+
+#loginButton:hover {
+  background-color:#9e4b87;
+}
+
+body {
+  background-image: url("../images/Background/Login.jpg");
+  background-size: cover;
+}
+
+.loginForm{
+  padding: 40px;
+  margin: 20px;
+  color: #4E0D3A;
 }

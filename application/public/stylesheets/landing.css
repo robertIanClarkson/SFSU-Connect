@@ -1,26 +1,51 @@
 #welcome-text {
-  background-color: #4a148c;
+  background-color: #4E0D3A;
   text-align: center;
-  color: #fafafa;
+  color: #FFCA28;
+  border-radius: 20px;
+}
+
+#welcome-text h2 {
+  padding-top: 10px;
+}
+
+#welcome-text h5 {
+  padding-bottom: 10px;
 }
 
 #item-list {
-  color: #4a148c;
+  color: #4E0D3A;
 }
 
 #card-content {
   color: #000000;
 }
 
-#filterbar {
+/* #filterbar {
   align-items: center;
   align-self: center;
-}
+} */
 
 #submitButton {
   margin-top: 2%;
 }
 
-#seleteBar {
+#selectBar {
   margin-top: 1%;
+}
+
+a {
+  color:#89236C;
+}
+
+#cardBody {
+  padding: 10px;
+  white-space: pre-wrap;
+  
+}
+
+#responsiveText {
+  display: block;
+  width: 100%;
+  overflow-y: auto;
 }

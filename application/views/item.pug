@@ -1,30 +1,40 @@
 extends layout
 
 block content
+	// THIS THIS THE ITEM PAGE, WHERE YOU CAN VIEW THE ITEM IN DETAIL
+	// AND CONTACT THE SELLER
 	// --------------------------CSS---------------------------------
 	link(rel='stylesheet', href='/stylesheets/item.css')
 	// --------------------------CSS---------------------------------
 
 	// ---------------------------	CONTENT----------------------------
-	.row
+	//- Title
+	.row#infoBox.center
 		// split screen in half with 2 floating containers
-		#infoBox
-			h4#header Title
-			p#title(class="highlight") #{item.name}
-			h4#header Description
-			p#description(class="highlight") #{item.description}
-			h3#price(class="highlight" style="float:left") $#{item.price}
-			button#itembutton(style="float:right" type="submit" form="messageForm") Contact
+		h4.white-text#title #{item.name}
 
-		#imageBox
-			img#image(src='/images/items/' + item.image alt="this if image does not exist")
-			if error
-				h6.red-text Error: #{error}
-			form(action="/item/message" method="post")#messageForm
-				.input-field
-					input(type="hidden", name="item_id", value=item.id)
-					textarea#messageArea.materialize-textarea(name='message' autocomplete="off" required)
-					label(for='messageArea') Message Owner
+	//- Image
+	.row#imageBox.center
+		img#image(src='/images/items/' + item.image)
+
+	//-  Description
+	.row#infoBox
+		h6.white-text#description #{item.description}
+		h3#price(class="highlight" style="float:left") $#{item.price}
+		
+	//- Contact Seller
+	.row#infoBox
+		h3#contact Contact Seller
+		form(action="/item/message" method="post")#messageForm
+			.input-field
+				//label(for='messageArea') Message Owner
+				input(type="hidden", name="item_id", value=item.id)
+				textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
+				button.btn-large.left#itembutton(type="submit" form="messageForm") Contact
+		
+			//- if error
+			//- 	h6.red-text Error: #{error}
+
 	// ---------------------------	CONTENT----------------------------
 
 	// ---------------------------	JS ----------------------------

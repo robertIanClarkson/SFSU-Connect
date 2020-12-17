@@ -1,28 +1,42 @@
 #inboxbg {
-    /* background-color: gray; */
-    height: 100%;
+  /* background-color: gray; */
+  height: 100%;
 }
 
-#inbox{
-    background-color: #6a5acd;
-    height: 100%;
-    padding: 4%;
-}
-#inbox-list{
-    background-color: slateblue;
-    padding-bottom: 100%;
-}
-#subject{
-    border: 5px outset black;
+/* #legend {
+  background-color: #4E0D3A;
+  border-radius: 20px;
+} */
+
+#inbox {
+  background-color: #4E0D3A;
+  margin: 2%;
+  border-radius: 20px;
+  color:  #FFCA28;
 }
 
-#mail-body{
-    border: 5px outset black;
-    height: 500px;
+#titleRow, #messageRow, #inboxFooter {
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
-#mailIcon{
-    display: inline-flex;
-    vertical-align: center;
+#titleRow {
+  background-color: #4E0D3A;
+  border-radius: 20px 20px 0px 0px;
+  color: #FFCA28;
 }
+
+
+.divider {
+  border-top: 3px dotted #4E0D3A;
+}
+
+.divider-right {
+  border-right: 3px dotted #4E0D3A;
+}
+
+.divider-white-right {
+  border-right: 3px solid #e4c8dc;;
+}
+
 /*-----------------------------------------------------------*/

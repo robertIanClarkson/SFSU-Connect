@@ -1,28 +1,36 @@
 extends ../layout
 
 block content
-  - var color = "yellow"
-  .container.center-align
-    .row.left-align
-      a.waves-effect.waves-light.btn.darken-3(href="/about" class=color) 
-        .row
-          .col.s4
-            i.material-icons chevron_left face
+  
+
+    // -----------------------------CSS-----------------------------------------
+    link(rel='stylesheet', href='/stylesheets/gerardo.css')
+    // -------------------------------------------------------------------------
+
+    // -----------------------------CONTENT-------------------------------------
+
+    .container.center-align
+        .row.left-align
+        .row.left-align
+          a.backabout.btn.href(href="/about") 
+            .row
+              .col.s4
+                i.material-icons chevron_left face
+              .col.s8
+                span about us
+        .row 
           .col.s8
-            span about us
-    .row 
-      .col.s8
-        img.responsive-img.circle(src="../images/profile_pics/gerardo.png")
-      .col.s4
+            img.responsive-img.circle(src="../images/profile_pics/gerardo.png")
+          .col.s4
+            .row
+              .card-panel.gerardopanel1
+                h4.white-text Gerardo Ochoa
+            .row
+              .card-panel.gerardopanel2
+                h5.white-text Developer
+        .row  
+          .card-panel.gerardopanel3
+            span.flow-text.white-text I am a computer science student at San Francisco State University.I became interested in programming due to playing with emulators when I was younger. My hobbies are reading and gaming.
         .row
-          .card-panel.lighten-2(class=color)
-            h4 Gerardo Ochoa
-        .row
-          .card-panel.lighten-3(class=color)
-            h5 Developer
-    .row  
-      .card-panel.lighten-4(class=color)
-        span.flow-text I am a computer science student at San Francisco State University.I became interested in programming due to playing with emulators when I was younger. My hobbies are reading and gaming.
-    .row
-      a(href="https://github.com/robertIanClarkson" target="_blank")
-        img(src="https://ghchart.rshah.org/robertIanClarkson")
+          a(href="https://github.com/robertIanClarkson" target="_blank")
+            img(src="https://ghchart.rshah.org/robertIanClarkson")

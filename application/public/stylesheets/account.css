@@ -1,10 +1,44 @@
-#accountbody{
-    background-color: #ffffff;
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+
+#accimg {
+  height: 400px;
+  width: 400px;
+}
+.myaccountcard {
+  background-color:#4E0D3A;
+  border-radius: 20px;
+}
+.myaccountcard2 {
+  background-color:#4E0D3A;
+  border-radius: 20px;
+}
+.myaccountcard3 {
+  background-color:#4E0D3A;
+  border-radius: 20px;
+}
+.editbutton
+{
+  background-color: #FFCA28;
+}
+a {
+  color: white;
 }
 
-#accimg{
-    height: 400px;
-    width: 400px;
+.gold {
+  color: #FFCA28;
 }
+
+.responsive {
+  width: auto;
+  height: auto;
+}
+
+#items, #inbox, #editpass, #passChange {
+  background-color: #FFCA28;
+  color: #4E0D3A;
+  border-radius: 10px;
+  width: 100%;
+}
+#items:hover, #inbox:hover, #editpass:hover, #passChange:hover {
+  background-color: #ffdd76;
+} 

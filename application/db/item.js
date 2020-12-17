@@ -5,9 +5,9 @@ let crypto = require('crypto');
 
 function getItemByID(id) {
   return new Promise((resolve, reject) => {
-    item.query(`SELECT * FROM item
-              WHERE id = ?
-              AND item.available = 1 AND item.approved = 1`, [id])
+    let getItemQuery = `SELECT * FROM item
+                        WHERE id = ?`
+    item.query(getItemQuery, [id])
       .then((rows) => {
         if(rows.length == 0) {
           reject(`(x) ERROR --> Database did not return any items`)
@@ -24,19 +24,19 @@ function getItemByID(id) {
 
 function newMessage(sender_id, item_id, message){
   return new Promise((resolve, reject) => {
-      let getItem = `SELECT * FROM item WHERE id='${item_id}';`
-      item.query(getItem)
+      let getItem = `SELECT * FROM item WHERE id=?;`
+      item.query(getItem, [item_id])
           .then((items) => {
-              console.log(items[0])
-              let getReceiverUser = `SELECT * FROM user WHERE id='${items[0].user_id}';`
-              item.query(getReceiverUser)
+              // console.log(items[0])
+              let getReceiverUser = `SELECT * FROM user WHERE id=?;`
+              item.query(getReceiverUser, [items[0].user_id])
                   .then((receiver_users) => {
                       console.log(receiver_users[0])
                       let insertMessage = `INSERT INTO message  
                                     (item_id, user_id_sender, user_id_reciever, subject, message)
                                     VALUES
-                                    ('${item_id}', '${sender_id}', '${receiver_users[0].id}', '${items[0].name}', '${message}');`
-                      item.query(insertMessage)
+                                    (?, ?, ?, ?, ?);`
+                      item.query(insertMessage, [item_id, sender_id, receiver_users[0].id, items[0].name, message])
                           .then((result) => {
                               console.log('OK')
                               console.log(result)
@@ -80,10 +80,23 @@ function newItem(req, res) {
     return new Promise(((resolve, reject) => {
         let uploader = multer({storage: storage}).single('uploadImage');
         uploader(req, res, ()=>{
-            let filePath = req.file.path;
-            let fileName = req.file.filename;
-            let thumbnailName = `thumbnail-${fileName}`;
-            let thumbnailPath = req.file.destination + "/" + thumbnailName;
+            // Have to declear this 4 var first because they are related to req.file
+            // Which cause error when you don't upload a image
+            let filePath;
+            let fileName;            
+            let thumbnailName;
+            let thumbnailPath;
+            
+            if (typeof req.file === "undefined"){
+              filePath = "public/images/itemplaceholder.png";
+              thumbnailPath = "public/images/thumbnail-itemplaceholder.png";
+            } else {
+              filePath = req.file.path;
+              fileName = req.file.filename;            
+              thumbnailName = `thumbnail-${fileName}`;
+              thumbnailPath = req.file.destination + "/" + thumbnailName;
+            }
+            
             let userID = req.user.id;
             let name = req.body.itemname;
             let description = req.body.description;

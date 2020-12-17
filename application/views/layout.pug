@@ -2,6 +2,11 @@ doctype html
 html
   head
     title= title
+
+    //- Google Analytics
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-179735652-1")
+    script(src='/javascripts/layout.js')
+
     
     //- JQuery
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
@@ -21,6 +26,9 @@ html
     //- personal css
     link(rel='stylesheet', href='/stylesheets/style.css')
 
+    script(src="https://material.io/design/material-studies/crane.html#color")
+
   body
     include components/navbar
     block content
+    include components/footer
