@@ -1,7 +1,9 @@
+//For the category dropdown 
 $(document).ready(function(){
   $('select').formSelect();
 });
 
+//Use to display image upon uploading one. 
 function display(input){
   if (input.files && input.files[0]) {
     document.getElementById('holderpic').hidden = true;
