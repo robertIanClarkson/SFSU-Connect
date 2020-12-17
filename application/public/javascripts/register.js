@@ -1,3 +1,6 @@
+// function for register page to compare two password.
+// Submit button is disable until both are confirm identical 
+
 function check(){
     if (document.getElementById('pw1').value == document.getElementById('pw2').value){ 
         //disabled to prevent submitting if passwords dont match
