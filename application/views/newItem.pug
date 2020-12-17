@@ -1,6 +1,7 @@
 extends layout
 
 block content   
+  //Page for user to post new listings
   //--------------------------- CSS--------------------------
   link(rel='stylesheet', href='/stylesheets/newItem.css')
   //---------------------------------------------------------
@@ -9,29 +10,19 @@ block content
   
   .row#title
     h2.center New Post
+
+  //A form for user to put in listing's information. 
   
   form(action="/item/new", method="post", enctype="multipart/form-data")
-    .container   
-      .row
-        img(src="/images/itemplaceholder.png")
-      .row
-        input(type='file', name = "uploadImage", accept = 'image/png, image/jpg')
     .container
       .row
-        h7 ITEM NAME:
+        h7 Item Name (Required):
       .row
         input(type='textarea' , ID = "PostItemName" , name = "itemname", required)
+
     .container
+      H7 Choose a Category below. (Required)
       .row
-        h7 DESCRIPTION: 
-      .row
-        textarea(name="description", ID="DescriptionArea", required)
-    .container
-      .row
-        h7 PRICE $ 
-    .container
-      .row
-        input(type='number', ID="PostItemPrice", name = "price", min="0.00", step="0.01", required)
         .input-field
           select(name='category',required)
             option(value='' disabled selected) Choose a category
@@ -43,8 +34,28 @@ block content
             option(value='Miscellaneous') Miscellaneous
             option(value='Toys & Games') Toys &amp; Games
             option(value='Tutoring') Tutoring
+
+    .container   
+      H7 Upload a Image below. (Optional)
+      .row
+        input(type='file', ID="newpic", name = "uploadImage", accept = 'image/png, image/jpg', showing=true, onchange='display(this);')
         .row
-          button(ID = "PostItemButton" type = 'submit') SUBMIT
+          img(ID="holderpic", src="/images/itemplaceholder.png", hidden=false)
+          img(id="itemImg")
+    
+    .container
+      .row
+        h7 Description (Required): 
+      .row
+        textarea(name="description", ID="DescriptionArea", required)
+    .container
+      .row
+        h7 Price $ (Required)
+          input(type='number', ID="PostItemPrice", name = "price", min="0.00", step="0.01", required)
+
+    .container
+      .row
+        button(ID = "PostItemButton" type = 'submit') SUBMIT
     //---------------------------------------------------------
 
     //---------------------Javascript-------------------
