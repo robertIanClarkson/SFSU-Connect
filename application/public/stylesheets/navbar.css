@@ -20,3 +20,7 @@
   color: #FFCA28 !important;
   transition: color 250ms;
 }
+
+#mobile-nav {
+  background-color: #4E0D3A !important;
+}
