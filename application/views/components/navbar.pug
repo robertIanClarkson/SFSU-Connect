@@ -2,10 +2,12 @@
 link(rel='stylesheet', href='/stylesheets/navbar.css')
 // ----------------------------------------------------------------------
 // ---------------------------------CONTENT------------------------------
-.navbar-fixed
+.navbar-extended
   nav#navbar 
     .nav-wrapper
-      a.nav-button#logo(href="/" class="brand-logo") SFSU Connect
+      a.nav-button.hide-on-med-and-down#logo(href="/" class="brand-logo") SFSU Connect
+      a.sidenav-trigger(href='#' data-target='mobile-nav')
+        i.material-icons menu
       ul#nav-mobile.right.hide-on-med-and-down
         li
           a.postitem.nav-button(href="/item/new") Post 
@@ -23,10 +25,31 @@ link(rel='stylesheet', href='/stylesheets/navbar.css')
               img.circle.responsive-img(src='/images/profile_pics/' + user.image style='height:64px; padding:5px;')
             else
               img.circle.responsive-img(src='/images/profile_pics/none.png' style='height:64px; padding:5px;')
+
       .nav-content
         include search
+    
+ul.sidenav#mobile-nav 
+  li
+    a.nav-button#logo(href="/" class="brand-logo") SFSU Connect
+  li
+    a.postitem.nav-button(href="/item/new") Post 
+  li
+    a.about.nav-button(href="/about") About
+  li
+    if user
+      form#signout(action="/login/logout", method="post")
+        a.login.nav-button(href="javascript:$('#signout').submit()") Logout
+    else
+      a.login.nav-button(href="/login") Login
+  li
+    a.href(href="/account")
+      if user
+        img.circle.responsive-img(src='/images/profile_pics/' + user.image style='height:64px; padding:5px;')
+      else
+        img.circle.responsive-img(src='/images/profile_pics/none.png' style='height:64px; padding:5px;')
         
   // ----------------------------------------------------------------------
   // ---------------------------------JAVASCRIPT---------------------------
-
+  script(src='/javascripts/navbar.js')
   // ----------------------------------------------------------------------
