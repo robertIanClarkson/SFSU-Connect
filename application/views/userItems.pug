@@ -23,15 +23,22 @@ block content
               a(href="/item/" + item.id)
                 .card-image
                   img(src="/images/items/" + item.image)
-                .col.s8#responsiveText
-                  - 
-                    if(item.itemName.length > 40) {
-                      item.itemName = item.itemName.substring(0, 37);
-                      item.itemName += '...'
-                    }
-                  h6 #{item.itemName}
-                .col.s4#responsiveText
-                  h5.right $#{item.price} 
+                .row#card-content
+                  .col.s8#responsiveText
+                    - 
+                      if(item.itemName.length > 40) {
+                        item.itemName = item.itemName.substring(0, 37);
+                        item.itemName += '...'
+                      }
+                    h6 #{item.itemName}
+                  .col.s4#responsiveText
+                    h5.right $#{item.price} 
+                .row#approved(style="padding-left:20px")
+                  if item.approved == 1
+                    h5 approved
+                  else
+                    h5 unapproved
+                
       else
         h3.center You have no items right now
   // -------------------------------------------------------------------------------

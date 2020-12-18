@@ -79,7 +79,7 @@ function getSearchResults(category, text, filter='date:new->old') {
 function getUserItems(user) {
   console.log(user.id)
   return new Promise((resolve, reject) => {
-    let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
+    let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, item.approved, user.name AS userName
                       FROM item
                       JOIN user ON item.user_id = user.id`
 

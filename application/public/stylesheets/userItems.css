@@ -6,3 +6,11 @@
 .myproductscard h4 {
     color: #FFCA28 !important;
 }
+
+#card-content {
+    color: #4E0D3A;
+}
+
+#approved {
+    color: red;
+}
