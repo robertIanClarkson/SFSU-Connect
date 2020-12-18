@@ -1,3 +1,7 @@
+/**
+ * Database queries used by the registration page
+ */
+
 var db = require('./db');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -21,7 +25,6 @@ function newUser(name, email, password) {
     console.log(password)
     encryptPassword(password)
       .then((hash) => {
-        // console.log(hash)
         let sqlCommand = `INSERT INTO user 
                       (name, email, password, image) 
                       VALUES

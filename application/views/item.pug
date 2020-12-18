@@ -1,13 +1,8 @@
 extends layout
 
 block content
-	// THIS THIS THE ITEM PAGE, WHERE YOU CAN VIEW THE ITEM IN DETAIL
-	// AND CONTACT THE SELLER
-	// --------------------------CSS---------------------------------
 	link(rel='stylesheet', href='/stylesheets/item.css')
-	// --------------------------CSS---------------------------------
 
-	// ---------------------------	CONTENT----------------------------
 	//- Title
 	.row#infoBox.center
 		// split screen in half with 2 floating containers
@@ -43,9 +38,4 @@ block content
 					textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
 					button.btn-large.left#itembutton(type="submit" form="messageForm") Contact
 
-
-	// ---------------------------	CONTENT----------------------------
-
-	// ---------------------------	JS ----------------------------
 	script(src='/javascripts/item.js')
-	// ---------------------------	JS ----------------------------

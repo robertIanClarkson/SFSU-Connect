@@ -1,10 +1,14 @@
+/**
+ * All database queries involving user accounts
+ */
+
 var db = require('./db')
 let multer = require('multer');
 let crypto = require('crypto');
 const register = require('./register')
 
 
-// gets messages for inbox
+// Gets messages for inbox
 function getMessages(userid){
   return new Promise((resolve, reject) => {
     let sqlCommand = `SELECT name AS sender , subject, message,
@@ -20,7 +24,7 @@ function getMessages(userid){
   });
 }
 
-// used to change your account profile pic
+// Update database with location of user's new profile picture
 function updateImage(fileName, userID){
   return new Promise(((resolve, reject) => {
       let baseSQL = `UPDATE user SET image = ? WHERE id = ?`
@@ -34,7 +38,7 @@ function updateImage(fileName, userID){
   }))
 }
 
-/* BLOCK BELOW IS ALL FOR ADDING A NEW PROFILE PIC TO THE DB */
+// Middleware 'Multer' configuration
 let storage = multer.diskStorage({
   destination: function(req, file, callback) {
       callback(null, "public/images/profile_pics");
@@ -46,6 +50,7 @@ let storage = multer.diskStorage({
   }
 });
 
+// Uploads new profile pictures to server's local disk
 function newProfileImage(req, res) {
   return new Promise(((resolve, reject) => {
       let uploader = multer({storage: storage}).single('uploadImage');
@@ -58,6 +63,8 @@ function newProfileImage(req, res) {
       });
   }))
 }
+
+// Update user password in database
 function updatePassword(userid, password){
     return new Promise((resolve, reject) => {
         let Checksql = `SELECT * FROM user WHERE id = ?`

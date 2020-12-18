@@ -1,19 +1,14 @@
 extends layout
 
 block content
-  // LANDING PAGE FOR THE WEBSITE
-  
-  // -----------------------------------CSS-----------------------------------
   link(rel='stylesheet' href='/stylesheets/landing.css')
-  // -----------------------------------CSS-----------------------------------
 
-  // ---------------------------------CONTENT---------------------------------
   #content
     
     #welcome-text
       .row
-        // a welcome message that will show how many new item has beenn added in the pass 7 day
-        // numItems is a value we get when the page is render form routes/index.js
+        //- a welcome message that will show how many new item has beenn added in the pass 7 day
+        //- numItems is a value we get when the page is render form routes/index.js
         h2.center-align Welcome to SFSU Connect!
         h4.center-align This site is for student to buy and sell their books at a community price
         if numItems 
@@ -26,7 +21,7 @@ block content
         .col.s2.m3
           h3 Recent Items
 
-      // Auto display all the item that is found
+      //- Auto display all the item that is found
       #itemCard
         .row
           if items
@@ -49,9 +44,5 @@ block content
                           h5.right $#{item.price} 
           else
             h3.center Sorry, there are no items right now
-  // ---------------------------------CONTENT---------------------------------
 
-  // ----------------------------------JS------------------------------
   script(src='/javascripts/landing.js')
-  // ----------------------------------JS------------------------------
-

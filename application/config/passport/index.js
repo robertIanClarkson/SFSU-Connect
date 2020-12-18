@@ -1,3 +1,6 @@
+/**
+ * Configuration functions for the middleware 'Passport'
+ */
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
@@ -17,14 +20,13 @@ passport.use(new LocalStrategy({
   passwordField: 'password'
 },
 function(username, password, done) {
-  let email = username // passport bullshit
+  let email = username
   login.getUserWithEmail(email)
     .then((user) => {
       bcrypt.compare(password, user.password)
         .then((isPassword) => {
           if(isPassword) {
             delete user.password
-            // console.log(user)
             return done(null, user)
           } else {
             return done(null, false)

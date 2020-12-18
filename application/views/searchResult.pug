@@ -1,13 +1,8 @@
 extends layout
 
 block content
-  // THE SEARCH RESULT WILL BE DISPLAY IN THIS PAGE
-
-  // -----------------------------------CSS-----------------------------------
   link(rel='stylesheet' href='/stylesheets/landing.css')
-  // -----------------------------------CSS-----------------------------------
 
-  // ---------------------------------CONTENT---------------------------------
   #content
 
     #item-list
@@ -50,10 +45,6 @@ block content
                           h5.right $#{item.price} 
           else
             h3.center Sorry, there are no items right now
-  // ---------------------------------CONTENT---------------------------------
 
-  // ----------------------------------JS------------------------------
   script(src='/javascripts/filterBar.js')
   script(src='/javascripts/searchResults.js')
-  // ----------------------------------JS------------------------------
-

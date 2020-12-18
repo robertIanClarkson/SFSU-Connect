@@ -1,19 +1,19 @@
+/**
+ * Express routers for the landing page
+ */
+
 var express = require('express');
 var router = express.Router();
 var db = require('./../db/index');
 var test = require('../db/helpers/test');
 
-/* GET */
-// router.get('/', function(req, res, next) {
-//     res.render('index', { title: 'Home' });
-// });
-
+// Renders landing page and gets latest items from the database to populate the
+// page
 router.get('/', function(req, res, next) {
   Promise.all([
     test.getSearchResults('All', ""),
     db.numItems_N_days()
   ]).then(([items, numItems]) => {
-      // console.log(items)
       if (req.isAuthenticated()) {
         res.render('landing', { 
           title: 'Home',
@@ -40,14 +40,13 @@ router.get('/', function(req, res, next) {
     })
 });
 
-/* POST */
-// PRIORITY 1
+// Handles search using a url query of the form
+// /search?category=&text=
 router.get('/search', function(req, res, next) {
   console.log(`POST: 'search' --> ${JSON.stringify(req.query)}`)
   searchData = req.query
   test.getSearchResults(searchData.category, searchData.text,searchData.filter)
   .then((items) => {
-    // console.log(items);
     if(req.isAuthenticated()) {
       res.render('searchResult', {
         title: 'Home',
