@@ -73,6 +73,7 @@ $('#search-submit').click(function() {
 });
 /***********************DROPDOWN FOR VP**********************/
 
+/* NO LONGER USED */
 /********************LANDING PAGE LATEST ITEM****************/
 $("#itemCard").ready(function(){
   // code
