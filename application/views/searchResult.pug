@@ -40,17 +40,14 @@ block content
                     .card-title
                       .row.valign-wrapper#cardBody
                         .col.s4#responsiveText
+                          - 
+                            if(item.itemName.length > 40) {
+                              item.itemName = item.itemName.substring(0, 37);
+                              item.itemName += '...'
+                            }
                           h6 #{item.itemName}
                         .col.s8#responsiveText
                           h5.right $#{item.price} 
-                      //- .divider
-                      //- .row
-                      //-   .col.s6
-                      //-     p.left #{item.userName}
-                      //-   .col.s6
-                      //-     p.right #{item.created}
-                      
-                    //- .card-content= item.userName
           else
             h3.center Sorry, there are no items right now
   // ---------------------------------CONTENT---------------------------------
