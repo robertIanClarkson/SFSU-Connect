@@ -1,5 +1,6 @@
 var db = require('./db')
 
+// Returns a user with the given id, used for authentication
 function getUserWithID(id) {
   let sqlCommand = `SELECT * FROM user WHERE id=?`
   return new Promise((resolve, reject) => {
@@ -21,6 +22,7 @@ function getUserWithID(id) {
   });
 }
 
+// Returns a user with the given email, used for authentication
 function getUserWithEmail(email) {
   let sqlCommand = `SELECT * FROM user WHERE email=?`
   return new Promise((resolve, reject) => {

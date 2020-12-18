@@ -4,6 +4,7 @@ let crypto = require('crypto');
 const register = require('./register')
 
 
+// gets messages for inbox
 function getMessages(userid){
   return new Promise((resolve, reject) => {
     let sqlCommand = `SELECT name AS sender , subject, message,
@@ -19,6 +20,7 @@ function getMessages(userid){
   });
 }
 
+// used to change your account profile pic
 function updateImage(fileName, userID){
   return new Promise(((resolve, reject) => {
       let baseSQL = `UPDATE user SET image = ? WHERE id = ?`
@@ -32,6 +34,7 @@ function updateImage(fileName, userID){
   }))
 }
 
+/* BLOCK BELOW IS ALL FOR ADDING A NEW PROFILE PIC TO THE DB */
 let storage = multer.diskStorage({
   destination: function(req, file, callback) {
       callback(null, "public/images/profile_pics");

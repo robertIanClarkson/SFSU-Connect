@@ -1,5 +1,6 @@
 var db = require('./../db')
 
+// USED FOR VERTICAL PROTOTYPE
 function insert(name, message) {
   return new Promise((resolve, reject) => {
     db.query(`INSERT INTO test_table (name, message) VALUES ('${name}', '${message}')`)
@@ -14,6 +15,7 @@ function insert(name, message) {
   })
 }
 
+// USED FOR VERTICAL PROTOTYPE
 function getAll() {
   return new Promise((resolve, reject) => {
     db.query(`SELECT * FROM test_table`)
@@ -29,6 +31,7 @@ function getAll() {
   })
 }
 
+// Triggered on navbar search
 function getSearchResults(category, text, filter='date:new->old') {
   return new Promise((resolve, reject) => {
     let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, item.created, user.name AS userName
@@ -76,6 +79,7 @@ function getSearchResults(category, text, filter='date:new->old') {
   })
 }
 
+// Triggered when user accesses items they have posted from account page
 function getUserItems(user) {
   console.log(user.id)
   return new Promise((resolve, reject) => {
