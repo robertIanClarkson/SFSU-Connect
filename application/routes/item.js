@@ -1,3 +1,7 @@
+/**
+ * Express routers for the item pages
+ */
+
 var express = require('express');
 var router = express.Router();
 var item = require('../db/item');
@@ -5,8 +9,7 @@ var db = require('../db/db')
 var multer = require('multer');
 
 
-/* GET */
-// this will get replaced with below '/:id'
+// This will get replaced with below '/:id'
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.render('item', { 
@@ -42,6 +45,7 @@ router.get('/thankyou', function(req, res, next) {
   }
 });
 
+// URL where forms for new item are posted
 router.post('/new', (req, res, next) => {
     item.newItem(req, res)
     .then(() => {
@@ -60,6 +64,7 @@ router.post('/new', (req, res, next) => {
     })
 })
 
+// URL where forms for new user messages are posted
 router.post('/message', function(req, res, next){
   console.log(`POST: 'item/message' --> ${JSON.stringify(req.body)}`)
   if(req.isAuthenticated()) {
@@ -82,6 +87,8 @@ router.post('/message', function(req, res, next){
   
 });
 
+// :id is dynamic and renders the appropriate item page when provided the item
+// id
 router.get('/:id', function(req, res, next) {
   console.log(`GET: 'item/${req.params.id}'`)
   item.getItemByID(req.params.id)

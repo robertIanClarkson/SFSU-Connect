@@ -1,3 +1,7 @@
+/**
+ * Serverside configuration for database. All queries rely on this file.
+ */
+
 var mysql = require('mysql');
 
 /* THIS CODE ALLOWS US TO PROMISIFY ALL DB ACTIONS */ 

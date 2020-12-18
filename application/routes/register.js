@@ -1,8 +1,11 @@
+/**
+ * Express routers for the registration page
+ */
+
 var express = require('express');
 var router = express.Router();
 var db = require('./../db/register')
 
-/* GET */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.redirect('/')
@@ -11,8 +14,7 @@ router.get('/', function(req, res, next) {
   }
 });
 
-/* POST */
-// PRIORITY 1
+// URL where the registration form gets posted
 router.post('/', function(req, res, next) {
   console.log(`POST: 'register' --> ${JSON.stringify(req.body)}`)
   db.newUser(req.body.name, req.body.email, req.body.password)

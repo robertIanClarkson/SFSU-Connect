@@ -1,3 +1,7 @@
+/**
+ * Database queries used by the login page
+ */
+
 var db = require('./db')
 
 // Returns a user with the given id, used for authentication

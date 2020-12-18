@@ -1,10 +1,13 @@
+/**
+ * Express routers for the account pages
+ */
+
 var express = require('express');
 const db = require('../db/db');
 const account = require('../db/account');
 const test = require("../db/helpers/test");
 var router = express.Router();
 
-/* GET */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.render('account', { 
@@ -23,7 +26,6 @@ router.get('/items', function(req, res, next) {
 
   test.getUserItems(req.user)
       .then((items) => {
-        // console.log(items);
         if (req.isAuthenticated()) {
           res.render('userItems', {
             title: 'Home',
@@ -60,6 +62,7 @@ router.get('/inbox', function(req,res,next) {
   }
 });
 
+// Page where new profile pictures are posted
 router.post('/newImage', function(req, res, next) {
   account.newProfileImage(req, res)
   .then(() => {
@@ -70,8 +73,7 @@ router.post('/newImage', function(req, res, next) {
   });
 })
 
-/* POST */
-// PRIORITY 2
+// URL where forms for new user passwords are posted
 router.post('/edit', function(req, res, next) {
   console.log(`POST: 'account/edit' --> ${JSON.stringify(req.body)}`)
   account.updatePassword(req.user.id, req.body.password)

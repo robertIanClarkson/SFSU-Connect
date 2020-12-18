@@ -1,3 +1,7 @@
+/**
+ * Express routers for the testing page
+ */
+
 var express = require('express');
 var router = express.Router();
 var test = require("./../db/helpers/test")

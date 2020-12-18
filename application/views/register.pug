@@ -1,11 +1,8 @@
 extends layout
 block content
-  //A form for new users to register for an account
-  // -----------------------------CSS-----------------------------------------
+  //- A form for new users to register for an account
   link(rel='stylesheet', href='/stylesheets/register.css')
-  // -------------------------------------------------------------------------
 
-  // -----------------------------CONTENT------------------------------------
   .row
   .row
     .col    
@@ -38,8 +35,5 @@ block content
             //Redirect to login page if user already have account
             .col.s9.push-s2
               a(href='/login') Already have an account? Log In!
-  // -------------------------------------------------------------------------
 
-  // -----------------------------JAVASCRIPT----------------------------------
   script(src='/javascripts/register.js')
-  // -------------------------------------------------------------------------

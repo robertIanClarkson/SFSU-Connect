@@ -1,17 +1,12 @@
 extends layout
 
 block content   
-  //Page for user to post new listings
-  //--------------------------- CSS--------------------------
   link(rel='stylesheet', href='/stylesheets/newItem.css')
-  //---------------------------------------------------------
-
-  //--------------------------Content------------------------
   
   .row#title
     h2.center New Post
 
-  //A form for user to put in listing's information. 
+  //- A form for user to put in listing's information. 
   
   form(action="/item/new", method="post", enctype="multipart/form-data")
     .container
@@ -56,8 +51,5 @@ block content
     .container
       .row
         button(ID = "PostItemButton" type = 'submit') SUBMIT
-    //---------------------------------------------------------
 
-    //---------------------Javascript-------------------
     script(src='/javascripts/newItem.js')
-    //---------------------------------------------------------

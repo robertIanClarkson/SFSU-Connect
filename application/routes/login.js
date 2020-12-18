@@ -1,9 +1,12 @@
+/**
+ * Express routers for the login page and logout functionality
+ */
+
 var express = require('express');
 var router = express.Router();
 var passport = require('./../config/passport')
 var db = require('./../db/login')
 
-/* GET */
 router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     res.redirect('/')
@@ -12,8 +15,7 @@ router.get('/', function(req, res, next) {
   }
 });
 
-/* POST */
-// PRIORITY 1
+// URL where the login form is posted
 router.post('/', function(req, res, next) {
   // GO TO 'config/passport' --> passport.use()
   passport.authenticate('local', function(err, user, info) {
@@ -26,8 +28,6 @@ router.post('/', function(req, res, next) {
       }); 
     }
     req.logIn(user, function(err) {
-      // console.log(user)
-      // console.log(err)
       if (err) { return next(err); }
       // SUCCESS
       return res.redirect('/')
@@ -35,6 +35,7 @@ router.post('/', function(req, res, next) {
   })(req, res, next);
 });
 
+// URL which ends user sessions
 router.post('/logout', function(req, res, next) {
   req.logout();
   res.redirect('/');

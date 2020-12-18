@@ -1,3 +1,7 @@
+/**
+ * Database queries used by the landing page for item search functionality
+ */
+
 let db = require('./db');
 
 // Used to get the number of items specified by N
@@ -25,7 +29,7 @@ function getNItems(n) {
   });
 }
 
-/* Used for the landing page to get the most recent items */
+/* Used by the landing page to get the most recent items */
 function numItems_N_days() {
     return new Promise((resolve, reject) => {
         let sqlCommand = `SELECT COUNT(*) AS number FROM item WHERE created > (NOW() - INTERVAL 7 DAY) AND item.available = 1 AND item.approved = 1`

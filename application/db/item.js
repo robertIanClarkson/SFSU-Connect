@@ -1,3 +1,7 @@
+/**
+ * Database queries used by the item page
+ */
+
 let item = require('./db');
 let multer = require('multer');
 let sharp = require('sharp');
@@ -29,7 +33,6 @@ function newMessage(sender_id, item_id, message){
       let getItem = `SELECT * FROM item WHERE id=?;`
       item.query(getItem, [item_id])
           .then((items) => {
-              // console.log(items[0])
               let getReceiverUser = `SELECT * FROM user WHERE id=?;`
               item.query(getReceiverUser, [items[0].user_id])
                   .then((receiver_users) => {
@@ -85,8 +88,8 @@ function newItem(req, res) {
     return new Promise(((resolve, reject) => {
         let uploader = multer({storage: storage}).single('uploadImage');
         uploader(req, res, ()=>{
-            // Have to declear this 4 var first because they are related to req.file
-            // Which cause error when you don't upload a image
+            // Have to declare this for var first because they are related to req.file
+            // Which cause error when you don't upload an image
             let filePath;
             let fileName;            
             let thumbnailName;

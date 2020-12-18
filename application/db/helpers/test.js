@@ -1,6 +1,10 @@
+/**
+ * Database functions that are general and do not belong to a specific web page
+ * go here.
+ */
 var db = require('./../db')
 
-// USED FOR VERTICAL PROTOTYPE
+// Depricated. Used for vertical prototype.
 function insert(name, message) {
   return new Promise((resolve, reject) => {
     db.query(`INSERT INTO test_table (name, message) VALUES ('${name}', '${message}')`)
@@ -15,12 +19,11 @@ function insert(name, message) {
   })
 }
 
-// USED FOR VERTICAL PROTOTYPE
+// Depricated. Used for vertical prototype.
 function getAll() {
   return new Promise((resolve, reject) => {
     db.query(`SELECT * FROM test_table`)
     .then((rows) => {
-      // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
       console.log(`(+) pulled from db --> ${rows.length} records`)
       resolve(rows)
     })
@@ -47,7 +50,6 @@ function getSearchResults(category, text, filter='date:new->old') {
     sqlCommand += ` AND approved  = 1 AND available = 1`
     let wordsArray = text.split(' ') // break search string into words
     for (word of wordsArray) {
-      // append to SQL command
       sqlCommand += ` AND ( item.name LIKE '%${word}%' OR description LIKE '%${word}%' )`
     }
     switch (filter) {
@@ -68,7 +70,6 @@ function getSearchResults(category, text, filter='date:new->old') {
     }
     db.query(sqlCommand)
     .then((rows) => {
-      // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
       console.log(`(+) pulled from db --> ${rows.length} records`)
       resolve(rows)
     })
@@ -90,7 +91,6 @@ function getUserItems(user) {
     sqlCommand += ` WHERE user.id = '${user.id}'`
     db.query(sqlCommand)
         .then((rows) => {
-          // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
           console.log(`(+) pulled from db --> ${rows.length} records`)
           resolve(rows)
         })
@@ -101,17 +101,12 @@ function getUserItems(user) {
   })
 }
 
-/**
- *  Function getItem():
- *    This function will get the item base on the item name 
- *    and give back the info to post on viiewItem page
- * 
- */
+// This function will get the item base on the item name and give back the info
+// to post on viewItem page
 function getItem(item) {
   return new Promise((resolve, reject) => {
     db.query(`SELECT * FROM test_table`)
     .then((rows) => {
-      // console.log(`(+) pulled from db --> ${JSON.stringify(rows)}`)
       console.log(`(+) pulled from db --> ${rows.length} records`)
       resolve(rows)
     })
