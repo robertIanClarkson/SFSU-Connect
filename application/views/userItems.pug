@@ -18,13 +18,20 @@ block content
     .row
       if items
         each item in items
-          .col.s12.m6.l4
+          .col.s12.m6.l3
             .card.medium
               a(href="/item/" + item.id)
                 .card-image
                   img(src="/images/items/" + item.image)
-                .card-title= item.itemName
-                .card-content= item.userName
+                .col.s8#responsiveText
+                  - 
+                    if(item.itemName.length > 40) {
+                      item.itemName = item.itemName.substring(0, 37);
+                      item.itemName += '...'
+                    }
+                  h6 #{item.itemName}
+                .col.s4#responsiveText
+                  h5.right $#{item.price} 
       else
         h3.center You have no items right now
   // -------------------------------------------------------------------------------
