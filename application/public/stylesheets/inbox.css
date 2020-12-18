@@ -1,12 +1,10 @@
+/*
+THIS IS THE CSS FILE FOR 'inbox.pug'
+*/
 #inboxbg {
   /* background-color: gray; */
   height: 100%;
 }
-
-/* #legend {
-  background-color: #4E0D3A;
-  border-radius: 20px;
-} */
 
 #inbox {
   background-color: #4E0D3A;
