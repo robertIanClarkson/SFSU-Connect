@@ -3,6 +3,7 @@ let multer = require('multer');
 let sharp = require('sharp');
 let crypto = require('crypto');
 
+/* Used to pull up each individual items page */
 function getItemByID(id) {
   return new Promise((resolve, reject) => {
     let getItemQuery = `SELECT * FROM item
@@ -22,6 +23,7 @@ function getItemByID(id) {
   });
 }
 
+/* Triggered when a user sends a message to another user */
 function newMessage(sender_id, item_id, message){
   return new Promise((resolve, reject) => {
       let getItem = `SELECT * FROM item WHERE id=?;`
@@ -50,6 +52,7 @@ function newMessage(sender_id, item_id, message){
   });
 }
 
+/* used to insert a new item into the DB */
 function insertItem(name, description, price, category, fileName, userID){
     return new Promise(((resolve, reject) => {
       let baseSQL = `INSERT INTO item (name, description, price, category_name, image, user_id) 
@@ -65,6 +68,7 @@ function insertItem(name, description, price, category, fileName, userID){
     }))
 }
 
+// Used to store item's image
 let storage = multer.diskStorage({
   destination: function(req, file, callback) {
       callback(null, "public/images/items");
@@ -76,6 +80,7 @@ let storage = multer.diskStorage({
   }
 });
 
+// Main logic for adding a new item image and DB insert
 function newItem(req, res) {
     return new Promise(((resolve, reject) => {
         let uploader = multer({storage: storage}).single('uploadImage');

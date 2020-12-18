@@ -1,3 +1,4 @@
+/* This is used for Google Analytics */
 window.dataLayer = window.dataLayer || [];
 
 function gtag(){

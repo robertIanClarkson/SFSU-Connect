@@ -23,17 +23,26 @@ block content
 		h3#price(class="highlight" style="float:left") $#{item.price}
 		
 	//- Contact Seller
-	.row#infoBox
-		h3#contact Contact Seller
-		form(action="/item/message" method="post")#messageForm
-			.input-field
-				//label(for='messageArea') Message Owner
-				input(type="hidden", name="item_id", value=item.id)
-				textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
-				button.btn-large.left#itembutton(type="submit" form="messageForm") Contact
-		
-			//- if error
-			//- 	h6.red-text Error: #{error}
+	if user
+		if user.id != item.user_id
+			.row#infoBox
+				h3#contact Contact Seller
+				form(action="/item/message" method="post")#messageForm
+					.input-field
+						//label(for='messageArea') Message Owner
+						input(type="hidden", name="item_id", value=item.id)
+						textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
+						button.btn-large.left#itembutton(type="submit" form="messageForm") Contact
+	else
+		.row#infoBox
+			h3#contact Contact Seller
+			form(action="/item/message" method="post")#messageForm
+				.input-field
+					//label(for='messageArea') Message Owner
+					input(type="hidden", name="item_id", value=item.id)
+					textarea#messageArea.materialize-textarea(name='message' autocomplete="off" placeholder="  Message Owner Here"  required)
+					button.btn-large.left#itembutton(type="submit" form="messageForm") Contact
+
 
 	// ---------------------------	CONTENT----------------------------
 

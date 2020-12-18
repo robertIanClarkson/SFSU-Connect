@@ -1,5 +1,7 @@
 var mysql = require('mysql');
 
+/* THIS CODE ALLOWS US TO PROMISIFY ALL DB ACTIONS */ 
+
 // Learned how to promisify mySQL via:
 // https://codeburst.io/node-js-mysql-and-promises-4c3be599909b
 class Database {

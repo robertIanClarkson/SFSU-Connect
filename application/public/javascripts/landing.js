@@ -1,3 +1,4 @@
+// Used as a referance
 var filters = {
     1: 'price:high->low',
     2: 'price:low->high',
@@ -5,7 +6,7 @@ var filters = {
     4: 'date:new->old'
 }
 
-
+// Used to make a search query from the landing page
 $('#submitButton').click(function() {
     var filter = $('#option').val()
     var searchText = $('#search-input').val()
@@ -18,6 +19,7 @@ $('#submitButton').click(function() {
     window.location.href = (`/search?category=${encodeURIComponent(category)}&text=${encodeURIComponent(searchText)}&filter=${filters[filter]}`)
 });
 
+// used to put an image placeholder when an image does not exist
 $("img").on("error", function () {
     $(this).attr("src", "images/thumbnail-itemplaceholder.png");
 });

@@ -1,6 +1,7 @@
 let db = require('./db');
 
-
+// Used to get the number of items specified by N
+// Function is redundant after implementation of 'numItems_N_Days'
 function getNItems(n) {
   return new Promise((resolve, reject) => {
     let sqlCommand = `SELECT item.id, item.name AS itemName, item.price, item.image, user.name AS userName
@@ -24,6 +25,7 @@ function getNItems(n) {
   });
 }
 
+/* Used for the landing page to get the most recent items */
 function numItems_N_days() {
     return new Promise((resolve, reject) => {
         let sqlCommand = `SELECT COUNT(*) AS number FROM item WHERE created > (NOW() - INTERVAL 7 DAY) AND item.available = 1 AND item.approved = 1`

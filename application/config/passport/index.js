@@ -3,8 +3,6 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const login = require('./../../db/login')
 
-//set up database actions for user
-
 passport.serializeUser((user, done) => {
   done(null, user);
 });
@@ -13,7 +11,7 @@ passport.deserializeUser((user, done) => {
   done(null, user)
 });
 
-// Login
+// Login authentication and session
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'

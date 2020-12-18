@@ -1,14 +1,16 @@
-.backabout{
+/*
+THIS IS THE CSS FILE FOR 'about/kevin.pug'
+*/
+.backabout {
     background-color:#4E0D3A;
     }
-    .kevinpanel1{
+.kevinpanel1 {
     background-color:#4E0D3A;
-    }
-    .kevinpanel2
-    {
-        background-color:#4E0D3A;
-        }
-    .kevinpanel3{
-        background-color:#4E0D3A;
-        }
+}
+.kevinpanel2 {
+    background-color:#4E0D3A;
+}
+.kevinpanel3 {
+    background-color:#4E0D3A;
+}
         

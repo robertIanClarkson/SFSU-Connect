@@ -22,7 +22,7 @@
 6. Database password
     - team1_db
 7. Database name (basically the name that contains all your tables)
-    - team-1
+    - sfsu_connect_v2
 8. Instructions on how to use the above information.
 SSH Instructions:
     - Download the file 'team1v2.pem' that is in this folder

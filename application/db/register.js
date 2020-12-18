@@ -2,6 +2,7 @@ var db = require('./db');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+// encrypts the password to store in DB
 function encryptPassword(password) {
   return new Promise((resolve, reject) => {
     bcrypt.hash(password, saltRounds)
@@ -14,6 +15,7 @@ function encryptPassword(password) {
   })
 }
 
+// Adds a new user to the DB, used on registration
 function newUser(name, email, password) {
   return new Promise((resolve, reject) => {
     console.log(password)
