@@ -1,7 +1,9 @@
 # SFSU Connect
 
 Final Product --> http://ec2-54-151-54-31.us-west-1.compute.amazonaws.com/
+
 Application code --> *folder:* **application**
+
 Milestone Documentation --> *folder:* **Milestones**
 
 
