@@ -8,6 +8,11 @@ Milestone Documentation --> *folder:* **Milestones**
 
 ![Alt text](/images/home.png?raw=true "Optional Title")
 
+## Stats
+* 11 completed projects
+* 123 closed issues
+* 200+ commits
+
 ## About
 
 This project was completed remotely over the COVID-19 Pandemic. **Discord** was used for general communication. **GitHub** issues and projects where used to meet deliverables and keep track of issues.
