@@ -6,6 +6,7 @@ Application code --> *folder:* **application**
 
 Milestone Documentation --> *folder:* **Milestones**
 
+![Alt text](/images/home.png?raw=true "Optional Title")
 
 ## About
 
@@ -81,3 +82,5 @@ We ended up finishing the website and all documentation before our deadline. Upo
 * pugJS
 * CSS
 * Materialize
+* PM2
+* nginx
