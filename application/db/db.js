@@ -35,7 +35,7 @@ class Database {
 var config = {
   host: 'team-1.c04boetuas7w.us-west-1.rds.amazonaws.com',
   user: 'admin',
-  password: 'team1_db',
+  password: 'DELETED',
   database: 'sfsu_connect_v2'
 }
 
