@@ -6,7 +6,7 @@ Application code --> *folder:* **application**
 
 Milestone Documentation --> *folder:* **Milestones**
 
-![Alt text](/images/home.png?raw=true "Optional Title")
+<img src="/readme_images/frontend.png" alt="frontend"/>
 
 ## Stats
 * 11 completed projects
